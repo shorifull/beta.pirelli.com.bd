@@ -6,6 +6,7 @@ use \DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\Request;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -116,6 +117,35 @@ class Tyre extends Model implements HasMedia
     public function size()
     {
         return $this->belongsTo(Size::class, 'size_id');
+    }
+
+
+    public function scopeFilterByRequest($query, Request $request)
+    {
+        if ($request->input('width_id')) {
+            $query->where('width_id', $request->input('width_id'));
+        }
+
+        if ($request->input('ratio_id')) {
+            $query->where('ratio_id', $request->input('ratio_id'));
+        }
+
+        if ($request->input('size_id')) {
+            $query->where('size_id', $request->input('size_id'));
+        }
+
+//        if ($request->input('categories')) {
+//            $query->whereHas('categories',
+//                function ($query) use ($request) {
+//                    $query->where('id', $request->input('categories'));
+//                });
+//        }
+
+//        if ($request->input('search')) {
+//            $query->where('name', 'LIKE', '%'.$request->input('search').'%');
+//        }
+
+        return $query;
     }
 
     public function getThumbnailAttribute()

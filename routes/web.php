@@ -9,6 +9,15 @@
 //    return redirect()->route('admin.home');
 //});
 
+/*--------------------------------------------------------------
+# Search Routes
+--------------------------------------------------------------*/
+
+Route::get('search', 'HomePageController@table')->name('search');
+Route::get('categories/{category}', 'HomePageController@category')->name('category');
+Route::get('companies/{company}', 'HomePageController@company')->name('company');
+
+
 Route::get('/','HomeController@index')->name('home');
 Route::get('/admin','HomeController@admin')->name('admin');
 Auth::routes(['register' => false]);

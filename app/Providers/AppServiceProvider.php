@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\Ratio;
+use App\Models\Size;
+use App\Models\Width;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +26,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer('*', function($view) {
+            $view->with('search_widths', Width::all());
+            $view->with('search_ratios', Ratio::all());
+            $view->with('search_sizes', Size::all());
+
+        });
     }
 }
