@@ -760,6 +760,26 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 188,
+                'title' => 'model_combination_create',
+            ],
+            [
+                'id'    => 189,
+                'title' => 'model_combination_edit',
+            ],
+            [
+                'id'    => 190,
+                'title' => 'model_combination_show',
+            ],
+            [
+                'id'    => 191,
+                'title' => 'model_combination_delete',
+            ],
+            [
+                'id'    => 192,
+                'title' => 'model_combination_access',
+            ],
+            [
+                'id'    => 193,
                 'title' => 'profile_password_edit',
             ],
         ];

@@ -35,28 +35,12 @@
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.tyre.fields.brand') }}
+                                        {{ trans('cruds.tyre.fields.model_combination') }}
                                     </th>
                                     <td>
-                                        {{ $tyre->brand->brand ?? '' }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.model') }}
-                                    </th>
-                                    <td>
-                                        @foreach($tyre->models as $key => $model)
-                                            <span class="label label-info">{{ $model->model }}</span>
+                                        @foreach($tyre->model_combinations as $key => $model_combination)
+                                            <span class="label label-info">{{ $model_combination->name }}</span>
                                         @endforeach
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.body') }}
-                                    </th>
-                                    <td>
-                                        {{ $tyre->body->body ?? '' }}
                                     </td>
                                 </tr>
                                 <tr>
@@ -67,46 +51,6 @@
                                         @foreach($tyre->categoys as $key => $categoy)
                                             <span class="label label-info">{{ $categoy->category }}</span>
                                         @endforeach
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.fuel') }}
-                                    </th>
-                                    <td>
-                                        {{ $tyre->fuel->fuel ?? '' }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.transmission') }}
-                                    </th>
-                                    <td>
-                                        {{ $tyre->transmission->transmission ?? '' }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.engine') }}
-                                    </th>
-                                    <td>
-                                        {{ $tyre->engine->engine ?? '' }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.chassis') }}
-                                    </th>
-                                    <td>
-                                        {{ $tyre->chassis->chassis ?? '' }}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.year') }}
-                                    </th>
-                                    <td>
-                                        {{ $tyre->year->year ?? '' }}
                                     </td>
                                 </tr>
                                 <tr>

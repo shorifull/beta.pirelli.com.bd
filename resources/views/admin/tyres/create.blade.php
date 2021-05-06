@@ -1,5 +1,8 @@
 @extends('layouts.admin')
+
 @section('content')
+
+
 <div class="content">
 
     <div class="row">
@@ -19,45 +22,24 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.tyre.fields.title_helper') }}</span>
                         </div>
-                        <div class="form-group {{ $errors->has('brand') ? 'has-error' : '' }}">
-                            <label class="required" for="brand_id">{{ trans('cruds.tyre.fields.brand') }}</label>
-                            <select class="form-control select2" name="brand_id" id="brand_id" required>
-                                @foreach($brands as $id => $entry)
-                                    <option value="{{ $id }}" {{ old('brand_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('brand'))
-                                <span class="help-block" role="alert">{{ $errors->first('brand') }}</span>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.tyre.fields.brand_helper') }}</span>
-                        </div>
-                        <div class="form-group {{ $errors->has('models') ? 'has-error' : '' }}">
-                            <label for="models">{{ trans('cruds.tyre.fields.model') }}</label>
+                        <div class="form-group {{ $errors->has('model_combinations') ? 'has-error' : '' }}">
+                            <label for="model_combinations">{{ trans('cruds.tyre.fields.model_combination') }}</label>
                             <div style="padding-bottom: 4px">
                                 <span class="btn btn-info btn-xs select-all" style="border-radius: 0">{{ trans('global.select_all') }}</span>
                                 <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0">{{ trans('global.deselect_all') }}</span>
                             </div>
-                            <select class="form-control select2" name="models[]" id="models" multiple>
-                                @foreach($models as $id => $model)
-                                    <option value="{{ $id }}" {{ in_array($id, old('models', [])) ? 'selected' : '' }}>{{ $model }}</option>
+                            <select class="form-control select2" name="model_combinations[]" id="model_combinations" multiple>
+                                @foreach($model_combinations as $id => $model_combination)
+                                    <option value="{{ $model_combination->id }}" {{ in_array($id, old('model_combinations', [])) ? 'selected' : '' }}>    {{ $model_combination->brand->brand }} :
+                                        {{$model_combination->car_model->model}} : {{$model_combination->engine->engine}} : {{$model_combination->chassis->chassis}}</option>
                                 @endforeach
+
+
                             </select>
-                            @if($errors->has('models'))
-                                <span class="help-block" role="alert">{{ $errors->first('models') }}</span>
+                            @if($errors->has('model_combinations'))
+                                <span class="help-block" role="alert">{{ $errors->first('model_combinations') }}</span>
                             @endif
-                            <span class="help-block">{{ trans('cruds.tyre.fields.model_helper') }}</span>
-                        </div>
-                        <div class="form-group {{ $errors->has('body') ? 'has-error' : '' }}">
-                            <label for="body_id">{{ trans('cruds.tyre.fields.body') }}</label>
-                            <select class="form-control select2" name="body_id" id="body_id">
-                                @foreach($bodies as $id => $entry)
-                                    <option value="{{ $id }}" {{ old('body_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('body'))
-                                <span class="help-block" role="alert">{{ $errors->first('body') }}</span>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.tyre.fields.body_helper') }}</span>
+                            <span class="help-block">{{ trans('cruds.tyre.fields.model_combination_helper') }}</span>
                         </div>
                         <div class="form-group {{ $errors->has('categoys') ? 'has-error' : '' }}">
                             <label for="categoys">{{ trans('cruds.tyre.fields.categoy') }}</label>
@@ -74,66 +56,6 @@
                                 <span class="help-block" role="alert">{{ $errors->first('categoys') }}</span>
                             @endif
                             <span class="help-block">{{ trans('cruds.tyre.fields.categoy_helper') }}</span>
-                        </div>
-                        <div class="form-group {{ $errors->has('fuel') ? 'has-error' : '' }}">
-                            <label for="fuel_id">{{ trans('cruds.tyre.fields.fuel') }}</label>
-                            <select class="form-control select2" name="fuel_id" id="fuel_id">
-                                @foreach($fuels as $id => $entry)
-                                    <option value="{{ $id }}" {{ old('fuel_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('fuel'))
-                                <span class="help-block" role="alert">{{ $errors->first('fuel') }}</span>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.tyre.fields.fuel_helper') }}</span>
-                        </div>
-                        <div class="form-group {{ $errors->has('transmission') ? 'has-error' : '' }}">
-                            <label for="transmission_id">{{ trans('cruds.tyre.fields.transmission') }}</label>
-                            <select class="form-control select2" name="transmission_id" id="transmission_id">
-                                @foreach($transmissions as $id => $entry)
-                                    <option value="{{ $id }}" {{ old('transmission_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('transmission'))
-                                <span class="help-block" role="alert">{{ $errors->first('transmission') }}</span>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.tyre.fields.transmission_helper') }}</span>
-                        </div>
-                        <div class="form-group {{ $errors->has('engine') ? 'has-error' : '' }}">
-                            <label for="engine_id">{{ trans('cruds.tyre.fields.engine') }}</label>
-                            <select class="form-control select2" name="engine_id" id="engine_id">
-                                @foreach($engines as $id => $entry)
-                                    <option value="{{ $id }}" {{ old('engine_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('engine'))
-                                <span class="help-block" role="alert">{{ $errors->first('engine') }}</span>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.tyre.fields.engine_helper') }}</span>
-                        </div>
-                        <div class="form-group {{ $errors->has('chassis') ? 'has-error' : '' }}">
-                            <label for="chassis_id">{{ trans('cruds.tyre.fields.chassis') }}</label>
-                            <select class="form-control select2" name="chassis_id" id="chassis_id">
-                                @foreach($chassis as $id => $entry)
-                                    <option value="{{ $id }}" {{ old('chassis_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('chassis'))
-                                <span class="help-block" role="alert">{{ $errors->first('chassis') }}</span>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.tyre.fields.chassis_helper') }}</span>
-                        </div>
-                        <div class="form-group {{ $errors->has('year') ? 'has-error' : '' }}">
-                            <label for="year_id">{{ trans('cruds.tyre.fields.year') }}</label>
-                            <select class="form-control select2" name="year_id" id="year_id">
-                                @foreach($years as $id => $entry)
-                                    <option value="{{ $id }}" {{ old('year_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
-                                @endforeach
-                            </select>
-                            @if($errors->has('year'))
-                                <span class="help-block" role="alert">{{ $errors->first('year') }}</span>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.tyre.fields.year_helper') }}</span>
                         </div>
                         <div class="form-group {{ $errors->has('width') ? 'has-error' : '' }}">
                             <label for="width_id">{{ trans('cruds.tyre.fields.width') }}</label>

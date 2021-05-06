@@ -37,6 +37,12 @@
                     <span class="sr-only">{{ trans('global.toggleNavigation') }}</span>
                 </a>
 
+                <a href="{{route('home')}}" class="view-site-btn" target="_blank">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+                </a>
+
+
+
                 @if(count(config('panel.available_languages', [])) > 1)
                     <div class="navbar-custom-menu">
                         <ul class="nav navbar-nav">

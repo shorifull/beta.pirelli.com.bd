@@ -31,4 +31,8 @@ class Brand extends Model
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+    public function modelCombination() {
+        return $this->hasMany(ModelCombination::class);
+    }
 }

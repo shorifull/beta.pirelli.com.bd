@@ -67,3 +67,12 @@ table.dataTable thead .sorting_desc {
     content: " *";
     color: red;
 }
+
+.view-site-btn {
+    float: left;
+    background-color: transparent;
+    background-image: none;
+    padding: 15px 15px;
+    font-family: fontAwesome;
+    color:#fff;
+}

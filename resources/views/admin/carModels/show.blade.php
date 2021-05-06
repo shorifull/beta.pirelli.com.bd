@@ -52,23 +52,7 @@
                 </div>
             </div>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    {{ trans('global.relatedData') }}
-                </div>
-                <ul class="nav nav-tabs" role="tablist" id="relationship-tabs">
-                    <li role="presentation">
-                        <a href="#model_tyres" aria-controls="model_tyres" role="tab" data-toggle="tab">
-                            {{ trans('cruds.tyre.title') }}
-                        </a>
-                    </li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane" role="tabpanel" id="model_tyres">
-                        @includeIf('admin.carModels.relationships.modelTyres', ['tyres' => $carModel->modelTyres])
-                    </div>
-                </div>
-            </div>
+
 
         </div>
     </div>

@@ -61,7 +61,7 @@ class CarModelController extends Controller
     {
         abort_if(Gate::denies('car_model_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $carModel->load('brand', 'modelTyres');
+        $carModel->load('brand');
 
         return view('admin.carModels.show', compact('carModel'));
     }

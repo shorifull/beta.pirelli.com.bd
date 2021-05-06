@@ -23,14 +23,10 @@ class UpdateTyreRequest extends FormRequest
                 'max:255',
                 'required',
             ],
-            'brand_id' => [
-                'required',
+            'model_combinations.*' => [
                 'integer',
             ],
-            'models.*' => [
-                'integer',
-            ],
-            'models' => [
+            'model_combinations' => [
                 'array',
             ],
             'categoys.*' => [

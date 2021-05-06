@@ -1,17 +1,7 @@
 <?php
 
-//Route::redirect('/', '/login');
-//Route::get('/home', function () {
-//    if (session('status')) {
-//        return redirect()->route('admin.home')->with('status', session('status'));
-//    }
-//
-//    return redirect()->route('admin.home');
-//});
 
-/*--------------------------------------------------------------
-# Search Routes
---------------------------------------------------------------*/
+//Search Routes
 
 Route::get('search', 'HomePageController@table')->name('search');
 Route::get('categories/{category}', 'HomePageController@category')->name('category');
@@ -19,7 +9,17 @@ Route::get('companies/{company}', 'HomePageController@company')->name('company')
 
 
 Route::get('/','HomeController@index')->name('home');
-Route::get('/admin','HomeController@admin')->name('admin');
+
+Route::redirect('/home', '/login');
+
+Route::get('/home', function () {
+    if (session('status')) {
+        return redirect()->route('admin.home')->with('status', session('status'));
+    }
+
+    return redirect()->route('admin.home');
+});
+
 Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
@@ -185,7 +185,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Other Menu
     Route::delete('other-menus/destroy', 'OtherMenuController@massDestroy')->name('other-menus.massDestroy');
     Route::resource('other-menus', 'OtherMenuController');
+
+    // Model Combination
+    Route::delete('model-combinations/destroy', 'ModelCombinationController@massDestroy')->name('model-combinations.massDestroy');
+    Route::resource('model-combinations', 'ModelCombinationController');
 });
+
+
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
     if (file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php'))) {
@@ -195,3 +201,11 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
     }
 });
+
+
+//Models by ModelCombination
+
+Route::post('/models/get_models_by_brand', 'ModelCombinationSearchController@getModelsByBrand')->name('models.get_models_by_brand');
+Route::get('/modelcombinations/get_models_by_brand', 'ModelCombinationSearchController@getModelsByBrand')->name('modelcombinations.get_models_by_brand');
+Route::get('/modelcombinations/get_years_by_model', 'ModelCombinationSearchController@getYearsByModel')->name('modelcombinations.get_years_by_model');
+Route::get('/modelcombinations/get_engines_by_year', 'ModelCombinationSearchController@getEnginesByYear')->name('modelcombinations.get_engines_by_year');

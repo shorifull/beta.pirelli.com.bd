@@ -401,6 +401,6 @@ class HomeController
             $settings12['fields'] = [];
         }
 
-        return view('dashboard', compact('settings1', 'settings2', 'settings3', 'settings4', 'settings5', 'settings6', 'settings7', 'settings8', 'chart9', 'chart10', 'settings11', 'settings12'));
+        return view('home', compact('settings1', 'settings2', 'settings3', 'settings4', 'settings5', 'settings6', 'settings7', 'settings8', 'chart9', 'chart10', 'settings11', 'settings12'));
     }
 }

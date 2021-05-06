@@ -31,31 +31,10 @@
                                         {{ trans('cruds.tyre.fields.title') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.tyre.fields.brand') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.model') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.body') }}
+                                        {{ trans('cruds.tyre.fields.model_combination') }}
                                     </th>
                                     <th>
                                         {{ trans('cruds.tyre.fields.categoy') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.fuel') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.transmission') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.engine') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.chassis') }}
-                                    </th>
-                                    <th>
-                                        {{ trans('cruds.tyre.fields.year') }}
                                     </th>
                                     <th>
                                         {{ trans('cruds.tyre.fields.width') }}
@@ -90,35 +69,16 @@
                                             {{ $tyre->title ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $tyre->brand->brand ?? '' }}
-                                        </td>
-                                        <td>
-                                            @foreach($tyre->models as $key => $item)
-                                                <span class="label label-info label-many">{{ $item->model }}</span>
+                                            @foreach($tyre->model_combinations as $key => $modelCombination)
+                                                <span class="label label-info label-many">    {{ $modelCombination->brand->brand }} :
+                                                {{$modelCombination->car_model->model}} : {{$modelCombination->engine->engine}} : {{$modelCombination->chassis->chassis}}</span>
                                             @endforeach
-                                        </td>
-                                        <td>
-                                            {{ $tyre->body->body ?? '' }}
+
                                         </td>
                                         <td>
                                             @foreach($tyre->categoys as $key => $item)
                                                 <span class="label label-info label-many">{{ $item->category }}</span>
                                             @endforeach
-                                        </td>
-                                        <td>
-                                            {{ $tyre->fuel->fuel ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $tyre->transmission->transmission ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $tyre->engine->engine ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $tyre->chassis->chassis ?? '' }}
-                                        </td>
-                                        <td>
-                                            {{ $tyre->year->year ?? '' }}
                                         </td>
                                         <td>
                                             {{ $tyre->width->width ?? '' }}
@@ -225,7 +185,10 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+  $('div#sidebar').on('transitionend', function(e) {
+    $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
+  })
+
 })
 
 </script>

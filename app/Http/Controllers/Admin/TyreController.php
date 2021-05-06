@@ -7,19 +7,12 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyTyreRequest;
 use App\Http\Requests\StoreTyreRequest;
 use App\Http\Requests\UpdateTyreRequest;
-use App\Models\Body;
-use App\Models\Brand;
-use App\Models\CarModel;
 use App\Models\Category;
-use App\Models\Chassis;
-use App\Models\Engine;
-use App\Models\Fuel;
+use App\Models\ModelCombination;
 use App\Models\Ratio;
 use App\Models\Size;
-use App\Models\Transmission;
 use App\Models\Tyre;
 use App\Models\Width;
-use App\Models\Year;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -33,7 +26,7 @@ class TyreController extends Controller
     {
         abort_if(Gate::denies('tyre_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $tyres = Tyre::with(['brand', 'models', 'body', 'categoys', 'fuel', 'transmission', 'engine', 'chassis', 'year', 'width', 'ratio', 'size', 'media'])->get();
+        $tyres = Tyre::with(['model_combinations', 'categoys', 'width', 'ratio', 'size', 'media'])->get();
 
         return view('admin.tyres.index', compact('tyres'));
     }
@@ -42,23 +35,11 @@ class TyreController extends Controller
     {
         abort_if(Gate::denies('tyre_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $brands = Brand::all()->pluck('brand', 'id')->prepend(trans('global.pleaseSelect'), '');
+//        $model_combinations = ModelCombination::all()->pluck('name', 'id');
 
-        $models = CarModel::all()->pluck('model', 'id');
-
-        $bodies = Body::all()->pluck('body', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $model_combinations = ModelCombination::all();
 
         $categoys = Category::all()->pluck('category', 'id');
-
-        $fuels = Fuel::all()->pluck('fuel', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $transmissions = Transmission::all()->pluck('transmission', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $engines = Engine::all()->pluck('engine', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $chassis = Chassis::all()->pluck('chassis', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $years = Year::all()->pluck('year', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $widths = Width::all()->pluck('width', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -66,13 +47,13 @@ class TyreController extends Controller
 
         $sizes = Size::all()->pluck('with', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.tyres.create', compact('brands', 'models', 'bodies', 'categoys', 'fuels', 'transmissions', 'engines', 'chassis', 'years', 'widths', 'ratios', 'sizes'));
+        return view('admin.tyres.create', compact('model_combinations', 'categoys', 'widths', 'ratios', 'sizes'));
     }
 
     public function store(StoreTyreRequest $request)
     {
         $tyre = Tyre::create($request->all());
-        $tyre->models()->sync($request->input('models', []));
+        $tyre->model_combinations()->sync($request->input('model_combinations', []));
         $tyre->categoys()->sync($request->input('categoys', []));
         if ($request->input('thumbnail', false)) {
             $tyre->addMedia(storage_path('tmp/uploads/' . basename($request->input('thumbnail'))))->toMediaCollection('thumbnail');
@@ -93,23 +74,9 @@ class TyreController extends Controller
     {
         abort_if(Gate::denies('tyre_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $brands = Brand::all()->pluck('brand', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $models = CarModel::all()->pluck('model', 'id');
-
-        $bodies = Body::all()->pluck('body', 'id')->prepend(trans('global.pleaseSelect'), '');
-
+//        $model_combinations = ModelCombination::all()->pluck('name', 'id');
+        $model_combinations = ModelCombination::all();
         $categoys = Category::all()->pluck('category', 'id');
-
-        $fuels = Fuel::all()->pluck('fuel', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $transmissions = Transmission::all()->pluck('transmission', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $engines = Engine::all()->pluck('engine', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $chassis = Chassis::all()->pluck('chassis', 'id')->prepend(trans('global.pleaseSelect'), '');
-
-        $years = Year::all()->pluck('year', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $widths = Width::all()->pluck('width', 'id')->prepend(trans('global.pleaseSelect'), '');
 
@@ -117,15 +84,15 @@ class TyreController extends Controller
 
         $sizes = Size::all()->pluck('with', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $tyre->load('brand', 'models', 'body', 'categoys', 'fuel', 'transmission', 'engine', 'chassis', 'year', 'width', 'ratio', 'size');
+        $tyre->load('model_combinations', 'categoys', 'width', 'ratio', 'size');
 
-        return view('admin.tyres.edit', compact('brands', 'models', 'bodies', 'categoys', 'fuels', 'transmissions', 'engines', 'chassis', 'years', 'widths', 'ratios', 'sizes', 'tyre'));
+        return view('admin.tyres.edit', compact('model_combinations', 'categoys', 'widths', 'ratios', 'sizes', 'tyre'));
     }
 
     public function update(UpdateTyreRequest $request, Tyre $tyre)
     {
         $tyre->update($request->all());
-        $tyre->models()->sync($request->input('models', []));
+        $tyre->model_combinations()->sync($request->input('model_combinations', []));
         $tyre->categoys()->sync($request->input('categoys', []));
         if ($request->input('thumbnail', false)) {
             if (!$tyre->thumbnail || $request->input('thumbnail') !== $tyre->thumbnail->file_name) {
@@ -156,7 +123,7 @@ class TyreController extends Controller
     {
         abort_if(Gate::denies('tyre_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $tyre->load('brand', 'models', 'body', 'categoys', 'fuel', 'transmission', 'engine', 'chassis', 'year', 'width', 'ratio', 'size');
+        $tyre->load('model_combinations', 'categoys', 'width', 'ratio', 'size');
 
         return view('admin.tyres.show', compact('tyre'));
     }

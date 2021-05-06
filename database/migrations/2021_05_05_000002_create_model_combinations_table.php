@@ -4,14 +4,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRetailersTable extends Migration
+class CreateModelCombinationsTable extends Migration
 {
     public function up()
     {
-        Schema::create('retailers', function (Blueprint $table) {
+        Schema::create('model_combinations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name')->unique();
-            $table->string('shop_name');
+            $table->string('name')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

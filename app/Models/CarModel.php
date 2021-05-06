@@ -28,11 +28,6 @@ class CarModel extends Model
         'deleted_at',
     ];
 
-    public function modelTyres()
-    {
-        return $this->belongsToMany(Tyre::class);
-    }
-
     public function brand()
     {
         return $this->belongsTo(Brand::class, 'brand_id');
@@ -41,5 +36,9 @@ class CarModel extends Model
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
+    }
+
+    public function modelCombination() {
+        return $this->hasMany(ModelCombination::class);
     }
 }

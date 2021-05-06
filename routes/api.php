@@ -117,4 +117,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Other Menu
     Route::apiResource('other-menus', 'OtherMenuApiController');
+
+    // Model Combination
+    Route::apiResource('model-combinations', 'ModelCombinationApiController');
 });
