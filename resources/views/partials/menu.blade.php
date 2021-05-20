@@ -142,7 +142,7 @@
                         <i class="fa-fw fas fa-car">
 
                         </i>
-                        <span>{{ trans('cruds.vehicle.title') }}</span>
+                        <span>{{ trans('cruds.car.title') }}</span>
                         <span class="pull-right-container"><i class="fa fa-fw fa-angle-left pull-right"></i></span>
                     </a>
                     <ul class="treeview-menu">
@@ -285,6 +285,107 @@
 
                                     </i>
                                     <span>{{ trans('cruds.size.title') }}</span>
+
+                                </a>
+                            </li>
+                        @endcan
+                        @can('model_combination_access')
+                            <li class="{{ request()->is("admin/model-combinations") || request()->is("admin/model-combinations/*") ? "active" : "" }}">
+                                <a href="{{ route("admin.model-combinations.index") }}">
+                                    <i class="fa-fw fas fa-compress">
+
+                                    </i>
+                                    <span>{{ trans('cruds.modelCombination.title') }}</span>
+
+                                </a>
+                            </li>
+                        @endcan
+                    </ul>
+                </li>
+            @endcan
+            @can('moto_tyre_section_access')
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa-fw fas fa-motorcycle">
+
+                        </i>
+                        <span>{{ trans('cruds.motoTyreSection.title') }}</span>
+                        <span class="pull-right-container"><i class="fa fa-fw fa-angle-left pull-right"></i></span>
+                    </a>
+                    <ul class="treeview-menu">
+                        @can('moto_tyre_access')
+                            <li class="{{ request()->is("admin/moto-tyres") || request()->is("admin/moto-tyres/*") ? "active" : "" }}">
+                                <a href="{{ route("admin.moto-tyres.index") }}">
+                                    <i class="fa-fw fas fa-circle">
+
+                                    </i>
+                                    <span>{{ trans('cruds.motoTyre.title') }}</span>
+
+                                </a>
+                            </li>
+                        @endcan
+                        @can('moto_brand_access')
+                            <li class="{{ request()->is("admin/moto-brands") || request()->is("admin/moto-brands/*") ? "active" : "" }}">
+                                <a href="{{ route("admin.moto-brands.index") }}">
+                                    <i class="fa-fw fas fa-circle">
+
+                                    </i>
+                                    <span>{{ trans('cruds.motoBrand.title') }}</span>
+
+                                </a>
+                            </li>
+                        @endcan
+                        @can('moto_model_access')
+                            <li class="{{ request()->is("admin/moto-models") || request()->is("admin/moto-models/*") ? "active" : "" }}">
+                                <a href="{{ route("admin.moto-models.index") }}">
+                                    <i class="fa-fw fas fa-circle">
+
+                                    </i>
+                                    <span>{{ trans('cruds.motoModel.title') }}</span>
+
+                                </a>
+                            </li>
+                        @endcan
+                        @can('moto_engine_access')
+                            <li class="{{ request()->is("admin/moto-engines") || request()->is("admin/moto-engines/*") ? "active" : "" }}">
+                                <a href="{{ route("admin.moto-engines.index") }}">
+                                    <i class="fa-fw fas fa-circle">
+
+                                    </i>
+                                    <span>{{ trans('cruds.motoEngine.title') }}</span>
+
+                                </a>
+                            </li>
+                        @endcan
+                        @can('moto_width_access')
+                            <li class="{{ request()->is("admin/moto-widths") || request()->is("admin/moto-widths/*") ? "active" : "" }}">
+                                <a href="{{ route("admin.moto-widths.index") }}">
+                                    <i class="fa-fw fas fa-circle">
+
+                                    </i>
+                                    <span>{{ trans('cruds.motoWidth.title') }}</span>
+
+                                </a>
+                            </li>
+                        @endcan
+                        @can('moto_size_access')
+                            <li class="{{ request()->is("admin/moto-sizes") || request()->is("admin/moto-sizes/*") ? "active" : "" }}">
+                                <a href="{{ route("admin.moto-sizes.index") }}">
+                                    <i class="fa-fw fas fa-circle">
+
+                                    </i>
+                                    <span>{{ trans('cruds.motoSize.title') }}</span>
+
+                                </a>
+                            </li>
+                        @endcan
+                        @can('moto_ratio_access')
+                            <li class="{{ request()->is("admin/moto-ratios") || request()->is("admin/moto-ratios/*") ? "active" : "" }}">
+                                <a href="{{ route("admin.moto-ratios.index") }}">
+                                    <i class="fa-fw fas fa-circle">
+
+                                    </i>
+                                    <span>{{ trans('cruds.motoRatio.title') }}</span>
 
                                 </a>
                             </li>

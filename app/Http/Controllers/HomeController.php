@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Traits\MediaUploadingTrait;
+use App\Models\Tyre;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    use MediaUploadingTrait;
     /**
      * Create a new controller instance.
      *
@@ -34,9 +37,10 @@ class HomeController extends Controller
 
     public function table(Request $request)
     {
-        $companies = Company::filterByRequest($request)->paginate(9);
+        $tyres = Tyre::filterByRequest($request)->with(['model_combinations', 'categoys', 'width', 'ratio', 'size', 'media'])->paginate(9);
 
-        return view('mainTable.search', compact('companies'));
+
+        return view('mainTable.search', compact('tyres'));
     }
 
     public function category(Category $category)

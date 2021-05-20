@@ -780,6 +780,150 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 193,
+                'title' => 'moto_tyre_section_access',
+            ],
+            [
+                'id'    => 194,
+                'title' => 'moto_brand_create',
+            ],
+            [
+                'id'    => 195,
+                'title' => 'moto_brand_edit',
+            ],
+            [
+                'id'    => 196,
+                'title' => 'moto_brand_show',
+            ],
+            [
+                'id'    => 197,
+                'title' => 'moto_brand_delete',
+            ],
+            [
+                'id'    => 198,
+                'title' => 'moto_brand_access',
+            ],
+            [
+                'id'    => 199,
+                'title' => 'moto_model_create',
+            ],
+            [
+                'id'    => 200,
+                'title' => 'moto_model_edit',
+            ],
+            [
+                'id'    => 201,
+                'title' => 'moto_model_show',
+            ],
+            [
+                'id'    => 202,
+                'title' => 'moto_model_delete',
+            ],
+            [
+                'id'    => 203,
+                'title' => 'moto_model_access',
+            ],
+            [
+                'id'    => 204,
+                'title' => 'moto_engine_create',
+            ],
+            [
+                'id'    => 205,
+                'title' => 'moto_engine_edit',
+            ],
+            [
+                'id'    => 206,
+                'title' => 'moto_engine_show',
+            ],
+            [
+                'id'    => 207,
+                'title' => 'moto_engine_delete',
+            ],
+            [
+                'id'    => 208,
+                'title' => 'moto_engine_access',
+            ],
+            [
+                'id'    => 209,
+                'title' => 'moto_width_create',
+            ],
+            [
+                'id'    => 210,
+                'title' => 'moto_width_edit',
+            ],
+            [
+                'id'    => 211,
+                'title' => 'moto_width_show',
+            ],
+            [
+                'id'    => 212,
+                'title' => 'moto_width_delete',
+            ],
+            [
+                'id'    => 213,
+                'title' => 'moto_width_access',
+            ],
+            [
+                'id'    => 214,
+                'title' => 'moto_size_create',
+            ],
+            [
+                'id'    => 215,
+                'title' => 'moto_size_edit',
+            ],
+            [
+                'id'    => 216,
+                'title' => 'moto_size_show',
+            ],
+            [
+                'id'    => 217,
+                'title' => 'moto_size_delete',
+            ],
+            [
+                'id'    => 218,
+                'title' => 'moto_size_access',
+            ],
+            [
+                'id'    => 219,
+                'title' => 'moto_ratio_create',
+            ],
+            [
+                'id'    => 220,
+                'title' => 'moto_ratio_edit',
+            ],
+            [
+                'id'    => 221,
+                'title' => 'moto_ratio_show',
+            ],
+            [
+                'id'    => 222,
+                'title' => 'moto_ratio_delete',
+            ],
+            [
+                'id'    => 223,
+                'title' => 'moto_ratio_access',
+            ],
+            [
+                'id'    => 224,
+                'title' => 'moto_tyre_create',
+            ],
+            [
+                'id'    => 225,
+                'title' => 'moto_tyre_edit',
+            ],
+            [
+                'id'    => 226,
+                'title' => 'moto_tyre_show',
+            ],
+            [
+                'id'    => 227,
+                'title' => 'moto_tyre_delete',
+            ],
+            [
+                'id'    => 228,
+                'title' => 'moto_tyre_access',
+            ],
+            [
+                'id'    => 229,
                 'title' => 'profile_password_edit',
             ],
         ];

@@ -3,9 +3,7 @@
 
     <div id="logo" class="pull-left">
       <h1>
-        <a href="{{ route('home') }}#intro">
-          <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-          {{ env('APP_NAME', 'The Event') }}
+        <a href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}" alt="{{ env('APP_NAME', 'The Event') }}"/>
         </a>
       </h1>
     </div>

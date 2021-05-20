@@ -120,4 +120,26 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Model Combination
     Route::apiResource('model-combinations', 'ModelCombinationApiController');
+
+    // Moto Brand
+    Route::apiResource('moto-brands', 'MotoBrandApiController');
+
+    // Moto Model
+    Route::apiResource('moto-models', 'MotoModelApiController');
+
+    // Moto Engine
+    Route::apiResource('moto-engines', 'MotoEngineApiController');
+
+    // Moto Width
+    Route::apiResource('moto-widths', 'MotoWidthApiController');
+
+    // Moto Size
+    Route::apiResource('moto-sizes', 'MotoSizeApiController');
+
+    // Moto Ratio
+    Route::apiResource('moto-ratios', 'MotoRatioApiController');
+
+    // Moto Tyre
+    Route::post('moto-tyres/media', 'MotoTyreApiController@storeMedia')->name('moto-tyres.storeMedia');
+    Route::apiResource('moto-tyres', 'MotoTyreApiController');
 });

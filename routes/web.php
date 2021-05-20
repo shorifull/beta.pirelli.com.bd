@@ -3,10 +3,9 @@
 
 //Search Routes
 
-Route::get('search', 'HomePageController@table')->name('search');
+Route::get('search', 'HomeController@table')->name('search');
 Route::get('categories/{category}', 'HomePageController@category')->name('category');
 Route::get('companies/{company}', 'HomePageController@company')->name('company');
-
 
 Route::get('/','HomeController@index')->name('home');
 
@@ -189,6 +188,37 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Model Combination
     Route::delete('model-combinations/destroy', 'ModelCombinationController@massDestroy')->name('model-combinations.massDestroy');
     Route::resource('model-combinations', 'ModelCombinationController');
+
+
+    // Moto Brand
+    Route::delete('moto-brands/destroy', 'MotoBrandController@massDestroy')->name('moto-brands.massDestroy');
+    Route::resource('moto-brands', 'MotoBrandController');
+
+    // Moto Model
+    Route::delete('moto-models/destroy', 'MotoModelController@massDestroy')->name('moto-models.massDestroy');
+    Route::resource('moto-models', 'MotoModelController');
+
+    // Moto Engine
+    Route::delete('moto-engines/destroy', 'MotoEngineController@massDestroy')->name('moto-engines.massDestroy');
+    Route::resource('moto-engines', 'MotoEngineController');
+
+    // Moto Width
+    Route::delete('moto-widths/destroy', 'MotoWidthController@massDestroy')->name('moto-widths.massDestroy');
+    Route::resource('moto-widths', 'MotoWidthController');
+
+    // Moto Size
+    Route::delete('moto-sizes/destroy', 'MotoSizeController@massDestroy')->name('moto-sizes.massDestroy');
+    Route::resource('moto-sizes', 'MotoSizeController');
+
+    // Moto Ratio
+    Route::delete('moto-ratios/destroy', 'MotoRatioController@massDestroy')->name('moto-ratios.massDestroy');
+    Route::resource('moto-ratios', 'MotoRatioController');
+
+    // Moto Tyre
+    Route::delete('moto-tyres/destroy', 'MotoTyreController@massDestroy')->name('moto-tyres.massDestroy');
+    Route::post('moto-tyres/media', 'MotoTyreController@storeMedia')->name('moto-tyres.storeMedia');
+    Route::post('moto-tyres/ckmedia', 'MotoTyreController@storeCKEditorImages')->name('moto-tyres.storeCKEditorImages');
+    Route::resource('moto-tyres', 'MotoTyreController');
 });
 
 

@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\SearchController;
 use \DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\Request;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -104,4 +106,106 @@ class Tyre extends Model implements HasMedia
     {
         return $date->format('Y-m-d H:i:s');
     }
+
+    public function scopeFilterByRequest($query, Request $request)
+    {
+
+        $condition = []; // ModelCombination Condition
+
+        if(isset($request->brand_id)) {
+            $brand_id = $request->brand_id;
+            $condition = ['model_combinations.brand_id' => $request->brand_id];
+        }
+        if(isset($request->model_id)) {
+            $model = CarModel::find($request->model_id);
+            $model_id = $model->id;
+            $make_id = $model->make_id;
+            $condition = array_merge($condition, ['model_combinations.car_model_id' => $request->model_id]);
+        }
+
+
+        $years = Year::whereHas(
+            'model_combinations', function($q) use($model_id) {
+            $q->where(['car_model_id' => $model_id]);
+        }
+        )->get();
+
+        if(isset($request->engine_id)) {
+            $engine_id = $request->engine_id;
+            $condition = array_merge($condition, ['engine_id' => $request->engine_id]);
+        }
+
+
+        $engines = [];
+        // Tyre Query
+        $query  = Tyre::where('published', 1);
+
+        if(isset($request->year_id)) {
+            $year_id = $request->year_id;
+
+            $query->whereHas('model_combinations.years', function($q) use($year_id, $condition) {
+                $q->where($condition);
+                $q->where(['years.id' => $year_id]);
+            });
+
+            $engines =  Engine::whereHas('model_combinations', function($q) use($model_id) {
+                $q->where(['car_model_id' => $model_id]);
+            })->whereHas(
+                'model_combinations.years', function($q) use($year_id) {
+                $q->where(['id' => $year_id]);
+            }
+            )->get();
+
+        } else {
+            $query = $query->whereHas('model_combinations', function($q) use($condition) {
+                $q->where($condition);
+            });
+        }
+
+
+        // Fresh tyreQuery
+
+
+//        $non_paginate_products = $query->get();
+//
+//
+//
+//        $tyres = $query->paginate(12);
+
+
+
+
+//        if ($request->input('brand_id')) {
+//            $query->where('brand_id', $request->input('brand_id'));
+//        }
+//
+//        if ($request->input('model_id')) {
+//            $query->where('model_id', $request->input('model_id'));
+//        }
+//
+//        if ($request->input('year_id')) {
+//            $query->where('year_id', $request->input('year_id'));
+//        }
+//
+//        if ($request->input('engine_id')) {
+//            $query->where('engine_id', $request->input('engine_id'));
+//        }
+//
+//
+//
+//        if ($request->input('categories')) {
+//            $query->whereHas('categories',
+//                function ($query) use ($request) {
+//                    $query->where('id', $request->input('categories'));
+//                });
+//        }
+//
+//        if ($request->input('search')) {
+//            $query->where('name', 'LIKE', '%'.$request->input('search').'%');
+//        }
+
+        return $query;
+    }
+
+
 }

@@ -47,7 +47,7 @@ class ModelCombinationSearchController extends Controller
         $model_id = $request->model_id;
 
         $years =  Year::whereHas(
-            'modelCombinations', function($q) use($model_id) {
+            'model_combinations', function($q) use($model_id) {
             $q->where(['car_model_id' => $model_id]);
         }
         )->get();
@@ -62,10 +62,10 @@ class ModelCombinationSearchController extends Controller
         $modelId = $request->model_id;
         $yearId = $request->year_id;
 
-        $engines =  Engine::whereHas('modelCombinations', function($q) use($modelId) {
+        $engines =  Engine::whereHas('model_combinations', function($q) use($modelId) {
             $q->where(['car_model_id' => $modelId]);
         })->whereHas(
-            'modelCombinations.years', function($q) use($yearId) {
+            'model_combinations.years', function($q) use($yearId) {
             $q->where(['id' => $yearId]);
         }
         )->get();

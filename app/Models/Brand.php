@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\ModelCombination;
 use \DateTimeInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -32,7 +33,9 @@ class Brand extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function modelCombination() {
+
+
+    public function model_combinations() {
         return $this->hasMany(ModelCombination::class);
     }
 }

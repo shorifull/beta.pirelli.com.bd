@@ -5,6 +5,8 @@ $(document).ready(function () {
     week: {dow: 1} // Monday is the first day of the week
   })
 
+
+
   $('.date').datetimepicker({
     format: 'DD-MM-YYYY',
     locale: 'en'

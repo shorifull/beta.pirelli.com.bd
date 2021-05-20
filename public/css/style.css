@@ -39,7 +39,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  /*font-family: "Raleway", sans-serif;*/
   font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
@@ -1705,6 +1705,49 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #ddd;
 }
 
+
+/*--------------------------------------------------------------
+# Pirelli Style
+--------------------------------------------------------------*/
+.breadcrumb-bar {
+    padding: 15px 0;
+    margin-top: 70px;
+    width: 100%;
+
+};
+
+.single-tyre {
+    margin:5px 10px;
+    padding:5px 10px;
+}
+.btn {
+    display: inline-block;
+    padding: 17px 20px;
+    border: 1px solid;
+    min-width: 157px;
+    text-align: center;
+    font-family: "Gotham A","Gotham B","Gotham","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 11px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none;
+    transition: all 250ms ease-in-out;
+}
+
+
+.btn-yellow {
+    background-color: #fd0;
+    border-color: #fd0;
+    color: #000;
+}
+
+
+
+
+
 /*--------------------------------------------------------------
 # Responsive Media Queries
 --------------------------------------------------------------*/
@@ -1828,3 +1871,6 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-top: 10px;
   }
 }
+
+
+

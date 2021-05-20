@@ -17,83 +17,91 @@
                     </div>
                     <!-- Advance Search -->
                     <div class="advance-search">
-                        <form action="{{ route('search') }}" method="GET">
 
-                            <div class="form-row">
-{{--                                <div class="form-group col-md-4">--}}
-{{--                                    <input type="text" name="search" value="{{ old('search') }}" class="form-control" placeholder="Search company" />--}}
-{{--                                    <p class="help-block"></p>--}}
-{{--                                    @if($errors->has('name'))--}}
-{{--                                        <p class="help-block">--}}
-{{--                                            {{ $errors->first('name') }}--}}
-{{--                                        </p>--}}
-{{--                                    @endif--}}
-{{--                                </div>--}}
-                                <div class="form-group col-md-2">
-                                    <select name="brand" class="form-control form-control-lg" id="brand_id" placeholder="Brand">
-                                        @foreach ($search_brands as $brand)
-                                            <option value="{{ $brand->id }}">{{ $brand->brand }}</option>
-                                        @endforeach
-                                    </select>
-                                    <p class="help-block"></p>
-                                    @if($errors->has('brand_id'))
-                                        <p class="help-block">
-                                            {{ $errors->first('brand_id') }}
-                                        </p>
-                                    @endif
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <select name="model" class="form-control form-control-lg" id="model_id" placeholder="Select Model">
-
-                                        @foreach ($search_models as $model)
-                                            <option value="{{ $model->id }}">{{ $model->model }}</option>
-                                        @endforeach
-                                    </select>
-                                    <p class="help-block"></p>
-                                    @if($errors->has('model_id'))
-                                        <p class="help-block">
-                                            {{ $errors->first('model_id') }}
-                                        </p>
-                                    @endif
-                                </div>
-
-                                <div class="form-group col-md-2">
-                                    <select name="year" class="form-control form-control-lg" id="year_id" placeholder="Year">
-                                        @foreach ($search_years as $year)
-                                            <option value="{{ $year->id }}">{{ $year->year }}</option>
-                                        @endforeach
-                                    </select>
-                                    <p class="help-block"></p>
-                                    @if($errors->has('year_id'))
-                                        <p class="help-block">
-                                            {{ $errors->first('year_id') }}
-                                        </p>
-                                    @endif
-                                </div>
-
-                                <div class="form-group col-md-2">
-                                    <select name="engine" class="form-control form-control-lg" id="engine_id" placeholder="Engine">
-                                        @foreach ($search_engines as $engine)
-                                            <option value="{{ $engine->id }}">{{ $engine->engine }}</option>
-                                        @endforeach
-                                    </select>
-                                    <p class="help-block"></p>
-                                    @if($errors->has('year_id'))
-                                        <p class="help-block">
-                                            {{ $errors->first('year_id') }}
-                                        </p>
-                                    @endif
-                                </div>
-
-                                <div class="form-group col-md-2">
-                                    <button type="submit"
-                                            class="btn btn-main">
-                                        Search Now
-                                    </button>
-                                </div>
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-model-tab" data-toggle="tab" href="#nav-model" role="tab" aria-controls="nav-model" aria-selected="true">Search By Model</a>
+                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Search By Size</a>
                             </div>
+                        </nav>
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-model" role="tabpanel" aria-labelledby="nav-model-tab">
+{{--                                Search Form Stat--}}
 
-                        </form>
+                                <form action="{{ route('search') }}" method="GET">
+
+                                    <div class="form-row">
+
+                                        <div class="form-group col-md-2">
+                                            <select name="brand_id" class="form-control form-control-lg" id="brand_id" placeholder="Brand">
+                                                @foreach ($search_brands as $brand)
+                                                    <option value="{{ $brand->id }}">{{ $brand->brand }}</option>
+                                                @endforeach
+                                            </select>
+                                            <p class="help-block"></p>
+                                            @if($errors->has('brand_id'))
+                                                <p class="help-block">
+                                                    {{ $errors->first('brand_id') }}
+                                                </p>
+                                            @endif
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <select name="model_id" class="form-control form-control-lg" id="model_id" placeholder="Select Model">
+
+                                                @foreach ($search_models as $model)
+                                                    <option value="{{ $model->id }}">{{ $model->model }}</option>
+                                                @endforeach
+                                            </select>
+                                            <p class="help-block"></p>
+                                            @if($errors->has('model_id'))
+                                                <p class="help-block">
+                                                    {{ $errors->first('model_id') }}
+                                                </p>
+                                            @endif
+                                        </div>
+
+                                        <div class="form-group col-md-2">
+                                            <select name="year_id" class="form-control form-control-lg" id="year_id" placeholder="Year">
+                                                @foreach ($search_years as $year)
+                                                    <option value="{{ $year->id }}">{{ $year->year }}</option>
+                                                @endforeach
+                                            </select>
+                                            <p class="help-block"></p>
+                                            @if($errors->has('year_id'))
+                                                <p class="help-block">
+                                                    {{ $errors->first('year_id') }}
+                                                </p>
+                                            @endif
+                                        </div>
+
+                                        <div class="form-group col-md-2">
+                                            <select name="engine_id" class="form-control form-control-lg" id="engine_id" placeholder="Engine">
+                                                @foreach ($search_engines as $engine)
+                                                    <option value="{{ $engine->id }}">{{ $engine->engine }}</option>
+                                                @endforeach
+                                            </select>
+                                            <p class="help-block"></p>
+                                            @if($errors->has('engine_id'))
+                                                <p class="help-block">
+                                                    {{ $errors->first('engine_id') }}
+                                                </p>
+                                            @endif
+                                        </div>
+
+                                        <div class="form-group col-md-2">
+                                            <button type="submit"
+                                                    class="btn btn-main">
+                                                Search Now
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </form>
+{{--                                End Search Form--}}
+                            </div>
+                            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+                            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                        </div>
 
                     </div>
 

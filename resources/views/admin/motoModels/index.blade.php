@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('content')
 <div class="content">
-    @can('category_create')
+    @can('moto_model_create')
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.categories.create') }}">
-                    {{ trans('global.add') }} {{ trans('cruds.category.title_singular') }}
+                <a class="btn btn-success" href="{{ route('admin.moto-models.create') }}">
+                    {{ trans('global.add') }} {{ trans('cruds.motoModel.title_singular') }}
                 </a>
             </div>
         </div>
@@ -14,21 +14,24 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('cruds.category.title_singular') }} {{ trans('global.list') }}
+                    {{ trans('cruds.motoModel.title_singular') }} {{ trans('global.list') }}
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
-                        <table class=" table table-bordered table-striped table-hover datatable datatable-Category">
+                        <table class=" table table-bordered table-striped table-hover datatable datatable-MotoModel">
                             <thead>
                                 <tr>
                                     <th width="10">
 
                                     </th>
                                     <th>
-                                        {{ trans('cruds.category.fields.id') }}
+                                        {{ trans('cruds.motoModel.fields.id') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.category.fields.category') }}
+                                        {{ trans('cruds.motoModel.fields.model') }}
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.motoModel.fields.moto_brand') }}
                                     </th>
                                     <th>
                                         &nbsp;
@@ -36,32 +39,35 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($categories as $key => $category)
-                                    <tr data-entry-id="{{ $category->id }}">
+                                @foreach($motoModels as $key => $motoModel)
+                                    <tr data-entry-id="{{ $motoModel->id }}">
                                         <td>
 
                                         </td>
                                         <td>
-                                            {{ $category->id ?? '' }}
+                                            {{ $motoModel->id ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $category->category ?? '' }}
+                                            {{ $motoModel->model ?? '' }}
                                         </td>
                                         <td>
-                                            @can('category_show')
-                                                <a class="btn btn-xs btn-primary" href="{{ route('admin.categories.show', $category->id) }}">
+                                            {{ $motoModel->moto_brand->brand ?? '' }}
+                                        </td>
+                                        <td>
+                                            @can('moto_model_show')
+                                                <a class="btn btn-xs btn-primary" href="{{ route('admin.moto-models.show', $motoModel->id) }}">
                                                     {{ trans('global.view') }}
                                                 </a>
                                             @endcan
 
-                                            @can('category_edit')
-                                                <a class="btn btn-xs btn-info" href="{{ route('admin.categories.edit', $category->id) }}">
+                                            @can('moto_model_edit')
+                                                <a class="btn btn-xs btn-info" href="{{ route('admin.moto-models.edit', $motoModel->id) }}">
                                                     {{ trans('global.edit') }}
                                                 </a>
                                             @endcan
 
-                                            @can('category_delete')
-                                                <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                            @can('moto_model_delete')
+                                                <form action="{{ route('admin.moto-models.destroy', $motoModel->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                                     <input type="hidden" name="_method" value="DELETE">
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                                     <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -89,11 +95,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('category_delete')
+@can('moto_model_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.categories.massDestroy') }}",
+    url: "{{ route('admin.moto-models.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -122,13 +128,16 @@
   $.extend(true, $.fn.dataTable.defaults, {
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],
-    pageLength: 100,
+    pageLength: 25,
   });
-  let table = $('.datatable-Category:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-MotoModel:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
+  $('div#sidebar').on('transitionend', function(e) {
+    $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
+  })
   
 })
 
