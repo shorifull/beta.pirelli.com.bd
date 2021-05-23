@@ -221,8 +221,8 @@ return [
         'fields'         => [
             'id'                => 'ID',
             'id_helper'         => ' ',
-            'with'              => 'With',
-            'with_helper'       => 'Please Enter the Size',
+            'size'              => 'Size',
+            'size_helper'       => 'Please Enter the size',
             'created_at'        => 'Created at',
             'created_at_helper' => ' ',
             'updated_at'        => 'Updated at',

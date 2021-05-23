@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Traits\MediaUploadingTrait;
+use App\Models\CarModel;
+use App\Models\MotoModel;
+use App\Models\MotoSlider;
+use App\Models\MotoTyre;
 use App\Models\Tyre;
 use Illuminate\Http\Request;
 
@@ -29,6 +33,19 @@ class HomeController extends Controller
         return view('index');
     }
 
+    public function motoHome()
+    {
+
+        $motoSliders = MotoSlider::with(['media'])->get();
+
+        return view('moto-home', compact('motoSliders'));
+
+    }
+
+
+
+
+
     public function admin()
     {
         return view('dashboard');
@@ -42,6 +59,62 @@ class HomeController extends Controller
 
         return view('mainTable.search', compact('tyres'));
     }
+
+
+
+    public function carSearchBySize(Request $request)
+    {
+        $tyres = Tyre::FilterBySize($request)->with(['categories', 'width', 'ratio', 'size', 'media'])->paginate(9);
+
+
+        return view('mainTable.search', compact('tyres'));
+    }
+
+
+
+
+
+    public function motoTyreSearchByModel(Request $request)
+    {
+        $tyres = MotoTyre::searchMotoTyreByModel($request)->with(['categories', 'moto_width', 'moto_ratio', 'moto_size', 'media'])->paginate(9);
+
+
+        return view('mainTable.moto-search', compact('tyres'));
+    }
+
+
+
+
+
+    public function motoTyreSearchBySize(Request $request)
+    {
+        $tyres = MotoTyre::searchMotoTyreBySize($request)->with(['categories', 'moto_width', 'moto_ratio', 'moto_size', 'media'])->paginate(9);
+
+
+        return view('mainTable.moto-search', compact('tyres'));
+    }
+
+
+
+
+    public function getMotoModelsByBrand(Request $request)
+    {
+        if(!isset($request->brand_id)) {
+            return response()->json(null, 404);
+        }
+
+        $models = MotoModel::where('moto_brand_id', $request->brand_id)->orderBy('model')->get();
+
+        $models->values()->all();
+
+        return $models;
+    }
+
+
+
+
+
+
 
     public function category(Category $category)
     {

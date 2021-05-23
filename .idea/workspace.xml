@@ -20,276 +20,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a900cecd-ad4e-43a9-8cce-41c80e918891" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MotoBrandController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MotoEngineController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MotoModelController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MotoRatioController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MotoSizeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MotoTyreController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/MotoWidthController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/MassDestroyMotoBrandRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/MassDestroyMotoEngineRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/MassDestroyMotoModelRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/MassDestroyMotoRatioRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/MassDestroyMotoSizeRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/MassDestroyMotoTyreRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/MassDestroyMotoWidthRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreMotoBrandRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreMotoEngineRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreMotoModelRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreMotoRatioRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreMotoSizeRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreMotoTyreRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreMotoWidthRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateMotoBrandRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateMotoEngineRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateMotoModelRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateMotoRatioRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateMotoSizeRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateMotoTyreRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateMotoWidthRequest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/MotoBrand.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/MotoEngine.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/MotoModel.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/MotoRatio.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/MotoSize.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/MotoTyre.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/MotoWidth.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_05_20_000064_add_relationship_fields_to_moto_tyres_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000001_create_media_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000002_create_footers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000003_create_permissions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000004_create_retailers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000005_create_socials_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000006_create_car_sliders_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000007_create_moto_sliders_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000008_create_warranty_claims_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000010_create_car_registrations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000011_create_headers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000012_create_contacts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000013_create_emails_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000014_create_products_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000015_create_pages_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000016_create_page_menus_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000017_create_other_menus_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000018_create_model_combinations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000026_create_product_sizes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000027_create_cities_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000028_create_vehicle_types_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000029_create_ratios_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000030_create_roles_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000031_create_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000032_create_brands_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000033_create_bodies_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000034_create_fuels_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000035_create_transmissions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000036_create_engines_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000037_create_chassis_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000038_create_years_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000039_create_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000040_create_sizes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000041_create_car_models_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000042_create_faq_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000043_create_widths_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000044_create_tyres_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000045_create_faqs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000046_create_model_combination_year_pivot_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000048_create_permission_role_pivot_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000049_create_model_combination_tyre_pivot_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000051_create_role_user_pivot_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000052_add_relationship_fields_to_faqs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000053_add_relationship_fields_to_product_sizes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000056_add_relationship_fields_to_retailers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000057_add_relationship_fields_to_model_combinations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000058_add_relationship_fields_to_car_registrations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000059_add_relationship_fields_to_tyres_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000060_add_relationship_fields_to_page_menus_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000061_add_relationship_fields_to_warranty_claims_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000062_add_relationship_fields_to_products_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/moto/2021_05_20_000063_add_relationship_fields_to_car_models_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000009_create_moto_registrations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000019_create_moto_brands_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000020_create_moto_models_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000021_create_moto_engines_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000022_create_moto_widths_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000023_create_moto_sizes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000024_create_moto_ratios_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000025_create_moto_tyres_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000047_create_category_moto_tyre_pivot_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000050_create_category_tyre_pivot_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000054_add_relationship_fields_to_moto_models_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000055_add_relationship_fields_to_moto_registrations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/new/2021_05_20_000064_add_relationship_fields_to_moto_tyres_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2014_10_12_100000_create_password_resets_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000001_create_media_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000002_create_model_combinations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000003_create_moto_sliders_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000004_create_faqs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000005_create_permissions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000006_create_products_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000007_create_product_sizes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000008_create_cities_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000009_create_retailers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000010_create_socials_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000011_create_car_sliders_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000012_create_warranty_claims_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000013_create_other_menus_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000014_create_faq_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000015_create_car_registrations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000016_create_headers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000017_create_contacts_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000018_create_footers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000019_create_emails_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000020_create_pages_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000021_create_page_menus_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000022_create_moto_registrations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000023_create_vehicle_types_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000024_create_fuels_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000025_create_bodies_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000026_create_transmissions_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000027_create_brands_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000028_create_engines_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000029_create_chassis_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000030_create_years_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000031_create_categories_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000032_create_car_models_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000033_create_users_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000034_create_sizes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000035_create_ratios_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000036_create_widths_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000037_create_roles_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000038_create_tyres_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000039_create_permission_role_pivot_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000040_create_category_tyre_pivot_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000041_create_role_user_pivot_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000042_create_model_combination_tyre_pivot_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000043_create_model_combination_year_pivot_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000044_add_relationship_fields_to_page_menus_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000045_add_relationship_fields_to_tyres_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000046_add_relationship_fields_to_warranty_claims_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000047_add_relationship_fields_to_car_registrations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000048_add_relationship_fields_to_moto_registrations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000049_add_relationship_fields_to_car_models_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000050_add_relationship_fields_to_retailers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000051_add_relationship_fields_to_product_sizes_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000052_add_relationship_fields_to_products_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000053_add_relationship_fields_to_faqs_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000054_add_relationship_fields_to_model_combinations_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/old/RoleUserTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/old/RolesTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/old/UsersTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/old/old_DatabaseSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/old/old_PermissionRoleTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/old/old_PermissionsTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/lang/en/cruds_old.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoBrands/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoBrands/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoBrands/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoBrands/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoEngines/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoEngines/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoEngines/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoEngines/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoModels/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoModels/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoModels/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoModels/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoRatios/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoRatios/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoRatios/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoRatios/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoSizes/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoSizes/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoSizes/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoSizes/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoTyres/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoTyres/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoTyres/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoTyres/show.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoWidths/create.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoWidths/edit.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoWidths/index.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/admin/motoWidths/show.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/css/style_copy.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/home/moto-hero.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/mainTable/moto-search.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/moto-home.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/slide.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/TyreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/TyreController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ModelCombinationSearchController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ModelCombinationSearchController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Brand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Brand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Engine.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Engine.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/MotoTyre.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/MotoTyre.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Size.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Size.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Tyre.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Tyre.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Year.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Year.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_100000_create_password_resets_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000001_create_media_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000002_create_model_combinations_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000003_create_moto_sliders_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000004_create_faqs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000005_create_permissions_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000006_create_products_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000007_create_product_sizes_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000008_create_cities_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000009_create_retailers_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000010_create_socials_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000011_create_car_sliders_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000012_create_warranty_claims_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000013_create_other_menus_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000014_create_faq_categories_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000015_create_car_registrations_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000016_create_headers_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000017_create_contacts_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000018_create_footers_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000019_create_emails_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000020_create_pages_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000021_create_page_menus_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000022_create_moto_registrations_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000023_create_vehicle_types_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000024_create_fuels_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000025_create_bodies_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000026_create_transmissions_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000027_create_brands_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000028_create_engines_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000029_create_chassis_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000030_create_years_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000031_create_categories_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000032_create_car_models_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000033_create_users_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000034_create_sizes_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000035_create_ratios_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000036_create_widths_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000037_create_roles_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000038_create_tyres_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000039_create_permission_role_pivot_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000040_create_category_tyre_pivot_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000041_create_role_user_pivot_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000042_create_model_combination_tyre_pivot_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000043_create_model_combination_year_pivot_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000044_add_relationship_fields_to_page_menus_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000045_add_relationship_fields_to_tyres_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000046_add_relationship_fields_to_warranty_claims_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000047_add_relationship_fields_to_car_registrations_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000048_add_relationship_fields_to_moto_registrations_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000049_add_relationship_fields_to_car_models_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000050_add_relationship_fields_to_retailers_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000051_add_relationship_fields_to_product_sizes_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000052_add_relationship_fields_to_products_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000053_add_relationship_fields_to_faqs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_05_05_000054_add_relationship_fields_to_model_combinations_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000034_create_sizes_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/old_migrations/old/2021_05_05_000034_create_sizes_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionRoleTableSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PermissionsTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PermissionsTableSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/lang/en/cruds.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/cruds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/create.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categories/index.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/sizes/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sizes/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/sizes/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sizes/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/sizes/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sizes/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/sizes/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/sizes/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tyres/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tyres/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/tyres/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/tyres/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/mainTable/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mainTable/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/mainTable/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/mainTable/search.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -447,7 +202,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/mainTable" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -456,16 +211,16 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/mainTable" />
+      <recent name="$PROJECT_DIR$/resources/views" />
+      <recent name="$PROJECT_DIR$/public/css" />
+      <recent name="$PROJECT_DIR$/resources/lang/en" />
+      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
       <recent name="C:\MAMP\htdocs\beta.pirelli.com.bd\resources\views" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/resources/lang/en" />
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Admin" />
-      <recent name="$PROJECT_DIR$/resources/views" />
-      <recent name="C:\MAMP\htdocs\beta.pirelli.com.bd\resources" />
-      <recent name="C:\MAMP\htdocs\beta.pirelli.com.bd" />
     </key>
   </component>
   <component name="RunManager">
@@ -492,7 +247,7 @@
       <workItem from="1619862473132" duration="815000" />
       <workItem from="1620204449030" duration="15795000" />
       <workItem from="1620308584864" duration="24221000" />
-      <workItem from="1621509511066" duration="3083000" />
+      <workItem from="1621509511066" duration="23609000" />
     </task>
     <servers />
   </component>
@@ -515,19 +270,23 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="518" y="238" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1621339600463">
+    <state x="518" y="238" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1621772441975">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="518" y="238" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1621339600463" />
+    <state x="518" y="238" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1621772441975" />
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619812021307" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1619788589401">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619788589401" />
-    <state x="385" y="126" width="670" height="676" key="search.everywhere.popup" timestamp="1621338635630">
+    <state x="540" y="377" key="NewPhpFileDialog" timestamp="1621773560074">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="126" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1621338635630" />
+    <state x="540" y="377" key="NewPhpFileDialog/0.0.1440.900@0.0.1440.900" timestamp="1621773560074" />
+    <state x="385" y="126" width="670" height="676" key="search.everywhere.popup" timestamp="1621659547346">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="126" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1621659547346" />
     <state x="385" y="139" width="670" height="613" key="search.everywhere.popup/0.25.1440.816@0.25.1440.816" timestamp="1620210611235" />
   </component>
 </project>

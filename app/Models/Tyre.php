@@ -121,14 +121,15 @@ class Tyre extends Model implements HasMedia
             $model_id = $model->id;
             $make_id = $model->make_id;
             $condition = array_merge($condition, ['model_combinations.car_model_id' => $request->model_id]);
-        }
+
+//            $years = Year::whereHas(
+//                'model_combinations', function($q) use($model_id) {
+//                $q->where(['car_model_id' => $model_id]);
+//            }
+//            )->get();
 
 
-        $years = Year::whereHas(
-            'model_combinations', function($q) use($model_id) {
-            $q->where(['car_model_id' => $model_id]);
         }
-        )->get();
 
         if(isset($request->engine_id)) {
             $engine_id = $request->engine_id;
@@ -163,36 +164,27 @@ class Tyre extends Model implements HasMedia
         }
 
 
-        // Fresh tyreQuery
+        return $query;
+    }
 
 
-//        $non_paginate_products = $query->get();
-//
-//
-//
-//        $tyres = $query->paginate(12);
+    public function scopeFilterBySize($query, Request $request)
+    {
+
+        if ($request->input('width_id')) {
+            $query->where('width_id', $request->input('width_id'));
+        }
+
+        if ($request->input('ratio_id')) {
+            $query->where('ratio_id', $request->input('ratio_id'));
+        }
+
+        if ($request->input('size_id')) {
+            $query->where('size_id', $request->input('size_id'));
+        }
 
 
 
-
-//        if ($request->input('brand_id')) {
-//            $query->where('brand_id', $request->input('brand_id'));
-//        }
-//
-//        if ($request->input('model_id')) {
-//            $query->where('model_id', $request->input('model_id'));
-//        }
-//
-//        if ($request->input('year_id')) {
-//            $query->where('year_id', $request->input('year_id'));
-//        }
-//
-//        if ($request->input('engine_id')) {
-//            $query->where('engine_id', $request->input('engine_id'));
-//        }
-//
-//
-//
 //        if ($request->input('categories')) {
 //            $query->whereHas('categories',
 //                function ($query) use ($request) {

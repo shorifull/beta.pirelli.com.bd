@@ -28,7 +28,7 @@
                                         {{ trans('cruds.size.fields.id') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.size.fields.with') }}
+                                        {{ trans('cruds.size.fields.size') }}
                                     </th>
                                     <th>
                                         &nbsp;
@@ -45,7 +45,7 @@
                                             {{ $size->id ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $size->with ?? '' }}
+                                            {{ $size->size ?? '' }}
                                         </td>
                                         <td>
                                             @can('size_show')
@@ -129,7 +129,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

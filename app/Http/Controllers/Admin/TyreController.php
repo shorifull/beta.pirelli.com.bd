@@ -82,7 +82,7 @@ class TyreController extends Controller
 
         $ratios = Ratio::all()->pluck('ratio', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $sizes = Size::all()->pluck('with', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $sizes = Size::all()->pluck('size', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         $tyre->load('model_combinations', 'categoys', 'width', 'ratio', 'size');
 

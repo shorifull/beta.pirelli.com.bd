@@ -27,10 +27,10 @@
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.size.fields.with') }}
+                                        {{ trans('cruds.size.fields.size') }}
                                     </th>
                                     <td>
-                                        {{ $size->with }}
+                                        {{ $size->size }}
                                     </td>
                                 </tr>
                             </tbody>

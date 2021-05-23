@@ -5,6 +5,12 @@ namespace App\Providers;
 use App\Models\Brand;
 use App\Models\CarModel;
 use App\Models\Engine;
+use App\Models\MotoBrand;
+use App\Models\MotoEngine;
+use App\Models\MotoModel;
+use App\Models\MotoRatio;
+use App\Models\MotoSize;
+use App\Models\MotoWidth;
 use App\Models\Ratio;
 use App\Models\Size;
 use App\Models\Width;
@@ -38,7 +44,14 @@ class AppServiceProvider extends ServiceProvider
             $view->with('search_widths', Width::all());
             $view->with('search_ratios', Ratio::all());
             $view->with('search_sizes', Size::all());
+            $view->with('search_moto_brands', MotoBrand::all());
+            $view->with('search_moto_models', MotoModel::all());
+            $view->with('search_moto_engines', MotoEngine::all());
+            $view->with('search_moto_widths', MotoWidth::all());
+            $view->with('search_moto_ratios', MotoRatio::all());
+            $view->with('search_moto_sizes', MotoSize::all());
 
         });
     }
 }
+

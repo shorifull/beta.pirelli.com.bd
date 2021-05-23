@@ -74,7 +74,7 @@
                                         {{ trans('cruds.tyre.fields.size') }}
                                     </th>
                                     <td>
-                                        {{ $tyre->size->with ?? '' }}
+                                        {{ $tyre->size->size ?? '' }}
                                     </td>
                                 </tr>
                                 <tr>

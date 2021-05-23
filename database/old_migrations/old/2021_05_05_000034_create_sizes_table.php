@@ -10,7 +10,7 @@ class CreateSizesTable extends Migration
     {
         Schema::create('sizes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('with')->nullable();
+            $table->integer('size')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

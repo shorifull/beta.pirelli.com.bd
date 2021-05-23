@@ -21,7 +21,7 @@ class Size extends Model
     ];
 
     protected $fillable = [
-        'with',
+        'size',
         'created_at',
         'updated_at',
         'deleted_at',

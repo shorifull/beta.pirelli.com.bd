@@ -87,7 +87,7 @@
                                             {{ $tyre->ratio->ratio ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $tyre->size->with ?? '' }}
+                                            {{ $tyre->size->size ?? '' }}
                                         </td>
                                         <td>
                                             @if($tyre->thumbnail)

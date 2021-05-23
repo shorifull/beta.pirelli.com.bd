@@ -4,10 +4,31 @@
 //Search Routes
 
 Route::get('search', 'HomeController@table')->name('search');
+
+Route::get('car-search-by-size', 'HomeController@carSearchBySize')->name('car-search-by-size');
+
+Route::get('moto-search', 'HomeController@motoTyreSearchByModel')->name('moto-search-by-model');
+
+Route::get('moto-search-by-size', 'HomeController@motoTyreSearchBySize')->name('moto-search-by-size');
+
+Route::get('/get_moto_models_by_brand', 'HomeController@getMotoModelsByBrand')->name('get_moto_models_by_brand');
+
+
+
 Route::get('categories/{category}', 'HomePageController@category')->name('category');
 Route::get('companies/{company}', 'HomePageController@company')->name('company');
 
 Route::get('/','HomeController@index')->name('home');
+Route::get('/moto','HomeController@motoHome')->name('moto-home');
+
+
+//Models by ModelCombination
+
+Route::post('/models/get_models_by_brand', 'ModelCombinationSearchController@getModelsByBrand')->name('models.get_models_by_brand');
+Route::get('/modelcombinations/get_models_by_brand', 'ModelCombinationSearchController@getModelsByBrand')->name('modelcombinations.get_models_by_brand');
+Route::get('/modelcombinations/get_years_by_model', 'ModelCombinationSearchController@getYearsByModel')->name('modelcombinations.get_years_by_model');
+Route::get('/modelcombinations/get_engines_by_year', 'ModelCombinationSearchController@getEnginesByYear')->name('modelcombinations.get_engines_by_year');
+
 
 Route::redirect('/home', '/login');
 
@@ -233,9 +254,3 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
 });
 
 
-//Models by ModelCombination
-
-Route::post('/models/get_models_by_brand', 'ModelCombinationSearchController@getModelsByBrand')->name('models.get_models_by_brand');
-Route::get('/modelcombinations/get_models_by_brand', 'ModelCombinationSearchController@getModelsByBrand')->name('modelcombinations.get_models_by_brand');
-Route::get('/modelcombinations/get_years_by_model', 'ModelCombinationSearchController@getYearsByModel')->name('modelcombinations.get_years_by_model');
-Route::get('/modelcombinations/get_engines_by_year', 'ModelCombinationSearchController@getEnginesByYear')->name('modelcombinations.get_engines_by_year');
