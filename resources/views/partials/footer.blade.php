@@ -4,8 +4,10 @@
       <div class="row">
 
         <div class="col-lg-3 col-md-6 footer-info">
-          <img src="img/logo.png" alt="Pirelli">
-{{--          <p>{{ $settings['footer_description'] ?? '' }}</p>--}}
+            <a href="{{ route('home') }}"><img src="{{ asset('images/logo.png') }}" alt="{{ env('APP_NAME', 'The Event') }}"/>
+            </a>
+            <p>Asian Automotives Limited is the official distributor of Pirelli Motorcycles & Car Tyres in Bangladesh since 2019. We offer variety types of motorcycle tyres,aftersales service. Our online service will provide you the information and the product you need.</p>
+
         </div>
 
         <div class="col-lg-3 col-md-6 footer-links">

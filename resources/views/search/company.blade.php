@@ -1,4 +1,4 @@
-@extends('layouts.mainTable')
+@extends('layouts.search')
 
 @section('content')
 
@@ -118,7 +118,7 @@
 					<!-- Map Widget -->
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 	<!-- Container End -->

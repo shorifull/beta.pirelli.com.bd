@@ -517,40 +517,220 @@ body.mobile-nav-active #mobile-nav-toggle {
     padding-bottom: 80px;
 }
 
-.hero-area .advance-search {
+.section .advance-search {
     background: #fff;
     padding: 40px 30px;
+    margin-top: -50px;
     border-radius: 3px;
-    margin-bottom: -50px;
     box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 480px) {
-    .hero-area .advance-search {
-        margin-bottom: -80px;
+    .section .advance-search {
+        margin-bottom: -50px;
     }
 }
 
 @media (max-width: 480px) {
-    .hero-area .advance-search .block {
+    .section .advance-search .block {
         display: block !important;
     }
 }
 
-.hero-area .advance-search .form-control {
+.section .advance-search .form-control {
     color: #000;
     border-color: #dedede;
 }
 
-.hero-area .advance-search button {
+.section .advance-search button {
     display: block;
 }
 
 @media (max-width: 480px) {
-    .hero-area .advance-search button {
+    .section .advance-search button {
         width: 100%;
     }
 }
+
+
+
+/*--------------------------------------------------------------
+# Card Section
+--------------------------------------------------------------*/
+
+.home-category .card {
+    position: relative;
+    min-width: 300px;
+    height: auto;
+    min-height: 500px;
+    overflow: hidden;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+    transition: .5s;
+}
+.home-category .card:hover {
+    transform:scale(1.1);
+}
+.home-category .card_car {
+    background: url("../images/home/car_img.jpeg") no-repeat;
+}
+.home-category .card_moto {
+    background: url("../images/home/moto_img.jpeg") no-repeat;
+}
+
+
+.home-category .card:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: rgba(255, 255, 255, .1);
+    z-index: 1;
+    transform: skewY(-5deg) scale(1.5);
+}
+
+
+.home-category .card .title h2 {
+    position: relative;
+    margin: 20px 0 0;
+    padding: 0;
+    color: #fff;
+    font-size: 28px;
+    z-index: 2;
+}
+
+.home-category .card a {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    left: 25%;
+    z-index: 2;
+    padding: 5px 5px;
+    background-color: #ffdc03;
+    color: #fff;
+    width: 150px;
+    height: auto;
+    text-align: center;
+    margin: 20px auto 0;
+    /* line-height: 40px; */
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+}
+
+.home-category .card a:hover {
+
+}
+
+
+/*--------------------------------------------------------------
+# Newsletter
+--------------------------------------------------------------*/
+
+.newsletter {
+    padding: 5px 0;
+    background: #dee2e6;
+}
+
+.newsletter .content {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2; }
+.newsletter .content h2 {
+    color: #243c4f;
+    margin-bottom: 40px; }
+.newsletter .content .form-control {
+    height: 50px;
+    border-color: #ffdc0a;
+    border-radius:0;
+}
+.newsletter .content.form-control:focus {
+    box-shadow: none;
+    border: 2px solid #243c4f;
+}
+.newsletter .content .btn {
+    min-height: 50px;
+    border-radius:0;
+    background: #f92349;
+    color: #fff;
+    font-weight:600;
+}
+
+.newsletter .social-links {
+    margin-top: 8px;
+}
+
+.newsletter .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: #f92349;
+    color: #eee;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+
+.newsletter .social-links a:hover {
+    background: #f82249;
+    color: #fff;
+}
+
+
+
+@import url(//fonts.googleapis.com/css?family=Montserrat:300,500);
+.call-to-action {
+    background: url("../images/home/call-to-action.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "Montserrat", sans-serif;
+    color: #8d97ad;
+    font-weight: 300;
+}
+
+.call-to-action h1, .call-to-action h2, .call-to-action h3, .call-to-action h4, .call-to-action h5, .call-to-action h6 {
+    color: #ffff;
+}
+
+.call-to-action .font-weight-medium {
+    font-weight: 500;
+}
+
+.call-to-action .badge {
+    line-height: 14px;
+}
+
+.call-to-action .badge-info {
+    background: #ffdc03;
+}
+
+.call-to-action .btn-info-gradiant {
+    background: #ffdc03;
+    border: 0px;
+    color: #ffffff;
+}
+
+.call-to-action .btn-info-gradiant:hover {
+    background: #ffdc03;
+}
+
+.call-to-action .btn-md {
+    padding: 15px 45px;
+    font-size: 16px;
+}
+
+
 
 
 /*--------------------------------------------------------------

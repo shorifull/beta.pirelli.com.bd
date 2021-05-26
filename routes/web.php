@@ -16,11 +16,31 @@ Route::get('/get_moto_models_by_brand', 'HomeController@getMotoModelsByBrand')->
 
 
 Route::get('categories/{category}', 'HomePageController@category')->name('category');
-Route::get('companies/{company}', 'HomePageController@company')->name('company');
+
 
 Route::get('/','HomeController@index')->name('home');
 Route::get('/moto','HomeController@motoHome')->name('moto-home');
+Route::get('/car','HomeController@carHome')->name('car-home');
+Route::get('moto-tyres/{tyre}', 'HomePageController@motoTyre')->name('moto-tyre');
 
+
+
+//Warranty Registration
+
+Route::get('/warranty-registration/car','WarrantyRegisterController@registerCar')->name('warranty-register-car');
+Route::get('/warranty-registration/moto','WarrantyRegisterController@registerMoto')->name('warranty-register-moto');
+Route::get('/warranty-registration/car/success', 'WarrantyRegisterController@thankyouCar')->name('warranty-register-car-success');
+Route::get('/warranty-registration/moto/success', 'WarrantyRegisterController@thankyouMoto')->name('warranty-register-moto-success');
+Route::get('/warranty-registration/car/error', 'WarrantyRegisterController@registrationCarError')->name('warranty-register-car-error');
+Route::get('/warranty-registration/moto/error', 'WarrantyRegisterController@registrationMotoError')->name('warranty-register-moto-error');
+Route::post('/add-car-warranty','WarrantyRegisterController@addCarWarranty')->name('add-car-warranty');
+Route::post('/add-moto-warranty','WarrantyRegisterController@addMotoWarranty')->name('add-moto-warranty');
+
+
+
+Route::get('/product-sizes/{productId}','WarrantyRegisterController@productSizes')->name('get-product-sizes');
+Route::get('/test-file-form', [WarrantyRegisterController::class, 'testFileForm'])->name('test-file-form');
+Route::post('/test-file-upload', [WarrantyRegisterController::class, 'testFileUpload'])->name('test-file-upload');
 
 //Models by ModelCombination
 
@@ -143,6 +163,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Social
     Route::delete('socials/destroy', 'SocialController@massDestroy')->name('socials.massDestroy');
     Route::resource('socials', 'SocialController');
+
+
+    // Home Slider
+    Route::delete('home-sliders/destroy', 'HomeSliderController@massDestroy')->name('home-sliders.massDestroy');
+    Route::post('home-sliders/media', 'HomeSliderController@storeMedia')->name('home-sliders.storeMedia');
+    Route::post('home-sliders/ckmedia', 'HomeSliderController@storeCKEditorImages')->name('home-sliders.storeCKEditorImages');
+    Route::resource('home-sliders', 'HomeSliderController');
+
 
     // Car Slider
     Route::delete('car-sliders/destroy', 'CarSliderController@massDestroy')->name('car-sliders.massDestroy');

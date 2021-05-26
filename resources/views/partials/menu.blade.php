@@ -41,6 +41,17 @@
                                 </a>
                             </li>
                         @endcan
+                            @can('home_slider_access')
+                                <li class="{{ request()->is("admin/home-sliders") || request()->is("admin/home-sliders/*") ? "active" : "" }}">
+                                    <a href="{{ route("admin.home-sliders.index") }}">
+                                        <i class="fa-fw fas fa-images">
+
+                                        </i>
+                                        <span>{{ trans('cruds.homeSlider.title') }}</span>
+
+                                    </a>
+                                </li>
+                            @endcan
                     </ul>
                 </li>
             @endcan

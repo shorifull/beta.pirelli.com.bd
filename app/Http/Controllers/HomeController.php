@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Models\CarModel;
+use App\Models\CarSlider;
+use App\Models\HomeSlider;
 use App\Models\MotoModel;
 use App\Models\MotoSlider;
 use App\Models\MotoTyre;
@@ -30,7 +32,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('index');
+
+        $homeSliders = HomeSlider::with(['media'])->get();
+
+        return view('index', compact('homeSliders'));
     }
 
     public function motoHome()
@@ -38,7 +43,16 @@ class HomeController extends Controller
 
         $motoSliders = MotoSlider::with(['media'])->get();
 
-        return view('moto-home', compact('motoSliders'));
+        return view('moto', compact('motoSliders'));
+
+    }
+
+    public function carHome()
+    {
+
+        $carSliders = CarSlider::with(['media'])->get();
+
+        return view('car', compact('carSliders'));
 
     }
 
@@ -57,7 +71,7 @@ class HomeController extends Controller
         $tyres = Tyre::filterByRequest($request)->with(['model_combinations', 'categoys', 'width', 'ratio', 'size', 'media'])->paginate(9);
 
 
-        return view('mainTable.search', compact('tyres'));
+        return view('search.search', compact('tyres'));
     }
 
 
@@ -67,7 +81,7 @@ class HomeController extends Controller
         $tyres = Tyre::FilterBySize($request)->with(['categories', 'width', 'ratio', 'size', 'media'])->paginate(9);
 
 
-        return view('mainTable.search', compact('tyres'));
+        return view('search.search', compact('tyres'));
     }
 
 
@@ -79,7 +93,7 @@ class HomeController extends Controller
         $tyres = MotoTyre::searchMotoTyreByModel($request)->with(['categories', 'moto_width', 'moto_ratio', 'moto_size', 'media'])->paginate(9);
 
 
-        return view('mainTable.moto-search', compact('tyres'));
+        return view('search.moto-search', compact('tyres'));
     }
 
 
@@ -91,7 +105,7 @@ class HomeController extends Controller
         $tyres = MotoTyre::searchMotoTyreBySize($request)->with(['categories', 'moto_width', 'moto_ratio', 'moto_size', 'media'])->paginate(9);
 
 
-        return view('mainTable.moto-search', compact('tyres'));
+        return view('search.moto-search', compact('tyres'));
     }
 
 
@@ -122,11 +136,11 @@ class HomeController extends Controller
             ->where('category_id', $category->id)
             ->paginate(9);
 
-        return view('mainTable.category', compact('companies', 'category'));
+        return view('search.category', compact('companies', 'category'));
     }
 
-    public function company(Company $company)
+    public function motoTyre(MotoTyre $motoTyre)
     {
-        return view('mainTable.company', compact ('company'));
+        return view('search.company', compact ('motoTyre'));
     }
 }

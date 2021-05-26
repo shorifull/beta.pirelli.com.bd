@@ -20,6 +20,8 @@
 
   <!-- Main Stylesheet File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -45,9 +47,12 @@
   <!-- Contact Form JavaScript File -->
   <script src="{{ asset('js/contactform.js') }}"></script>
 
+
+  @yield('scripts')
+  @yield('script1')
   <!-- Template Main Javascript File -->
   <script src="{{ asset('js/app.js') }}"></script>
-  @yield('scripts')
+  @yield('script2')
 </body>
 
 </html>

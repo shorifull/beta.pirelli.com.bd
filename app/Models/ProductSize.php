@@ -33,6 +33,18 @@ class ProductSize extends Model
         return $this->belongsTo(Product::class, 'product_id');
     }
 
+    public static function getProductSizes($productName)
+    {
+        $product = Product::where('name', $productName)->first();
+
+        $productSizes = self::select('size')
+            ->where('product_id', $product->id)
+            ->orderBy('size')
+            ->get();
+
+        return $productSizes;
+    }
+
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');

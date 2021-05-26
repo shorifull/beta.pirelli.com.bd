@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Http\Services\CarApi;
+use App\Http\Services\MotoApi;
 use App\Models\Brand;
 use App\Models\CarModel;
 use App\Models\Engine;
@@ -26,7 +28,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(CarApi::class, function($app, $params) {
+            return new CarApi($params);
+        });
+        $this->app->singleton(MotoApi::class, function($app, $params) {
+            return new MotoApi($params);
+        });
     }
 
     /**

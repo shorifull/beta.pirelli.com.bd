@@ -1,0 +1,463 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "gotham-regular";
+  src: url(../fonts/GothamHTF-Book.otf);
+}
+
+@font-face {
+  font-family: "gotham-bold";
+  src: url(../fonts/GothamHTF-Bold.otf);
+}
+
+@font-face {
+  font-family: "gotham-light";
+  src: url(../fonts/GothamHTF-Light.otf);
+}
+
+.container-costum-margin {
+  padding: 120px 50px;
+}
+
+.terms-policy {
+  padding: 0 60px;
+}
+
+.input-fields__inner h2 {
+  color: #ffffff;
+  font-size: 30px;
+  font-family: "gotham-bold";
+}
+
+.terms-policy-header p {
+  color: #ffffff;
+  font-size: 22px;
+  font-family: "gotham-bold";
+  font-size: 22px;
+  margin: 9px 0;
+}
+
+.input-fields__inner p {
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "gotham-light";
+  letter-spacing: 1px;
+  opacity: 0.6;
+  margin-top: 15px;
+}
+
+.description-text p {
+  font-family: "gotham-light";
+  color: #ffffff;
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.costum-btn {
+  padding: 15px 40px;
+  background-color: #ffdc04;
+  outline: none;
+  border: none;
+  font-family: "gotham-bold";
+  letter-spacing: 2px;
+  border-radius: 10px;
+  margin-top: 50px;
+}
+
+.btn-confirm {
+  max-width: 600px;
+  width: 100%;
+}
+
+.warranty-certificate__inner img {
+  margin-top: 180px;
+}
+
+.cover-wrapper__inner {
+  background-image: url("../img/car-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 600px;
+  width: 100%;
+  position: relative;
+}
+
+.cover_wrapper_second-template{
+  background-image: url("../img/cover1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 600px;
+  width: 100%;
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 50px;
+  left: 64px;
+}
+
+.logo-right{
+  position: absolute;
+  top: 50px;
+  right: 64px;
+}
+
+.logo-right > p{
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 6px;
+  margin-top: 25px;
+  font-family: "gotham-bold";
+  position: relative;
+  right: 69px;
+}
+
+
+
+.main-text-wallpeper{
+  position: absolute;
+  top: 14%;
+  left: 26%;
+}
+
+
+.additional-text{
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+
+
+.logo > p {
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 6px;
+  margin-top: 25px;
+  font-family: "gotham-bold";
+}
+
+.input-fileds {
+  background-color: #1a1a1a;
+}
+
+.input-fields-header__inner {
+  border-bottom: 2px solid #ffdc04;
+  margin-top: 38px;
+}
+
+.input-fields-header__inner p {
+  font-size: 20px;
+  color: #ffffff;
+  font-family: "gotham-regular";
+  margin: 0;
+}
+
+.input-fields-group {
+  margin-top: 20px;
+}
+
+.costum-input input {
+  width: 100%;
+  padding: 10px;
+  background-color: #4d4d4d;
+  border: none;
+  outline: none;
+  color: #e6e6e6;
+  font-family: "gotham-regular";
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.costum-input-dif input {
+  width: 100%;
+  padding-left: 10px;
+  background-color: #4d4d4d;
+  border: none;
+  margin-bottom: 10px;
+  outline: none;
+  color: #e6e6e6;
+  font-size: 16px;
+  font-family: "gotham-regular";
+}
+
+.costum-input p {
+  color: #ffffff;
+  font-family: "gotham-regular";
+  opacity: 0.8;
+  margin: 9px 0;
+}
+
+.costum-input select {
+  width: 100%;
+  padding: 10px;
+  background-color: #4d4d4d;
+  border: none;
+  outline: none;
+  color: #e6e6e6;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-family: "gotham-regular";
+}
+
+input.costum-icon[type="date"]::-webkit-calendar-picker-indicator {
+  background: url(../img/calendar2.png) no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 12px;
+  font-family: "gotham-regular";
+  cursor: pointer;
+}
+
+.invoice-upload > button {
+  width: 30%;
+  padding: 0;
+}
+
+.invoice-upload input {
+  color: #ffffff;
+  font-family: "gotham-regular";
+}
+
+.costum-style input[type="file"]::-webkit-file-upload-button {
+  background-color: #4d4d4d;
+  color: #999999;
+  font-size: 16px;
+  font-family: "gotham-regular";
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.choose-file_btn > p {
+  font-family: "gotham-regular";
+  color: #ffffff;
+  opacity: 0.8;
+  margin: 9px 0;
+}
+
+.invoice-upload label {
+  margin: 0;
+  margin-left: 8px;
+  padding: 0;
+  color: #ffffff;
+  opacity: 0.8;
+  font-family: "gotham-regular";
+}
+
+.costum-input-dif p {
+  color: #ffffff;
+  opacity: 0.8;
+  margin: 9px 0;
+  font-family: "gotham-regular";
+}
+
+.final-input-groups {
+  margin-top: 80px;
+}
+
+.form-costum-styles {
+  margin-bottom: 10px;
+}
+
+.label-costum {
+  font-family: "gotham-regular";
+  color: #ffffff;
+  font-size: 15px;
+  margin-left: 15px;
+  letter-spacing: 1px;
+}
+
+.costum-input select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("../img/costum-arr.png");
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 15px;
+  background-size: 10px;
+}
+
+
+
+
+/* responsive endpoints */
+
+
+@media(max-width:1600px){
+  .main-text-wallpeper img{
+    max-width: 360px;
+}
+.main-text-wallpeper{
+  top: 20%;
+}
+}
+
+
+@media(max-width:1300px){
+  .main-text-wallpeper img {
+    max-width: 230px;
+}
+.logo-right > p {
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 6px;
+  margin-top: 13px;
+  font-family: "gotham-bold";
+  position: relative;
+  right: -1px;
+}
+
+.main-text-wallpeper {
+  top: 20%;
+  left: 17%;
+}
+}
+
+@media(max-width:768px){
+    .invoice-upload input {
+        max-width: 200px;
+    }
+
+    .cover-wrapper__inner {
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 230px;
+    }
+
+    .cover-wrapper-template-2{
+    background-size: 360px;
+    background-repeat: no-repeat;
+    height: 140px;
+    }
+
+    .logo img{
+        height: 50px;
+        width: 136px;
+      }
+
+      .logo{
+        position: absolute;
+        top: 14px;
+        left: 14px;
+      }
+
+      .logo > p {
+        font-size: 14px;
+        letter-spacing: 0px;
+        margin-top: 18px;
+    }
+
+    .input-fields__inner h2 {
+        font-size: 20px;
+    }
+
+    .costum-btn {
+        padding: 11px 11px;
+        background-color: #ffdc04;
+        font-size: 13px;
+        letter-spacing: 1px;
+        margin-top: 25px;
+    }
+
+    .terms-policy {
+        padding: 0 0px;
+    }
+    .description-text p {
+        font-size: 11px;
+    }
+
+    .terms-policy-header p {
+        font-size: 18px;
+        margin: 18px 0;
+    }
+
+    .label-costum {
+        font-family: "gotham-regular";
+        color: #ffffff;
+        font-size: 8px;
+        margin-left: 6px;
+        letter-spacing: unset;
+    }
+
+    .final-input-groups {
+        margin-top: 25px;
+    }
+
+    .container-costum-margin {
+        padding: 0 18px;
+    }
+
+    .costum-style input[type="file"]::-webkit-file-upload-button {
+        flex-wrap: wrap ;
+        display: flex;
+      }
+
+      .logo-right img{
+        max-width: 100px;
+      }
+
+      .logo-right {
+        position: absolute;
+        top: 26px;
+        right: 15px;
+    }
+
+      .logo-right > p {
+        color: #ffffff;
+        font-size: 7px;
+        letter-spacing: 0px;
+        margin-top: 4px;
+        font-family: "gotham-bold";
+        position: relative;
+         right: unset;
+    }
+
+    .main-text-wallpeper img {
+      max-width: 140px;
+  }
+
+  .additional-text {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-text-wallpeper {
+  top: 17%;
+  left: 24%;
+}
+
+.additional-text img{
+  max-width: 100px;
+}
+
+}
+
+
+@media (max-width: 576px){
+.cover-wrapper__inner {
+    background-size: 600px;
+    background-repeat: no-repeat;
+    height: 230px;
+}
+
+.main-text-wallpeper {
+  top: 18%;
+  left: 7%;
+}
+
+}
+
+

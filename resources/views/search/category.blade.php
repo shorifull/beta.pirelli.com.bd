@@ -1,4 +1,4 @@
-@extends('layouts.mainTable')
+@extends('layouts.search')
 
 @section('content')
 
@@ -85,16 +85,16 @@
                     </div>
 				</div>
 			</div>
-           
+
 			<div class="col-md-9">
 				<div class="product-grid-list">
 					<div class="row mt-30">
-                         
+
                         @foreach ($companies as $singleCompany)
                             <div class="col-sm-12 col-lg-4 col-md-6">
-                            
+
                                 <!-- product card -->
-                        
+
                                 <div class="product-item bg-light">
                                     <div class="card">
                                         <div class="thumb-content">
@@ -117,7 +117,7 @@
                         @endforeach
 					</div>
 				</div>
-                
+
                 {{ $companies->render() }}
 			</div>
 		</div>

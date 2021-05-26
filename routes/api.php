@@ -75,6 +75,10 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Social
     Route::apiResource('socials', 'SocialApiController');
 
+    // Home Slider
+    Route::post('home-sliders/media', 'HomeSliderApiController@storeMedia')->name('home-sliders.storeMedia');
+    Route::apiResource('home-sliders', 'HomeSliderApiController');
+
     // Car Slider
     Route::post('car-sliders/media', 'CarSliderApiController@storeMedia')->name('car-sliders.storeMedia');
     Route::apiResource('car-sliders', 'CarSliderApiController');
