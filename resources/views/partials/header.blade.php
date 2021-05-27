@@ -14,6 +14,8 @@
         <li @if(Route::current()->getName() == 'home') class="menu-active" @endif><a href="{{ Route::current()->getName() != 'home' ? route('home') : '' }}#intro">Home</a></li>
         <li @if(Route::current()->getName() == 'moto-home') class="menu-active" @endif><a href="{{ route('moto-home')}}">Moto Tyres </a></li>
         <li @if(Route::current()->getName() == 'car-home') class="menu-active" @endif><a href="{{ route('car-home')}}">Car Tyres</a></li>
+        <li @if(Route::current()->getName() == 'warranty-register-car') class="menu-active" @endif><a href="{{ route('warranty-register-car')}}">Car Warranty</a></li>
+        <li @if(Route::current()->getName() == 'warranty-register-moto') class="menu-active" @endif><a href="{{ route('warranty-register-moto')}}">Moto Warranty</a></li>
           @guest
               <li class="buy-tickets"><i class="fa fa-angle-right"></i> <a href="{{ route('login') }}">Login</a></li>
           @endguest

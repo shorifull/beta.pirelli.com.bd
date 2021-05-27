@@ -64,9 +64,9 @@ class StoreMotoRegistrationRequest extends FormRequest
                 'max:255',
                 'required',
             ],
-            'invoice_attachment' => [
-                'required',
-            ],
+//            'invoice_attachment' => [
+//                'required',
+//            ],
             'product_name_id' => [
                 'required',
                 'integer',

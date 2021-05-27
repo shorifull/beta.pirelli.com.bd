@@ -43,6 +43,7 @@
 
     </section>
 
+
     <!--===============================
 =            Moto Tyre Search          =
 ================================-->
@@ -207,6 +208,65 @@
     </section>
 
     <!--===============================
+=            Moto  Latrst Product Slider           =
+================================-->
+    <section class="trends">
+        <div class="latest_product_background"></div>
+        <div class="latest_product_overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                        <h2 class="latest_product_title">Latest Tyres</h2>
+                        <div class="latest_product_text">
+                            <p>Latest Moto Tyres</p>
+                        </div>
+                        <div class="latest_product_slider_nav">
+                            <div class="latest_product_prev latest_product_nav"><i class="fas fa-angle-left ml-auto"></i>
+                            </div>
+                            <div class="latest_product_next latest_product_nav"><i class="fas fa-angle-right ml-auto"></i>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="latest_product_slider_container">
+                        <div class="owl-carousel owl-theme latest_product_slider">
+
+                            @if (count($tyres) > 0)
+                                @foreach ($tyres as $tyre)
+                            <div class="owl-item">
+                                <div class="latest_product_item is_new">
+                                    <div class="latest_product_image d-flex flex-column align-items-center justify-content-center">
+                                        <img class="img-fluid" alt="" src="@if($tyre->thumbnail){{ $tyre->thumbnail->getUrl() }}@endif"></div>
+                                    <div class="latest_product_content">
+                                        <div class="latest_product_category"><a href="#">Category</a></div>
+                                        <div class="latest_product_info clearfix">
+                                            <div class="latest_product_name"><a href="#">{{ $tyre->title ?? '' }}</a></div>
+                                            <div class="latest_product_price">{{ $tyre->size ?? '' }}</div>
+                                            <div><a href="#" class="btn btn-yellow">VIEW DETAILS</a></div>
+                                        </div>
+                                    </div>
+                                    <ul class="latest_product_marks">
+                                        <li class="latest_product_mark latest_product_discount">-25%</li>
+                                        <li class="latest_product_mark latest_product_new">new</li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                                @endforeach
+                            @endif
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!--===============================
 =          Call To Action            =
 ================================-->
     <section class="py-5  call-to-action">
@@ -298,6 +358,46 @@
             $('#search-form').submit();
         }
 
+        $(document).ready(function () {
 
+            if ($('.latest_product_slider').length) {
+                var trendsSlider = $('.latest_product_slider');
+                trendsSlider.owlCarousel(
+                    {
+                        loop: false,
+                        margin: 30,
+                        nav: false,
+                        dots: false,
+                        autoplayHoverPause: true,
+                        autoplay: false,
+                        responsive:
+                            {
+                                0: {items: 1},
+                                575: {items: 2},
+                                991: {items: 3}
+                            }
+                    });
+
+                trendsSlider.on('click', '.latest_product_fav', function (ev) {
+                    $(ev.target).toggleClass('active');
+                });
+
+                if ($('.latest_product_prev').length) {
+                    var prev = $('.latest_product_prev');
+                    prev.on('click', function () {
+                        trendsSlider.trigger('prev.owl.carousel');
+                    });
+                }
+
+                if ($('.latest_product_next').length) {
+                    var next = $('.latest_product_next');
+                    next.on('click', function () {
+                        trendsSlider.trigger('next.owl.carousel');
+                    });
+                }
+            }
+
+
+        });
     </script>
 @endsection

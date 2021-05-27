@@ -87,10 +87,10 @@
                         <select id="cars" name="city">
                           <option value="">Select</option>
                           @foreach ($cities as $city)
-                          @if (old('city') == $city->name)
-                          <option value="{{ $city->name }}" selected>{{ $city->name }}</option>
+                          @if (old('city') == $city->id)
+                          <option value="{{ $city->id }}" selected>{{ $city->name }}</option>
                           @else
-                          <option value="{{ $city->name }}">{{ $city->name }}</option>
+                          <option value="{{ $city->id }}">{{ $city->name }}</option>
                           @endif
                           @endforeach
                         </select>
@@ -148,21 +148,21 @@
 
 
 
-                    <div class="col-xl-6 col-lg-6 col-12">
-                      <div class="costum-input input-product-tyre">
-                        <p>Product Name</p>
-                        <select id="product-names" name="product_name">
-                          <option value="">Please select tyre name</option>
-                          @foreach ($products as $product)
-                            @if (old('product_name') == $product->name)
-                            <option value="{{ $product->name }}" selected>{{ $product->name }}</option>
-                            @else
-                            <option value="{{ $product->name }}">{{ $product->name }}</option>
-                            @endif
-                          @endforeach
-                        </select>
+                      <div class="col-xl-6 col-lg-6 col-12">
+                          <div class="costum-input input-product-tyre">
+                              <p>Product Name</p>
+                              <select id="product-names" name="product_id">
+                                  <option value="">Please select tyre name</option>
+                                  @foreach ($products as $product)
+                                      @if (old('product_id') == $product->id)
+                                          <option value="{{ $product->id }}" selected>{{ $product->name }}</option>
+                                      @else
+                                          <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                      @endif
+                                  @endforeach
+                              </select>
+                          </div>
                       </div>
-                    </div>
 
 
                     <div class="col-xl-6 col-lg-6 col-12">
@@ -204,16 +204,16 @@
                     <div class="col-12">
                       <div class="costum-input input-product-size">
                         <p>Retailer Name</p>
-                        <select id="product-size" name="retailer_name" >
-                          <option value="">Please select retailer</option>
-                          @foreach($retailers as $retailer)
-                            @if(old('retailer_name') == $retailer->name)
-                            <option value="{{ $retailer->name }}" selected>{{ $retailer->name }}</option>
-                            @else
-                            <option value="{{ $retailer->name }}">{{ $retailer->name }}</option>
-                            @endif
-                          @endforeach
-                        </select>
+                          <select id="retailer" name="retailer_id" >
+                              <option value="">Please select retailer</option>
+                              @foreach($retailers as $retailer)
+                                  @if(old('retailer_id') == $retailer->id)
+                                      <option value="{{ $retailer->id }}" selected>{{ $retailer->name }}</option>
+                                  @else
+                                      <option value="{{ $retailer->id }}">{{ $retailer->name }}</option>
+                                  @endif
+                              @endforeach
+                          </select>
                       </div>
                     </div>
                   </div>
@@ -243,7 +243,7 @@
 
 
               <div class="final-step-btn">
-                <button class="costum-btn btn-confirm" type="submit">Complete Warranty Registration</button>
+                <button class="costum-btn btn-confirm" type="submit">Complete Registration</button>
               </div>
 
             </form>
@@ -289,8 +289,30 @@
     </section>
     @endsection
 
-    @section('script1')
-    <script>
+
+@section('scripts')
+    <script type="text/javascript">
+
         var baseUrl = "{{ URL::to('/')}}";
+        jQuery(function () {
+            $('#product-names').on('change', function () {
+                let productId = $('#product-names').val();
+                console.log(productId);
+
+                let option = '<option value="" hidden>Please select tyre size</option>';
+                $('#product-size').html(option);
+
+                $.ajax({
+                    url: `/product-sizes/${productId}`,
+                    success: function (data) {
+                        $.each(data, function(key, obj)
+                        {
+                            console.log(obj)
+                            $('#product-size').append('<option value=' + obj.id + '>' + obj.size + '</option>');
+                        });
+                    }
+                })
+            });
+        });
     </script>
-    @endsection
+@endsection

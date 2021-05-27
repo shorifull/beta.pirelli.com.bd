@@ -42,17 +42,18 @@ class HomeController extends Controller
     {
 
         $motoSliders = MotoSlider::with(['media'])->get();
+        $tyres = MotoTyre::with(['media'])->get();
 
-        return view('moto', compact('motoSliders'));
+        return view('moto', compact('motoSliders','tyres'));
 
     }
 
     public function carHome()
     {
-
+        $tyres = Tyre::with(['media'])->get();
         $carSliders = CarSlider::with(['media'])->get();
 
-        return view('car', compact('carSliders'));
+        return view('car', compact('carSliders','tyres'));
 
     }
 

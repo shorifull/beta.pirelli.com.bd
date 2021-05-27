@@ -33,12 +33,10 @@ class ProductSize extends Model
         return $this->belongsTo(Product::class, 'product_id');
     }
 
-    public static function getProductSizes($productName)
+    public static function getProductSizes($productId)
     {
-        $product = Product::where('name', $productName)->first();
-
-        $productSizes = self::select('size')
-            ->where('product_id', $product->id)
+        $product = Product::where('id', $productId)->first();
+        $productSizes = self::where('product_id', $product->id)
             ->orderBy('size')
             ->get();
 

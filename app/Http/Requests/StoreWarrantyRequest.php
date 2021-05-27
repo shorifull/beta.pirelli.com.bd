@@ -32,11 +32,11 @@ class StoreWarrantyRequest extends FormRequest
             'zip' => 'required|numeric',
             'date_purchased' => 'required',
             'invoice_number' => 'required',
-            'product_name' => 'required',
+            'product_id' => 'required',
             'product_size' => 'required',
             'product_dot' => 'required',
             'quantity_purchased' => 'required|numeric',
-            'retailer_name' => 'required|string',
+            'retailer_id' => 'required',
             'terms' => 'required',
             'invoice_attachment' => 'required'
         ];
@@ -62,7 +62,7 @@ class StoreWarrantyRequest extends FormRequest
             'product_size' => 'Product Size',
             'product_dot' => 'Product DOT',
             'quantity_purchased' => 'Quantity Purchased',
-            'retailer_name' => 'Retailer Name',
+            'retailer_id' => 'Retailer Name',
             'terms' => 'Terms & Conditions',
             'subscribed' => 'Subscribe To'
         ];

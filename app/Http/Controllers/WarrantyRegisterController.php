@@ -2,28 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\StoreWarrantyRequest;
 use App\Http\Services\CarApi;
 use App\Http\Services\MotoApi;
 use App\Http\Services\ZohoService;
+use App\Models\CarRegistration;
 use App\Models\City;
+use App\Models\MotoRegistration;
 use App\Models\Product;
 use App\Models\ProductSize;
 use App\Models\Retailer;
 use App\Models\VehicleType;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class WarrantyRegisterController extends Controller
 {
+    use MediaUploadingTrait;
     public function registerCar()
     {
         $vehicleType = VehicleType::where(['slug' => 'car'])->first();
         $cities = City::orderBy('name', 'asc')->get();
-        $products = $vehicleType->products;
-        $retailers = $vehicleType->retailers;
+        $products = Product::where('vehicle_type_id','1')->get();
+        $retailers = Retailer::where('vehicle_type_id','1')->get();
         return view('warranty-register.car', compact('products', 'retailers', 'cities'));
     }
 
@@ -36,9 +42,9 @@ class WarrantyRegisterController extends Controller
         return view('warranty-register.moto', compact('products', 'retailers', 'cities'));
     }
 
-    public function productSizes($productName)
+    public function productSizes($productId)
     {
-        $productSizes = ProductSize::getProductSizes(urldecode($productName));
+        $productSizes = ProductSize::getProductSizes(urldecode($productId));
 
         return $productSizes;
     }
@@ -66,29 +72,69 @@ class WarrantyRegisterController extends Controller
 
     public function addCarWarranty(StoreWarrantyRequest $request)
     {
+
+        $product_name = Product::select('name')
+            ->where('id',$request->product_id)
+            ->first();
+
+        $city = City::select('name')
+            ->where('id',$request->city)
+            ->first();
+
+        $retailer = Retailer::select('name')
+            ->where('id',$request->retailer_id)
+            ->first();
+
         $data = [
             'First_Name' => $request->first_name,
             'Last_Name' => $request->last_name,
             'Email' => $request->email,
             'Phone' => $request->phone,
-            'Mailing_City' => $request->city,
+            'Mailing_City' => $city->name,
             'Mailing_Street' => $request->address,
             'Mailing_Zip' => $request->zip,
             'Invoice_Number' => $request->invoice_number,
             'Purchase_Date' => $request->date_purchased,
-            'Product_Name' => $request->product_name,
+            'Product_Name' => $product_name->name,
             'DOT' => $request->product_dot,
             'Product_Size' => $request->product_size,
             'Retailer_Area1' => $request->quantity_purchased,
-            'Retailer_Name' => $request->retailer_name,
+            'Retailer_Name' => $retailer->name,
             'Email_Opt_Out' => $request->subscribed ? false : true,
         ];
         $file = $request->file('invoice_attachment');
+
+
+        // Save into database
+
+        $carRegistration = new CarRegistration();
+        $carRegistration->first_name = $request->first_name;
+        $carRegistration->last_name = $request->last_name;
+        $carRegistration->email = $request->email;
+        $carRegistration->phone = $request->phone;
+        $carRegistration->city_id = $request->city;
+        $carRegistration->address = $request->address;
+        $carRegistration->zip = $request->zip;
+        $carRegistration->date_purchased = Carbon::createFromFormat('Y-m-d', $request->date_purchased)->format('d-m-Y');
+        $carRegistration->product_name_id = $request->product_id;
+        $carRegistration->invoice_number = $request->invoice_number;
+        $carRegistration->product_size_id = $request->product_size;
+        $carRegistration->product_dot = $request->product_dot;
+        $carRegistration->product_quantity = $request->quantity_purchased;
+        $carRegistration->save();
+
+
+        if ($file) {
+
+            $carRegistration->addMedia($request->file('invoice_attachment'))->toMediaCollection('invoice_attachment');
+
+        }
 
         try {
             $api = app(CarApi::class, config('zoho.car'));
             $response = $api->insertContact($data);
             $response = json_decode($response);
+            dd($response);
             if($response->data[0]->status == 'error') {
                 return redirect(route('warranty-register-car-error'));
             }
@@ -106,21 +152,33 @@ class WarrantyRegisterController extends Controller
 
     public function addMotoWarranty(StoreWarrantyRequest $request)
     {
+
+        $product_name = Product::select('name')
+            ->where('id',$request->product_id)
+            ->first();
+
+        $city = City::select('name')
+            ->where('id',$request->city)
+            ->first();
+        $retailer = Retailer::select('name')
+            ->where('id',$request->retailer_id)
+            ->first();
+
         $data = [
             'First_Name' => $request->first_name,
             'Last_Name' => $request->last_name,
             'Email' => $request->email,
             'Phone' => $request->phone,
-            'Mailing_City' => $request->city,
+            'Mailing_City' => $city->name,
             'Mailing_Street' => $request->address,
             'Mailing_Zip' => $request->zip,
             'Invoice_Number' => $request->invoice_number,
             'Date_Purchased' => $request->date_purchased,
-            'Product_Name' => $request->product_name,
+            'Product_Name' => $product_name->name,
             'Product_DOT' => $request->product_dot,
             'Product_Size' => $request->product_size,
             'QTY_Purchased' => $request->quantity_purchased,
-            'Retailer_Name' => $request->retailer_name,
+            'Retailer_Name' => $retailer->name,
             'Email_Opt_Out' => $request->subscribed ? false : true,
         ];
         $file = $request->file('invoice_attachment');
@@ -132,10 +190,40 @@ class WarrantyRegisterController extends Controller
             $response = json_decode($response);
             if($response->data[0]->status == 'error') {
                 return redirect(route('warranty-register-moto-error'));
+
             }
+
+
 
             $id = $response->data[0]->details->id;
             $response = $api->uploadFile($id, $file);
+
+            // Save into database
+
+            $motoRegistration = new MotoRegistration();
+            $motoRegistration->first_name = $request->first_name;
+            $motoRegistration->last_name = $request->last_name;
+            $motoRegistration->email = $request->email;
+            $motoRegistration->phone = $request->phone;
+            $motoRegistration->city_id = $request->city;
+            $motoRegistration->address = $request->address;
+            $motoRegistration->zip = $request->zip;
+            $motoRegistration->date_purchased = Carbon::createFromFormat('Y-m-d', $request->date_purchased)->format('d-m-Y');
+            $motoRegistration->product_name_id = $request->product_id;
+            $motoRegistration->invoice_number = $request->invoice_number;
+            $motoRegistration->product_size_id = $request->product_size;
+            $motoRegistration->product_dot = $request->product_dot;
+            $motoRegistration->product_quantity = $request->quantity_purchased;
+            $motoRegistration->save();
+
+
+            if ($file) {
+
+                $motoRegistration->addMedia($request->file('invoice_attachment'))->toMediaCollection('invoice_attachment');
+
+            }
+
+
 
             if($response == 'success') {
                 return redirect(route('warranty-register-moto-success'));

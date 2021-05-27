@@ -83,22 +83,22 @@
     <section class="section home-category mb-3">
         <div class="container">
                 <div class="row">
-                    <div class="col-sm-4 offset-md-2">
+                    <div class="col-sm-6">
                         <div class="card card_car text-center mb-2">
                             <div class="title">
                                 <h2>CAR TYRES</h2>
                             </div>
 
-                            <a href="{{route('car-home')}}">Order Now</a>
+                            <a href="{{route('car-home')}}">Learn More</a>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <div class="card card_moto text-center">
                             <div class="title">
                                 <h2>MOTO TYRES</h2>
                             </div>
 
-                            <a href="{{route('moto-home')}}">Order Now</a>
+                            <a href="{{route('moto-home')}}">Learn More</a>
 
                         </div>
                     </div>
