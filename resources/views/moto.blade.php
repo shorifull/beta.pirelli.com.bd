@@ -234,7 +234,7 @@
                             @if (count($tyres) > 0)
                                 @foreach ($tyres as $tyre)
                             <div class="owl-item">
-                                <div class="latest_product_item is_new">
+                                <div class="card latest_product_item is_new">
                                     <div class="latest_product_image d-flex flex-column align-items-center justify-content-center">
                                         <img class="img-fluid" alt="" src="@if($tyre->thumbnail){{ $tyre->thumbnail->getUrl() }}@endif"></div>
                                     <div class="latest_product_content">
@@ -242,8 +242,8 @@
                                         <div class="latest_product_info clearfix">
                                             <div class="latest_product_name"><a href="#">{{ $tyre->title ?? '' }}</a></div>
                                             <div class="latest_product_price">{{ $tyre->size ?? '' }}</div>
-                                            <div><a href="#" class="btn btn-yellow">VIEW DETAILS</a></div>
                                         </div>
+                                        <div class="mt-2"><a href="#" class="btn btn-yellow">VIEW DETAILS</a></div>
                                     </div>
                                     <ul class="latest_product_marks">
                                         <li class="latest_product_mark latest_product_discount">-25%</li>
