@@ -243,7 +243,7 @@
 {{--                                                    <div class="latest_product_price">{{ $tyre->size ?? '' }}</div>--}}
 
                                                 </div>
-                                                <div class="mt-2"><a href="#" class="btn btn-yellow">VIEW DETAILS</a></div>
+                                                <div class="mt-2"><a href="{{ route('car-tyre', [$tyre->id]) }}" class="btn btn-yellow">VIEW DETAILS</a></div>
                                             </div>
                                             <ul class="latest_product_marks">
                                                 <li class="latest_product_mark latest_product_discount">-25%</li>

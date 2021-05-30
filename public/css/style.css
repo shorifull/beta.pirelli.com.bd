@@ -1071,6 +1071,307 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 
+
+/* ==========================================================================
+   Tyre Details Section
+   ========================================================================== */
+
+@import url(//fonts.googleapis.com/css?family=Montserrat:300,500);
+.tyre-details {
+    font-family: "Montserrat", sans-serif;
+    color: #8d97ad;
+    font-weight: 300;
+}
+
+.tyre-details h1, .tyre-details h2, .tyre-details h3, .tyre-details h4, .tyre-details h5, .tyre-details h6 {
+    color: #3e4555;
+}
+
+.tyre-details .bg-light {
+    background-color: #f4f8fa !important;
+}
+
+.tyre-details .text-muted {
+    color: #8d97ad !important;
+}
+
+.tyre-details .badge {
+    line-height: 14px;
+}
+
+.tyre-details .badge-info {
+    background: #f92349;
+}
+
+.tyre-details .op-8 {
+    opacity: 0.8;
+}
+
+.tyre-details .card.card-shadow {
+    -webkit-box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
+    box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
+}
+
+.tyre-details .btn-success-gradiant {
+    background: #ffdc03;
+    background: -webkit-linear-gradient(legacy-direction(to right), #ffdc03 0%, #ffc107 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#ffdc03), to(#ffc107));
+    background: -webkit-linear-gradient(left, #ffdc03 0%, #ffc107 100%);
+    background: -o-linear-gradient(left, #ffdc03 0%, #ffc107 100%);
+    background: linear-gradient(to right, #ffdc03 0%, #ffc107 100%);
+    border: 0px;
+    color: #ffffff;
+}
+
+.tyre-details .btn-md {
+    padding: 15px 45px;
+    font-size: 16px;
+}
+
+@media (max-width: 1023px) {
+    .tyre-details.wrap-service34-box .left-image {
+        position: relative;
+        top: -90px;
+    }
+}
+
+
+
+/* ==========================================================================
+   Tyre Features
+   ========================================================================== */
+
+
+
+.tyre-features {
+    /*background: url("../images/home/call-to-action.jpg");*/
+    /*background-size: cover;*/
+    /*background-repeat: no-repeat;*/
+    padding: 30px 10px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+.tyre-features ul {
+    list-style: none;
+}
+
+.tyre-features .table td, .tyre-features .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border: 1px solid #dee2e6;
+}
+.tyre-features h1, .tyre-features h2, .tyre-features h3, .tyre-features h4, .tyre-features h5, .tyre-features h6 {
+    color: #3e4555;
+}
+
+.tyre-features .font-weight-medium {
+    font-weight: 500;
+}
+
+.tyre-features .op-7 {
+    opacity: 0.7;
+}
+
+.tyre-features .wrap-service-16 .spacing {
+    padding: 80px 35px;
+}
+
+.tyre-features .wrap-service-16 .with-bg {
+    width: 100%;
+    min-height: 200px;
+    background-size: cover;
+    background-position: center center;
+}
+
+.tyre-features .wrap-service-16 .with-text {
+    max-width: 500px;
+    margin-left: 80px;
+}
+
+.tyre-features .list-style-none {
+    list-style: none;
+}
+
+.tyre-features .bg-info-gradiant {
+    background: #188ef4;
+    background: -webkit-linear-gradient(legacy-direction(to right), #188ef4 0%, #316ce8 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#188ef4), to(#316ce8));
+    background: -webkit-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: -o-linear-gradient(left, #188ef4 0%, #316ce8 100%);
+    background: linear-gradient(to right, #188ef4 0%, #316ce8 100%);
+}
+
+.tyre-features .btn-md {
+    padding: 15px 45px;
+    font-size: 16px;
+}
+
+@media (max-width: 767px) {
+    .tyre-features .wrap-service-16 .with-text {
+        margin-left: 0px;
+    }
+}
+
+/* ==========================================================================
+  Bottom Call to Action
+   ========================================================================== */
+
+@import url(//fonts.googleapis.com/css?family=Montserrat:300,400,500);
+.bottom-cta {
+    font-family: "Montserrat", sans-serif;
+    background:#eee;
+    color: #8d97ad;
+    font-weight: 300;
+    background-position: center top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bottom-cta h1, .bottom-cta h2, .bottom-cta h3, .bottom-cta h4, .bottom-cta h5, .bottom-cta h6 {
+    color: #3e4555;
+}
+
+.bottom-cta .op-8 {
+    opacity: 0.8;
+}
+
+.bottom-cta .font-weight-medium {
+    font-weight: 500;
+}
+
+.bottom-cta .btn-danger-gradiant {
+    background: #ffdc03;
+    background: -webkit-linear-gradient(legacy-direction(to right), #ffdc03 0%, #ffc107 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#ffdc03), to(#ffc107));
+    background: -webkit-linear-gradient(left, #ffdc03 0%, #ffc107 100%);
+    background: -o-linear-gradient(left, #ffdc03 0%, #ffc107 100%);
+    background: linear-gradient(to right, #ffdc03 0%, #ffc107 100%);
+}
+
+.bottom-cta .btn-danger-gradiant:hover {
+    background: #ffdc03;
+    background: -webkit-linear-gradient(legacy-direction(to right), #ffdc03 0%, #ffc107 100%);
+    background: -webkit-gradient(linear, left top, right top, from(#ffdc03), to(#ffc107));
+    background: -webkit-linear-gradient(left, #ffdc03 0%, #ffc107 100%);
+    background: -o-linear-gradient(left, #ffdc03 0%, #ffc107 100%);
+    background: linear-gradient(to right, #ffdc03 0%, #ffc107 100%);
+}
+
+.bottom-cta .btn-md {
+    padding: 15px 45px;
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   Video Banner section
+   ========================================================================== */
+#video-banner {
+    /*background: url(../img/bg/testimonial-bg.jpg) no-repeat center center;*/
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; }
+#video-banner .right-position {
+    position: relative; }
+#video-banner .video-banner-area {
+    position: absolute;
+    width: 100%;
+    z-index: 12;
+    top: 260px;
+    margin: 0px auto; }
+
+#video-banner .video-promo-content {
+    padding-top:200px;
+    padding-bottom: 200px; }
+#video-banner .video-play-button {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-sizing: content-box;
+    display: block;
+    width: 32px;
+    height: 44px;
+    /* background: #fa183d; */
+    border-radius: 50%;
+    padding: 18px 20px 18px 28px; }
+#video-banner .video-play-button:before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    animation: pulse-border 1500ms ease-out infinite; }
+#video-banner .video-play-button:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50%;
+    transition: all 200ms;
+    opacity: 0.5; }
+#video-banner .video-play-button:hover:after {
+    background-color: #f82249; }
+#video-banner .video-play-button:hover span {
+    border-left: 22px solid #fff;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-radius: 2px; }
+#video-banner .video-play-button span {
+    display: block;
+    position: relative;
+    z-index: 3;
+    width: 0;
+    height: 0;
+    border-left: 22px solid #ffdc03;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    border-radius: 2px;
+    margin-top: 8px;
+    margin-left: 5px; }
+
+@keyframes pulse-border {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1; }
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0; } }
+
+
+/*--------------------------------------------------------------
+# Tyre Bottom Section
+--------------------------------------------------------------*/
+.tyre-bottom-section {
+    padding:20px 0px;
+    background:#eee;
+}
+
+.tyre-bottom-section a {
+    font-weight: bold;
+    color:#0e1b4d;
+    font-size: 20px;
+}
+
+.tyre-bottom-section a:hover {
+   border-bottom:1px solid #fff;
+}
 /*--------------------------------------------------------------
 # Schedule Section
 --------------------------------------------------------------*/
@@ -1915,7 +2216,6 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------------------------------------*/
 
 .breadcrumb-container {
-    padding: 15px 0;
     width: 100%;
 }
 

@@ -23,6 +23,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/slider.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/nivo-lightbox.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -49,10 +52,13 @@
   <script src="{{ asset('js/contactform.js') }}"></script>
 
 
-  @yield('scripts')
-  @yield('script1')
+
   <!-- Template Main Javascript File -->
   <script src="{{ asset('js/app.js') }}"></script>
+  <script src="{{ asset('js/nivo-lightbox.js') }}"></script>
+  <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+  @yield('scripts')
+  @yield('script1')
   @yield('script2')
 </body>
 

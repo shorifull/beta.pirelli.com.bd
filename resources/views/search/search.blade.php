@@ -1,18 +1,15 @@
 @extends('layouts.main')
 
 @section('content')
-
-
     <div class="section" class="section">
-        <div class="container">
+        <div class="row">
             <div class="breadcrumb-container">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Search</li>
+                        <li class="breadcrumb-item"><a href="{{route('car-home')}}">Car</a></li>
                     </ol>
                 </nav>
-                <h3>{{ $tyres->count() }} Tyres Found</h3>
             </div>
         </div>
     </div>
@@ -34,7 +31,7 @@
 
                                         <h5 class="card-title font-weight-bold">{{ $tyre->title ?? '' }}</h5>
                                         <p class="card-text"> {!! $tyre->short_description !!}</p>
-                                        <a href="#" class="btn btn-yellow">VIEW DETAILS</a>
+                                        <a href="{{ route('car-tyre', [$tyre->id]) }}" class="btn btn-yellow">VIEW DETAILS</a>
                                     </div>
                                 </div>
                             </div>

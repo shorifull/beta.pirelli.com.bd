@@ -153,7 +153,7 @@
                         </div>
                         <div class="form-group {{ $errors->has('video') ? 'has-error' : '' }}">
                             <label for="video">{{ trans('cruds.tyre.fields.video') }}</label>
-                            <textarea class="form-control ckeditor" name="video" id="video">{!! old('video') !!}</textarea>
+                            <textarea class="form-control" name="video" id="video">{!! old('video') !!}</textarea>
                             @if($errors->has('video'))
                                 <span class="help-block" role="alert">{{ $errors->first('video') }}</span>
                             @endif

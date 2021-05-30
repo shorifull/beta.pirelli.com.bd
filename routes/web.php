@@ -15,14 +15,16 @@ Route::get('/get_moto_models_by_brand', 'HomeController@getMotoModelsByBrand')->
 
 
 
-Route::get('categories/{category}', 'HomePageController@category')->name('category');
+
 
 
 Route::get('/','HomeController@index')->name('home');
 Route::get('/moto','HomeController@motoHome')->name('moto-home');
 Route::get('/car','HomeController@carHome')->name('car-home');
-Route::get('moto-tyres/{tyre}', 'HomePageController@motoTyre')->name('moto-tyre');
 
+
+Route::get('tyre/moto/{tyre}', 'HomeController@showMotoTyre')->name('moto-tyre');
+Route::get('tyre/car/{tyre}', 'HomeController@showCarTyre')->name('car-tyre');
 
 
 //Warranty Registration
@@ -59,6 +61,8 @@ Route::get('/home', function () {
 
     return redirect()->route('admin.home');
 });
+
+
 
 Auth::routes(['register' => false]);
 

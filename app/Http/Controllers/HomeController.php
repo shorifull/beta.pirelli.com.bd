@@ -20,10 +20,7 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+
 
     /**
      * Show the application dashboard.
@@ -130,18 +127,30 @@ class HomeController extends Controller
 
 
 
-
-    public function category(Category $category)
-    {
-        $companies = Company::join('category_company', 'companies.id', '=', 'category_company.company_id')
-            ->where('category_id', $category->id)
-            ->paginate(9);
-
-        return view('search.category', compact('companies', 'category'));
-    }
-
     public function motoTyre(MotoTyre $motoTyre)
     {
         return view('search.company', compact ('motoTyre'));
     }
+
+
+
+    public function showMotoTyre(MotoTyre $tyre)
+    {
+
+        $tyre = MotoTyre::where('id', $tyre->id)
+            ->with(['categories', 'moto_width', 'moto_ratio', 'moto_size', 'media'])->first();
+
+        return view('search.moto-tyre', compact('tyre'));
+    }
+
+    public function showCarTyre(Tyre $tyre)
+    {
+
+        $tyre = Tyre::where('id', $tyre->id)
+            ->with(['model_combinations', 'width', 'ratio', 'size', 'media'])->first();
+
+        return view('search.car-tyre', compact('tyre'));
+    }
+
+
 }

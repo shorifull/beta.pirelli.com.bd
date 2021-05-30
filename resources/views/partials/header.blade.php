@@ -11,7 +11,7 @@
 
     <nav id="nav-menu-container">
       <ul class="nav-menu">
-        <li @if(Route::current()->getName() == 'home') class="menu-active" @endif><a href="{{ Route::current()->getName() != 'home' ? route('home') : '' }}#intro">Home</a></li>
+        <li @if(Route::current()->getName() == 'home') class="menu-active" @endif><a href="{{ Route::current()->getName() != 'home' ? route('home') : '' }}">Home</a></li>
         <li @if(Route::current()->getName() == 'moto-home') class="menu-active" @endif><a href="{{ route('moto-home')}}">Moto Tyres </a></li>
         <li @if(Route::current()->getName() == 'car-home') class="menu-active" @endif><a href="{{ route('car-home')}}">Car Tyres</a></li>
         <li @if(Route::current()->getName() == 'warranty-register-car') class="menu-active" @endif><a href="{{ route('warranty-register-car')}}">Car Warranty</a></li>
