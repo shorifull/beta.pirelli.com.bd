@@ -48,12 +48,25 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="content">
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                            <span class="input-group-btn">
+
+                        <form action="{{ url('newsletter') }}" method="post">
+                            <div class="input-group">
+                                <input type="email" name="user_email" id="email" class="form-control"
+                                       placeholder="Enter your email" required>
+
+                                {{ csrf_field() }}
+                                <span class="input-group-btn">
          <button class="btn" type="submit">Subscribe Now</button>
          </span>
-                        </div>
+                            </div>
+                        </form>
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
+
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -82,28 +95,28 @@
 ================================-->
     <section class="section home-category mb-3">
         <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="card card_car text-center mb-2">
-                            <div class="title">
-                                <h2>CAR TYRES</h2>
-                            </div>
-
-                            <a href="{{route('car-home')}}">Learn More</a>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card card_car text-center mb-2">
+                        <div class="title">
+                            <h2>CAR TYRES</h2>
                         </div>
+
+                        <a href="{{route('car-home')}}">Learn More</a>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="card card_moto text-center">
-                            <div class="title">
-                                <h2>MOTO TYRES</h2>
-                            </div>
-
-                            <a href="{{route('moto-home')}}">Learn More</a>
-
+                </div>
+                <div class="col-sm-6">
+                    <div class="card card_moto text-center">
+                        <div class="title">
+                            <h2>MOTO TYRES</h2>
                         </div>
+
+                        <a href="{{route('moto-home')}}">Learn More</a>
+
                     </div>
                 </div>
             </div>
+        </div>
     </section>
 
     <!--===============================
@@ -126,11 +139,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 style="text-align: center;"class="text-center">SOCIAL <strong>WALL</strong></h2>
+                    <h2 style="text-align: center;" class="text-center">SOCIAL <strong>WALL</strong></h2>
                 </div>
 
             </div>
-            <!-- LightWidget WIDGET --><script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script><iframe src="//lightwidget.com/widgets/2465456b2c6f52afa5280be0806aaeff.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
+            <!-- LightWidget WIDGET -->
+            <script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+            <iframe src="//lightwidget.com/widgets/2465456b2c6f52afa5280be0806aaeff.html" scrolling="no"
+                    allowtransparency="true" class="lightwidget-widget"
+                    style="width:100%;border:0;overflow:hidden;"></iframe>
         </div>
     </section>
 

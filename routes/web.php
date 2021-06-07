@@ -4,6 +4,9 @@
 //Search Routes
 
 Route::get('search', 'HomeController@table')->name('search');
+Route::post('newsletter', 'HomeController@newsletter')->name('newsletter');
+
+
 
 Route::get('car-search-by-size', 'HomeController@carSearchBySize')->name('car-search-by-size');
 
@@ -38,6 +41,8 @@ Route::get('/warranty-registration/moto/error', 'WarrantyRegisterController@regi
 Route::post('/add-car-warranty','WarrantyRegisterController@addCarWarranty')->name('add-car-warranty');
 Route::post('/add-moto-warranty','WarrantyRegisterController@addMotoWarranty')->name('add-moto-warranty');
 
+Route::get('/warranty-claim/moto','WarrantyRegisterController@motoWarrantyClaim')->name('warranty-claim-moto');
+Route::get('/moto-invoice/{invoiceNo}','WarrantyRegisterController@motoInvoiceDetails')->name('get-moto-invoice');
 
 
 Route::get('/product-sizes/{productId}','WarrantyRegisterController@productSizes')->name('get-product-sizes');

@@ -11,10 +11,13 @@ use App\Models\MotoSlider;
 use App\Models\MotoTyre;
 use App\Models\Tyre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Newsletter;
 
 class HomeController extends Controller
 {
     use MediaUploadingTrait;
+
     /**
      * Create a new controller instance.
      *
@@ -27,6 +30,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+
+    public function newsletter(Request $request)
+    {
+        if ( ! Newsletter::isSubscribed($request->user_email) ) {
+            Newsletter::subscribe($request->user_email);
+        }
+
+        return Redirect::back()->with('status', 'You have successfully subscribed our newsletter!');
+    }
+
+
+
     public function index()
     {
 

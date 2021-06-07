@@ -285,12 +285,25 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="content">
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Enter your email">
-                            <span class="input-group-btn">
+
+                        <form action="{{ url('newsletter') }}" method="post">
+                            <div class="input-group">
+                                <input type="email" name="user_email" id="email" class="form-control"
+                                       placeholder="Enter your email" required>
+
+                                {{ csrf_field() }}
+                                <span class="input-group-btn">
          <button class="btn" type="submit">Subscribe Now</button>
          </span>
-                        </div>
+                            </div>
+                        </form>
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+
+
                     </div>
                 </div>
                 <div class="col-sm-6">

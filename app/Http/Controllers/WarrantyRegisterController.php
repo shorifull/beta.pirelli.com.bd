@@ -42,11 +42,33 @@ class WarrantyRegisterController extends Controller
         return view('warranty-register.moto', compact('products', 'retailers', 'cities'));
     }
 
+
+
+    public function motoWarrantyClaim()
+    {
+        $vehicleType = VehicleType::where(['slug' => 'moto'])->first();
+        $cities = City::orderBy('name', 'asc')->get();
+        $products = Product::where('vehicle_type_id','2')->get();
+        $retailers = Retailer::where('vehicle_type_id','2')->get();
+        return view('warranty-register.moto-warranty-claim', compact('products', 'retailers', 'cities'));
+    }
+
+
+
+
     public function productSizes($productId)
     {
         $productSizes = ProductSize::getProductSizes(urldecode($productId));
 
         return $productSizes;
+    }
+
+
+    public function motoInvoiceDetails($invoiceNo)
+    {
+        $invoice = MotoRegistration::where('invoice_number', $invoiceNo)->with('product_name','product_size','retailer')->first();
+
+        return $invoice;
     }
 
 
