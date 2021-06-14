@@ -40,6 +40,7 @@ Route::get('/warranty-registration/car/error', 'WarrantyRegisterController@regis
 Route::get('/warranty-registration/moto/error', 'WarrantyRegisterController@registrationMotoError')->name('warranty-register-moto-error');
 Route::post('/add-car-warranty','WarrantyRegisterController@addCarWarranty')->name('add-car-warranty');
 Route::post('/add-moto-warranty','WarrantyRegisterController@addMotoWarranty')->name('add-moto-warranty');
+Route::post('/claim-moto-warranty','WarrantyRegisterController@claimMotoWarranty')->name('claim-moto-warranty');
 
 Route::get('/warranty-claim/moto','WarrantyRegisterController@motoWarrantyClaim')->name('warranty-claim-moto');
 Route::get('/moto-invoice/{invoiceNo}','WarrantyRegisterController@motoInvoiceDetails')->name('get-moto-invoice');

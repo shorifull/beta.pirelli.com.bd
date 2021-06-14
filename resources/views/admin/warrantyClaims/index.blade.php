@@ -86,6 +86,19 @@
                                             {{ $warrantyClaim->retailer->name ?? '' }}
                                         </td>
                                         <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <i class="ti-settings"></i>
+                                                </button>
+                                                <div class="dropdown-menu animated slideInUp" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 35px, 0px);">
+                                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-eye"></i> Open</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-pencil-alt"></i> Edit</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-trash"></i> Delete</a>
+                                                    <a class="dropdown-item" href="javascript:void(0)"><i class="ti-comment-alt"></i> Comments</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
                                             @can('warranty_claim_show')
                                                 <a class="btn btn-xs btn-primary" href="{{ route('admin.warranty-claims.show', $warrantyClaim->id) }}">
                                                     {{ trans('global.view') }}
@@ -167,7 +180,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Traits\MediaUploadingTrait;
+use App\Http\Requests\StoreWarrantyClaimRequest;
 use App\Http\Requests\StoreWarrantyRequest;
 use App\Http\Services\CarApi;
 use App\Http\Services\MotoApi;
@@ -14,11 +15,13 @@ use App\Models\Product;
 use App\Models\ProductSize;
 use App\Models\Retailer;
 use App\Models\VehicleType;
+use App\Models\WarrantyClaim;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Redirect;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class WarrantyRegisterController extends Controller
@@ -43,15 +46,6 @@ class WarrantyRegisterController extends Controller
     }
 
 
-
-    public function motoWarrantyClaim()
-    {
-        $vehicleType = VehicleType::where(['slug' => 'moto'])->first();
-        $cities = City::orderBy('name', 'asc')->get();
-        $products = Product::where('vehicle_type_id','2')->get();
-        $retailers = Retailer::where('vehicle_type_id','2')->get();
-        return view('warranty-register.moto-warranty-claim', compact('products', 'retailers', 'cities'));
-    }
 
 
 
@@ -254,6 +248,53 @@ class WarrantyRegisterController extends Controller
             return redirect(route('warranty-register-moto-error'))->withError($e->getMessage());
         }
     }
+
+
+
+
+
+    public function motoWarrantyClaim()
+    {
+        $vehicleType = VehicleType::where(['slug' => 'moto'])->first();
+        $cities = City::orderBy('name', 'asc')->get();
+        $products = Product::where('vehicle_type_id','2')->get();
+        $retailers = Retailer::where('vehicle_type_id','2')->get();
+        return view('warranty-register.moto-warranty-claim', compact('products', 'retailers', 'cities'));
+    }
+
+
+
+
+    public function claimMotoWarranty(StoreWarrantyClaimRequest $request)
+    {
+
+
+        try {
+
+            $warrantyClaim = new WarrantyClaim();
+            $warrantyClaim->invoice_number = $request->invoice_number;
+            $warrantyClaim->product_name_id = $request->product_name_id;
+            $warrantyClaim->product_size_id = $request->product_size_id;
+            $warrantyClaim->save();
+
+
+            if($request->file('photos')) {
+                foreach ($request->file('photos') as $photo) {
+                    $warrantyClaim->addMedia($photo)->toMediaCollection('photos');
+                }
+            }
+
+            return Redirect::back()->with('status', 'You have successfully claimed your warranty!');
+        } catch(Exception $e) {
+        return redirect(route('warranty-register-moto-error'))->withError($e->getMessage());
+    }
+
+
+
+    }
+
+
+
 
     protected function testFileUpload(Request $request)
     {

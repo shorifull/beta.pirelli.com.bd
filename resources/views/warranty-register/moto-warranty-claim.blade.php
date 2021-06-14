@@ -18,10 +18,15 @@
         <div class="row">
 
           <div class="col-xl-7 col-lg-7 col-12">
-            <form method="post" action="{{ route('add-moto-warranty') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('claim-moto-warranty') }}" enctype="multipart/form-data">
                 @csrf
               <div class="input-fields-header-wrapper">
                 <div class="input-fields__inner">
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                   <h2>Warranty Claim Application Form</h2>
                   <p>Please fill out the form to claim Pirelli warranty</p>
                 </div>
@@ -36,6 +41,8 @@
                         </ul>
                     </div>
                 @endif
+
+
               </div>
               <!-- first input groups -->
               <div class="input-fields-header">
@@ -50,12 +57,21 @@
                                 <input type="text" placeholder="Invoice Number" type="text" id="invoice-number" name="invoice_number" value="{{ old('invoice_number') }}" />
                             </div>
                         </div>
+                        <div class="col-xl-6 col-lg-6 col-12 ">
+                            <div class="choose-file_btn">
+                                <p>Upload Photos</p>
+                                <div class="invoice-upload d-flex align-items-center">
+                                    <button class="btn btn-file costum-style"><input type="file" id="uploadPhoto" name="photos[]" accept="image/*" multiple></button>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                   <div class="row">
                       <div class="col-xl-6 col-lg-6 col-12">
                           <div class="costum-input input-product-tyre">
                               <p>Product Name</p>
-                              <select id="product-names" name="product_id">
+                              <select id="product-names" name="product_name_id">
                                   <option value="">Please select tyre name</option>
                                   @foreach ($products as $product)
                                       @if (old('product_id') == $product->id)
@@ -71,7 +87,7 @@
                       <div class="col-xl-6 col-lg-6 col-12">
                           <div class="costum-input input-product-size">
                               <p>Product Size</p>
-                              <select id="product-size" name="product_size">
+                              <select id="product-size" name="product_size_id">
                                   <option value="">Please select tyre size</option>
                               </select>
                           </div>
