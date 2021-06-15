@@ -28,6 +28,9 @@
                                         {{ trans('cruds.motoRegistration.fields.id') }}
                                     </th>
                                     <th>
+                                        {{ trans('cruds.motoRegistration.fields.status') }}
+                                    </th>
+                                    <th>
                                         {{ trans('cruds.motoRegistration.fields.first_name') }}
                                     </th>
                                     <th>
@@ -88,6 +91,13 @@
                                         </td>
                                         <td>
                                             {{ $motoRegistration->id ?? '' }}
+                                        </td>
+                                        <td>
+                                            @if($motoRegistration->is_approved)
+                                                <button type="button" class="btn btn-xs btn-success">Approved</button>
+                                            @else
+                                                <button type="button" class="btn btn-xs btn-warning">Pending</button>
+                                            @endif
                                         </td>
                                         <td>
                                             {{ $motoRegistration->first_name ?? '' }}
@@ -165,6 +175,7 @@
                                                     <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
                                                 </form>
                                             @endcan
+                                            
 
                                         </td>
 
@@ -227,7 +238,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

@@ -602,6 +602,7 @@ return [
         'fields'         => [
             'id'                        => 'ID',
             'id_helper'                 => ' ',
+            'status'                    => 'Status',
             'first_name'                => 'First Name',
             'first_name_helper'         => 'Please enter the first name',
             'last_name'                 => 'Last Name',

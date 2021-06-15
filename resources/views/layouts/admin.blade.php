@@ -246,3 +246,4 @@
 </body>
 
 </html>
+php artisan make:mail WarrantyClaim --markdown=Email.warrantyClaim

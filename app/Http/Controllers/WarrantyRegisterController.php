@@ -21,7 +21,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class WarrantyRegisterController extends Controller
@@ -137,7 +139,13 @@ class WarrantyRegisterController extends Controller
         $carRegistration->product_size_id = $request->product_size;
         $carRegistration->product_dot = $request->product_dot;
         $carRegistration->product_quantity = $request->quantity_purchased;
+
+        $carRegistration->warranty_number = Str::random(10);
         $carRegistration->save();
+
+        Mail::to('ratan.mia@kawasaki.com.bd')->send(new \App\Mail\WarrantyRegistrationNumber($carRegistration));
+
+
 
 
         if ($file) {
@@ -230,7 +238,13 @@ class WarrantyRegisterController extends Controller
             $motoRegistration->product_size_id = $request->product_size;
             $motoRegistration->product_dot = $request->product_dot;
             $motoRegistration->product_quantity = $request->quantity_purchased;
+
+
+
+            $motoRegistration->warranty_number = Str::random(10);
             $motoRegistration->save();
+
+            Mail::to('ratan.mia@kawasaki.com.bd')->send(new \App\Mail\WarrantyRegistrationNumber($motoRegistration));
 
 
             if ($file) {
@@ -275,7 +289,12 @@ class WarrantyRegisterController extends Controller
             $warrantyClaim->invoice_number = $request->invoice_number;
             $warrantyClaim->product_name_id = $request->product_name_id;
             $warrantyClaim->product_size_id = $request->product_size_id;
+            $warrantyClaim->warranty_number = Str::random(10);
+
+
             $warrantyClaim->save();
+
+
 
 
             if($request->file('photos')) {
