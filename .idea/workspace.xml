@@ -20,39 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a900cecd-ad4e-43a9-8cce-41c80e918891" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/WarrantyClaimController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/WarrantyRegistrationNumber.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Email/warranty-registration.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/34/conversions/large-preview.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/34/conversions/large-thumb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/34/large.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/35/conversions/large-preview.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/35/conversions/large-thumb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/35/large.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/36/conversions/large-preview.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/36/conversions/large-thumb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/36/large.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/37/conversions/large-preview.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/37/conversions/large-thumb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/37/large.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/38/conversions/large-preview.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/38/conversions/large-thumb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/38/large.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/39/conversions/large-preview.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/39/conversions/large-thumb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/39/large.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/40/conversions/key-preview.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/40/conversions/key-thumb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/40/key.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/41/Warranty-Card.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/42/Warranty-Card.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/app/public/43/Warranty-Card.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database-backup/beta.pirelli.com.bd_2021-06-16.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database-backup/beta.pirelli.com.bd_2021-06-16.sql.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/WarrantyRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/WarrantyRegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/cruds.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/cruds.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/global.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/global.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/motoRegistrations/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/motoRegistrations/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -275,7 +246,7 @@
       <workItem from="1623061663670" duration="2705000" />
       <workItem from="1623213423684" duration="5011000" />
       <workItem from="1623502027982" duration="4661000" />
-      <workItem from="1623667215100" duration="6377000" />
+      <workItem from="1623667215100" duration="6403000" />
     </task>
     <servers />
   </component>
