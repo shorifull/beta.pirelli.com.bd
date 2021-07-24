@@ -134,7 +134,7 @@ class WarrantyRegisterController extends Controller
             $api = app(CarApi::class, config('zoho.car'));
             $response = $api->insertContact($data);
             $response = json_decode($response);
-            dd($response);
+         
             if($response->data[0]->status == 'error') {
                 return redirect(route('warranty-register-car-error'));
             }

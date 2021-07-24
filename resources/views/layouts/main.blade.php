@@ -16,15 +16,20 @@
   <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
   <link href="{{ asset('lib/venobox/venobox.css') }}" rel="stylesheet">
   <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('lib/icomoon/style.css') }}" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+  
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/slider.css') }}" rel="stylesheet">
     <link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet">
     <link href="{{ asset('css/nivo-lightbox.css') }}" rel="stylesheet">
+   
+  
 
 </head>
 
@@ -39,6 +44,9 @@
 
   <!-- JavaScript Libraries -->
   <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/moment.js') }}"></script>
+
   <script src="{{ asset('lib/jquery/jquery-migrate.min.js') }}"></script>
   <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
@@ -50,11 +58,17 @@
 
   <!-- Contact Form JavaScript File -->
   <script src="{{ asset('js/contactform.js') }}"></script>
+  
+ 
 
 
 
   <!-- Template Main Javascript File -->
   <script src="{{ asset('js/app.js') }}"></script>
+  <script src="{{ asset('js/jquery.sticky.js') }}"></script>
+  
+  
+  <script src="{{ asset('js/menu.js') }}"></script>
   <script src="{{ asset('js/nivo-lightbox.js') }}"></script>
   <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
   @yield('scripts')

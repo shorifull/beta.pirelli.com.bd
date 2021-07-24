@@ -108,7 +108,15 @@
             </div>
         </div>
     </section>
-{{--    <section id="specifications">Specifications</section>--}}
+<section id="specifications">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    {!! $tyre->specifications !!}
+                </div>
+            </div>
+        </div>
+</section>
 
 
     <section id="warranty" class="py-5 bottom-cta">

@@ -19,7 +19,7 @@
                 @if (count($tyres) > 0)
                     @foreach ($tyres as $tyre)
 
-                        <div class="card col-md-5 col-10 mt-3">
+                        <div class="card col-md-5 offset-md-1 col-10 mt-5">
                             <div class="row">
                                 <div class="col-md-6">
                                     @if($tyre->thumbnail)

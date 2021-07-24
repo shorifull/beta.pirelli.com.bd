@@ -52,4 +52,7 @@ $(document).ready(function () {
       $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
     }, 350);
   })
+  
 })
+
+

@@ -4,6 +4,9 @@
 //Search Routes
 
 Route::get('search', 'HomeController@table')->name('search');
+Route::post('newsletter', 'HomeController@newsletter')->name('newsletter');
+
+
 
 Route::get('car-search-by-size', 'HomeController@carSearchBySize')->name('car-search-by-size');
 
