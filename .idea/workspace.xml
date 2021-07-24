@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a900cecd-ad4e-43a9-8cce-41c80e918891" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/config/newsletter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/beta.pirelli.com.bd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/beta.pirelli.com.bd.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
@@ -31,6 +32,12 @@
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/moto.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/moto.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/database-backup/beta.pirelli.com.bd_2021-06-16.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database-backup/beta.pirelli.com.bd_2021-06-16.sql.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/motoRegistrations/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/motoRegistrations/index.blade.php" afterDir="false" />
+>>>>>>> 042189e5ce2a490c4e5e0d29b014746d5ae48431
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +47,13 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -189,7 +203,12 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/database-backup" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/warranty-register" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+>>>>>>> 042189e5ce2a490c4e5e0d29b014746d5ae48431
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -200,16 +219,20 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/css" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
       <recent name="C:\MAMP\htdocs\beta.pirelli.com.bd\resources\views" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+<<<<<<< HEAD
+=======
+      <recent name="$PROJECT_DIR$/resources/views/warranty-register" />
+>>>>>>> 042189e5ce2a490c4e5e0d29b014746d5ae48431
       <recent name="$PROJECT_DIR$/database-backup" />
       <recent name="$PROJECT_DIR$/resources/views/search" />
       <recent name="$PROJECT_DIR$/public/img" />
       <recent name="$PROJECT_DIR$/public/css" />
-      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
   <component name="RunManager">
@@ -238,7 +261,17 @@
       <workItem from="1620308584864" duration="24221000" />
       <workItem from="1621509511066" duration="47324000" />
       <workItem from="1621927737012" duration="22272000" />
+<<<<<<< HEAD
       <workItem from="1622098184654" duration="30369000" />
+=======
+      <workItem from="1622098184654" duration="31976000" />
+      <workItem from="1622708884659" duration="804000" />
+      <workItem from="1623042827088" duration="5153000" />
+      <workItem from="1623061663670" duration="2705000" />
+      <workItem from="1623213423684" duration="5011000" />
+      <workItem from="1623502027982" duration="4661000" />
+      <workItem from="1623667215100" duration="6403000" />
+>>>>>>> 042189e5ce2a490c4e5e0d29b014746d5ae48431
     </task>
     <servers />
   </component>
@@ -265,10 +298,14 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1622372377785" />
-    <state x="518" y="238" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1622037886414">
+    <state x="469" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1623731586610">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="518" y="238" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1622037886414" />
+    <state x="469" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1440.900@0.0.1440.900" timestamp="1623731586610" />
+    <state x="518" y="238" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1623216888763">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="518" y="238" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1440.900@0.0.1440.900" timestamp="1623216888763" />
     <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619812021307" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1619788589401">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -286,10 +323,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="420" y="181" width="599" height="538" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1622363234964" />
-    <state x="385" y="126" width="670" height="676" key="search.everywhere.popup" timestamp="1622352406994">
+    <state x="385" y="126" width="670" height="676" key="search.everywhere.popup" timestamp="1623217527993">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="385" y="126" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1622352406994" />
+    <state x="385" y="126" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1623217527993" />
     <state x="385" y="139" width="670" height="613" key="search.everywhere.popup/0.25.1440.816@0.25.1440.816" timestamp="1620210611235" />
   </component>
   <component name="XDebuggerManager">
