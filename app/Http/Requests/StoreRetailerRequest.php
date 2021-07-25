@@ -34,6 +34,13 @@ class StoreRetailerRequest extends FormRequest
                 'required',
                 'unique:retailers',
             ],
+            'categories.*' => [
+                'integer',
+            ],
+            'categories'   => [
+                'array',
+            ],
+
             'city_id' => [
                 'required',
                 'integer',

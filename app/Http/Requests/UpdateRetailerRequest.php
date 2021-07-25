@@ -34,6 +34,12 @@ class UpdateRetailerRequest extends FormRequest
                 'required',
                 'unique:retailers,name,' . request()->route('retailer')->id,
             ],
+            'categories.*' => [
+                'integer',
+            ],
+            'categories'   => [
+                'array',
+            ],
             'city_id' => [
                 'required',
                 'integer',

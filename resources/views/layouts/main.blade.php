@@ -8,8 +8,13 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Lato:400,700' type='text/css' />
   <!-- Bootstrap CSS File -->
-  <link href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet"><link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
+  <link href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.11.2/css/all.css?wpfas=true' type='text/css' />
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.11.2/css/v4-shims.css?wpfas=true' type='text/css' />
 
   <!-- Libraries CSS Files -->
   <link href="{{ asset('lib/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
@@ -21,21 +26,20 @@
   <!-- Main Stylesheet File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-  
+
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <link href="{{ asset('css/slider.css') }}" rel="stylesheet">
     <link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet">
     <link href="{{ asset('css/nivo-lightbox.css') }}" rel="stylesheet">
-   
-  
+
+
 
 </head>
 
-<body>
+<body >
   @include('partials.header')
-
   @yield('content')
 
   @include('partials.footer')
@@ -58,16 +62,16 @@
 
   <!-- Contact Form JavaScript File -->
   <script src="{{ asset('js/contactform.js') }}"></script>
-  
- 
+
+
 
 
 
   <!-- Template Main Javascript File -->
   <script src="{{ asset('js/app.js') }}"></script>
   <script src="{{ asset('js/jquery.sticky.js') }}"></script>
-  
-  
+
+
   <script src="{{ asset('js/menu.js') }}"></script>
   <script src="{{ asset('js/nivo-lightbox.js') }}"></script>
   <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>

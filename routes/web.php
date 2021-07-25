@@ -24,6 +24,8 @@ Route::get('/get_moto_models_by_brand', 'HomeController@getMotoModelsByBrand')->
 Route::get('/','HomeController@index')->name('home');
 Route::get('/moto','HomeController@motoHome')->name('moto-home');
 Route::get('/car','HomeController@carHome')->name('car-home');
+Route::get('/retailer','HomeController@dealerList')->name('retailer-list');
+Route::get('retailer/{retailer}', 'HomeController@show')->name('retailer');
 
 
 Route::get('tyre/moto/{tyre}', 'HomeController@showMotoTyre')->name('moto-tyre');
@@ -168,6 +170,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Retailer
     Route::delete('retailers/destroy', 'RetailerController@massDestroy')->name('retailers.massDestroy');
+    Route::post('retailers/media', 'RetailerController@storeMedia')->name('retailers.storeMedia');
+    Route::post('retailers/ckmedia', 'RetailerController@storeCKEditorImages')->name('retailers.storeCKEditorImages');
     Route::resource('retailers', 'RetailerController');
 
     // Social

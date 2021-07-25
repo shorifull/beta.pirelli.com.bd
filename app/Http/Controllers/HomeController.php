@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Models\CarModel;
 use App\Models\CarSlider;
+use App\Models\Category;
+use App\Models\City;
 use App\Models\HomeSlider;
 use App\Models\MotoModel;
 use App\Models\MotoSlider;
 use App\Models\MotoTyre;
+use App\Models\Retailer;
 use App\Models\Tyre;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -165,6 +168,27 @@ class HomeController extends Controller
             ->with(['model_combinations', 'width', 'ratio', 'size', 'media'])->first();
 
         return view('search.car-tyre', compact('tyre'));
+    }
+
+    public function dealerList(Request $request)
+    {
+        $cities = City::all();
+
+
+        $city_id ='';
+        if ($request->has('city_id')){
+            $city_id = $request->city_id;
+
+        }
+        $retailers = Retailer::with(['city'])
+            ->searchResults()
+            ->paginate(9);
+
+        $mapRetailers = $retailers->makeHidden(['active', 'created_at', 'updated_at', 'deleted_at', 'created_by_id', 'photos', 'media']);
+        $latitude = $retailers->count() && (request()->filled('city') || request()->filled('search')) ? $retailers->average('latitude') : 23.810332;
+        $longitude = $retailers->count() && (request()->filled('city') || request()->filled('search')) ? $retailers->average('longitude') :90.4125181;
+
+        return view('retailer', compact('cities', 'retailers', 'mapRetailers', 'latitude', 'longitude','city_id'));
     }
 
 
