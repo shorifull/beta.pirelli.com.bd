@@ -28,19 +28,19 @@
                                         {{ trans('cruds.contact.fields.id') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.contact.fields.contact_address') }}
+                                        {{ trans('cruds.contact.fields.name') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.contact.fields.contact_email') }}
+                                        {{ trans('cruds.contact.fields.email') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.contact.fields.contact_phone_number') }}
+                                        {{ trans('cruds.contact.fields.phone') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.contact.fields.contact_fax_number') }}
+                                        {{ trans('cruds.contact.fields.subject') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.contact.fields.contact_map_i_frame') }}
+                                        {{ trans('cruds.contact.fields.message') }}
                                     </th>
                                     <th>
                                         &nbsp;
@@ -57,19 +57,19 @@
                                             {{ $contact->id ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $contact->contact_address ?? '' }}
+                                            {{ $contact->name ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $contact->contact_email ?? '' }}
+                                            {{ $contact->email ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $contact->contact_phone_number ?? '' }}
+                                            {{ $contact->phone ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $contact->contact_fax_number ?? '' }}
+                                            {{ $contact->subject ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $contact->contact_map_i_frame ?? '' }}
+                                            {{ $contact->message ?? '' }}
                                         </td>
                                         <td>
                                             @can('contact_show')

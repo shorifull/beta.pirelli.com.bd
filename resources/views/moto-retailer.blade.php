@@ -1,5 +1,7 @@
 @extends('layouts.main')
 
+
+
 @section('content')
     <section>
         <div id="map-canvas" style="height: 425px; width: 100%; position: relative; overflow: hidden;"></div>
@@ -7,7 +9,7 @@
 
     <section class="section mt-5">
         <div class="container">
-            <form class="" id="search-form" action="{{ route('retailer-list') }}" method="GET">
+            <form class="" id="search-form" action="{{ route('moto-retailer-list') }}" method="GET">
                 <div class="search-widget">
                     <div class="form-group row">
                         <div class="col-md-4">
@@ -48,7 +50,7 @@
                 @foreach ($retailers as $key => $retailer)
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="{{route('retailer', $retailer->id)}}">
+                        <a href="#">
                             <img src="{{ asset($retailer->banner->getUrl()) }}" class="img-fluid" alt="#">
                             <span class="featured-rating-orange">{{$retailer->vehicle_type->name ?? ''}}</span>
                             <div class="featured-title-box">
@@ -69,11 +71,11 @@
                                     </li>
                                 </ul>
                                 <p>{{\Illuminate\Support\Str::limit($retailer->description,100)}}</p>
-                                <div class="bottom-icons">
-                                    <div class="closed-now">View Details</div>
-                                    <span class="ti-heart"></span>
-                                    <span class="ti-bookmark"></span>
-                                </div>
+{{--                                <div class="bottom-icons">--}}
+{{--                                    <div class="closed-now">View Details</div>--}}
+{{--                                    <span class="ti-heart"></span>--}}
+{{--                                    <span class="ti-bookmark"></span>--}}
+{{--                                </div>--}}
                             </div>
                         </a>
                     </div>

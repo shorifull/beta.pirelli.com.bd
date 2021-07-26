@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Traits\MediaUploadingTrait;
+use App\Http\Requests\StoreContactRequest;
 use App\Models\CarModel;
 use App\Models\CarSlider;
 use App\Models\Category;
 use App\Models\City;
+use App\Models\Contact;
 use App\Models\HomeSlider;
 use App\Models\MotoModel;
 use App\Models\MotoSlider;
@@ -14,6 +16,7 @@ use App\Models\MotoTyre;
 use App\Models\Retailer;
 use App\Models\Tyre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Newsletter;
 
@@ -170,7 +173,7 @@ class HomeController extends Controller
         return view('search.car-tyre', compact('tyre'));
     }
 
-    public function dealerList(Request $request)
+    public function carRetailerList(Request $request)
     {
         $cities = City::all();
 
@@ -188,7 +191,52 @@ class HomeController extends Controller
         $latitude = $retailers->count() && (request()->filled('city') || request()->filled('search')) ? $retailers->average('latitude') : 23.810332;
         $longitude = $retailers->count() && (request()->filled('city') || request()->filled('search')) ? $retailers->average('longitude') :90.4125181;
 
-        return view('retailer', compact('cities', 'retailers', 'mapRetailers', 'latitude', 'longitude','city_id'));
+        return view('car-retailer', compact('cities', 'retailers', 'mapRetailers', 'latitude', 'longitude','city_id'));
+    }
+
+
+    public function motoRetailerList(Request $request)
+    {
+        $cities = City::all();
+
+
+        $city_id ='';
+        if ($request->has('city_id')){
+            $city_id = $request->city_id;
+
+        }
+        $retailers = Retailer::with(['city'])
+            ->motoSearchResults()
+            ->paginate(9);
+
+        $mapRetailers = $retailers->makeHidden(['active', 'created_at', 'updated_at', 'deleted_at', 'created_by_id', 'photos', 'media']);
+        $latitude = $retailers->count() && (request()->filled('city') || request()->filled('search')) ? $retailers->average('latitude') : 23.810332;
+        $longitude = $retailers->count() && (request()->filled('city') || request()->filled('search')) ? $retailers->average('longitude') :90.4125181;
+
+        return view('moto-retailer', compact('cities', 'retailers', 'mapRetailers', 'latitude', 'longitude','city_id'));
+    }
+
+
+
+
+    public function about(){
+        return view('about');
+    }
+
+    public function createForm(){
+        return view('contact');
+    }
+
+
+    public function contactSubmit(StoreContactRequest $request)
+    {
+        $contact = Contact::create($request->all());
+
+        //  Send mail to admin
+
+        Mail::to('ratan.mia@kawasaki.com.bd')->send(new \App\Mail\ContactSubmitted($contact));
+
+        return back()->with('success', 'We have received your message and would like to thank you for writing to us.');
     }
 
 

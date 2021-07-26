@@ -5,7 +5,7 @@
 =            Moto Slider           =
 ================================-->
     <section class="section">
-        
+
         <div class="row">
             <div class="col-md-12">
                 <div id="carouselMoto" class="carousel slide" data-ride="carousel">
@@ -206,6 +206,62 @@
             </div>
         </div>
         <!-- Container End -->
+    </section>
+
+    <section section="section" style="padding:50px 0;">
+        <div class="container">
+            <h1 class="text-lg-center">DISCOVER OUR TYRES</h1>
+        </div>
+    </section>
+    <!--===============================
+=          Card Area            =
+================================-->
+    <section class="section home-category mb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div style="background: url({{asset('/images/moto/angel-gt-II-cat-sfondo-4505504730317.jpg')}}) no-repeat center center;" class="card card_car text-center mb-2">
+{{--                        <div class="title">--}}
+{{--                            <h2>ANGEL CITY</h2>--}}
+{{--                        </div>--}}
+
+                        <a href="{{route('car-home')}}">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div style="background: url({{asset('/images/moto/diablo-IV-cat-sfondo-en-V2-4505521766442.jpg')}}) no-repeat center center;"  class="card card_moto text-center">
+{{--                        <div class="title">--}}
+{{--                            <h2>DIABLO IV</h2>--}}
+{{--                        </div>--}}
+
+                        <a href="{{route('moto-home')}}">Learn More</a>
+
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div style="background: url({{asset('/images/moto/diablo-supercorsa-SP-cat-sfondo-v3-new-4505502645912.jpg')}}) no-repeat center center;"  class="card card_moto text-center">
+{{--                        <div class="title">--}}
+{{--                            <h2>DIABLO SUPERCORSA</h2>--}}
+{{--                        </div>--}}
+
+                        <a href="{{route('moto-home')}}">Learn More</a>
+
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div style="background: url({{asset('/images/moto/DiabloRossoCorsaII_BoxImage.jpg')}}) no-repeat center center;" class="card card_moto text-center">
+{{--                        <div class="title">--}}
+{{--                            <h2>Diablo RossoCorsa II</h2>--}}
+{{--                        </div>--}}
+
+                        <a href="{{route('moto-home')}}">Learn More</a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
     </section>
 
     <!--===============================

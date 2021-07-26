@@ -158,7 +158,7 @@ class WarrantyRegisterController extends Controller
             $api = app(CarApi::class, config('zoho.car'));
             $response = $api->insertContact($data);
             $response = json_decode($response);
-         
+
             if($response->data[0]->status == 'error') {
                 return redirect(route('warranty-register-car-error'));
             }
@@ -311,6 +311,54 @@ class WarrantyRegisterController extends Controller
 
 
     }
+
+
+    public function carWarrantyClaim()
+    {
+        $vehicleType = VehicleType::where(['slug' => 'car'])->first();
+        $cities = City::orderBy('name', 'asc')->get();
+        $products = Product::where('vehicle_type_id','1')->get();
+        $retailers = Retailer::where('vehicle_type_id','1')->get();
+        return view('warranty-register.car-warranty-claim', compact('products', 'retailers', 'cities'));
+    }
+
+
+
+
+    public function claimCarWarranty(StoreWarrantyClaimRequest $request)
+    {
+
+
+        try {
+
+            $warrantyClaim = new WarrantyClaim();
+            $warrantyClaim->invoice_number = $request->invoice_number;
+            $warrantyClaim->product_name_id = $request->product_name_id;
+            $warrantyClaim->product_size_id = $request->product_size_id;
+            $warrantyClaim->warranty_number = Str::random(10);
+
+
+            $warrantyClaim->save();
+
+
+
+
+            if($request->file('photos')) {
+                foreach ($request->file('photos') as $photo) {
+                    $warrantyClaim->addMedia($photo)->toMediaCollection('photos');
+                }
+            }
+
+            return Redirect::back()->with('status', 'You have successfully claimed your warranty!');
+        } catch(Exception $e) {
+            return redirect(route('warranty-register-moto-error'))->withError($e->getMessage());
+        }
+
+
+
+    }
+
+
 
 
 

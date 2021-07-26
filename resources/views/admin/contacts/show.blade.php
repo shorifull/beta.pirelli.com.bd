@@ -27,42 +27,42 @@
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.contact.fields.contact_address') }}
+                                        {{ trans('cruds.contact.fields.name') }}
                                     </th>
                                     <td>
-                                        {{ $contact->contact_address }}
+                                        {{ $contact->name }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.contact.fields.contact_email') }}
+                                        {{ trans('cruds.contact.fields.email') }}
                                     </th>
                                     <td>
-                                        {{ $contact->contact_email }}
+                                        {{ $contact->email }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.contact.fields.contact_phone_number') }}
+                                        {{ trans('cruds.contact.fields.phone') }}
                                     </th>
                                     <td>
-                                        {{ $contact->contact_phone_number }}
+                                        {{ $contact->phone }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.contact.fields.contact_fax_number') }}
+                                        {{ trans('cruds.contact.fields.subject') }}
                                     </th>
                                     <td>
-                                        {{ $contact->contact_fax_number }}
+                                        {{ $contact->subject }}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>
-                                        {{ trans('cruds.contact.fields.contact_map_i_frame') }}
+                                        {{ trans('cruds.contact.fields.message') }}
                                     </th>
                                     <td>
-                                        {{ $contact->contact_map_i_frame }}
+                                        {{ $contact->message }}
                                     </td>
                                 </tr>
                             </tbody>

@@ -17,24 +17,41 @@ class StoreContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'contact_email' => [
+            'name' => [
+                'required',
                 'string',
                 'min:1',
                 'max:255',
                 'nullable',
             ],
-            'contact_phone_number' => [
+
+            'email' => [
+                'required',
+                'email',
+            ],
+            'phone' => [
+                'required',
+                'string',
+                'min:10',
+                'max:255',
+
+
+            ],
+            'subject' => [
+                'required',
                 'string',
                 'min:1',
                 'max:255',
-                'nullable',
+
             ],
-            'contact_fax_number' => [
+
+            'message' => [
+                'required',
                 'string',
-                'min:1',
-                'max:255',
-                'nullable',
+
             ],
+
+
         ];
     }
 }

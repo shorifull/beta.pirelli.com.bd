@@ -2,38 +2,25 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use App\Models\Contact;
 use Gate;
+use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class MassDestroyContactRequest extends FormRequest  {
-
-
-
-
-
-public function authorize()
+class MassDestroyContactRequest extends FormRequest
 {
-    abort_if(Gate::denies('contact_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    public function authorize()
+    {
+        abort_if(Gate::denies('contact_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        return true;
+    }
 
-
-
-return true;
-    
-}
-public function rules()
-{
-    
-
-
-
-return [
-'ids' => 'required|array',
-    'ids.*' => 'exists:contacts,id',
-]
-    
-}
-
+    public function rules()
+    {
+        return [
+            'ids'   => 'required|array',
+            'ids.*' => 'exists:contacts,id',
+        ];
+    }
 }

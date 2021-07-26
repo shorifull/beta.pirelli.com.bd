@@ -85,7 +85,51 @@ class Retailer extends Model implements HasMedia
 
     public function scopeSearchResults($query)
     {
-        return $query->where('active', 1)
+
+
+
+
+
+            return $query->where([
+                    ['active', '=', '1'],
+                    ['vehicle_type_id', '=', '1'],
+                ])
+
+                ->when(request()->filled('search'), function($query) {
+                    $query->where(function($query) {
+                        $search = request()->input('search');
+                        $query->where('name', 'LIKE', "%$search%")
+                            ->orWhere('description', 'LIKE', "%$search%")
+                            ->orWhere('address', 'LIKE', "%$search%");
+                    });
+                })
+                ->when(request()->filled('city_id'), function($query) {
+                    $query->whereHas('city', function($query) {
+                        $query->where('id', request()->input('city_id'));
+                    });
+                });
+
+
+
+
+
+
+
+    }
+
+
+    public function scopeMotoSearchResults($query)
+    {
+
+
+
+
+
+        return $query->where([
+            ['active', '=', '1'],
+            ['vehicle_type_id', '=', '2'],
+        ])
+
             ->when(request()->filled('search'), function($query) {
                 $query->where(function($query) {
                     $search = request()->input('search');
@@ -99,6 +143,13 @@ class Retailer extends Model implements HasMedia
                     $query->where('id', request()->input('city_id'));
                 });
             });
+
+
+
+
+
+
+
     }
 
 

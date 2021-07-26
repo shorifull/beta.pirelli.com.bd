@@ -111,17 +111,7 @@
                                 </a>
                             </li>
                         @endcan
-                        @can('contact_access')
-                            <li class="{{ request()->is("admin/contacts") || request()->is("admin/contacts/*") ? "active" : "" }}">
-                                <a href="{{ route("admin.contacts.index") }}">
-                                    <i class="fa-fw fas fa-cogs">
 
-                                    </i>
-                                    <span>{{ trans('cruds.contact.title') }}</span>
-
-                                </a>
-                            </li>
-                        @endcan
                         @can('footer_access')
                             <li class="{{ request()->is("admin/footers") || request()->is("admin/footers/*") ? "active" : "" }}">
                                 <a href="{{ route("admin.footers.index") }}">
@@ -558,6 +548,17 @@
 
                         </i>
                         <span>{{ trans('cruds.page.title') }}</span>
+
+                    </a>
+                </li>
+            @endcan
+            @can('contact_access')
+                <li class="{{ request()->is("admin/contacts") || request()->is("admin/contacts/*") ? "active" : "" }}">
+                    <a href="{{ route("admin.contacts.index") }}">
+                        <i class="fa-fw fas fa-envelope">
+
+                        </i>
+                        <span>{{ trans('cruds.contact.title') }}</span>
 
                     </a>
                 </li>

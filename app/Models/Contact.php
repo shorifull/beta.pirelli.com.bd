@@ -21,11 +21,11 @@ class Contact extends Model
     ];
 
     protected $fillable = [
-        'contact_address',
-        'contact_email',
-        'contact_phone_number',
-        'contact_fax_number',
-        'contact_map_i_frame',
+        'name',
+        'email',
+        'phone',
+        'subject',
+        'message',
         'created_at',
         'updated_at',
         'deleted_at',

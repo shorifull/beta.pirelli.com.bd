@@ -24,9 +24,13 @@ Route::get('/get_moto_models_by_brand', 'HomeController@getMotoModelsByBrand')->
 Route::get('/','HomeController@index')->name('home');
 Route::get('/moto','HomeController@motoHome')->name('moto-home');
 Route::get('/car','HomeController@carHome')->name('car-home');
-Route::get('/retailer','HomeController@dealerList')->name('retailer-list');
-Route::get('retailer/{retailer}', 'HomeController@show')->name('retailer');
+Route::get('/car-retailer','HomeController@carRetailerList')->name('car-retailer-list');
+Route::get('/moto-retailer','HomeController@motoRetailerList')->name('moto-retailer-list');
 
+Route::get('retailer/{retailer}', 'HomeController@show')->name('retailer');
+Route::get('/contact','HomeController@createForm')->name('contact');
+Route::get('/about','HomeController@about')->name('about');
+Route::post('/contact','HomeController@contactSubmit')->name('contact.submit');
 
 Route::get('tyre/moto/{tyre}', 'HomeController@showMotoTyre')->name('moto-tyre');
 Route::get('tyre/car/{tyre}', 'HomeController@showCarTyre')->name('car-tyre');
@@ -43,7 +47,9 @@ Route::get('/warranty-registration/moto/error', 'WarrantyRegisterController@regi
 Route::post('/add-car-warranty','WarrantyRegisterController@addCarWarranty')->name('add-car-warranty');
 Route::post('/add-moto-warranty','WarrantyRegisterController@addMotoWarranty')->name('add-moto-warranty');
 Route::post('/claim-moto-warranty','WarrantyRegisterController@claimMotoWarranty')->name('claim-moto-warranty');
+Route::post('/claim-car-warranty','WarrantyRegisterController@claimCarWarranty')->name('claim-car-warranty');
 
+Route::get('/warranty-claim/car','WarrantyRegisterController@carWarrantyClaim')->name('warranty-claim-car');
 Route::get('/warranty-claim/moto','WarrantyRegisterController@motoWarrantyClaim')->name('warranty-claim-moto');
 Route::get('/moto-invoice/{invoiceNo}','WarrantyRegisterController@motoInvoiceDetails')->name('get-moto-invoice');
 

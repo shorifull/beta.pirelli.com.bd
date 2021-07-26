@@ -17,19 +17,19 @@ class UpdateContactRequest extends FormRequest
     public function rules()
     {
         return [
-            'contact_email' => [
+            'name' => [
                 'string',
                 'min:1',
                 'max:255',
                 'nullable',
             ],
-            'contact_phone_number' => [
+            'phone' => [
                 'string',
                 'min:1',
                 'max:255',
                 'nullable',
             ],
-            'contact_fax_number' => [
+            'subject' => [
                 'string',
                 'min:1',
                 'max:255',
