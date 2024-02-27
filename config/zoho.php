@@ -2,9 +2,9 @@
 
 return [
     'car' => [
-        'client_id' => '1000.FQ0YTG2AMKFEP9QQRZLP9SP8PWUH3I',
-        'client_secret' => '98dc2b71b60a8b7c457b6c7c4ce6bf3d0eb1c04558',
-        'refresh_token' => '1000.2770ae6d21d8984eb6034ef1b5077570.d38c4d89f63e0b227552efa126739294'
+        'client_id' => '1000.8YXQPBXK0SQAKX3PDFMRVJBWRFW9KH',
+        'client_secret' => 'a69675163c52408d2095f68a6ca439e31e8cb9c405',
+        'refresh_token' => '1000.b2d9dbb98fcbec8458e5e971b42bcf8c.f62d1b78b9bb47fca1c4103afdb148c5'
     ],
     'moto' => [
         'client_id' => '1000.X68YHJWUU7PYQ5UBBDKIO60LD0KUHJ',

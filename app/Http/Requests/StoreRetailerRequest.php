@@ -21,7 +21,7 @@ class StoreRetailerRequest extends FormRequest
                 'required',
                 'integer',
             ],
-            'shop_name' => [
+            'phone' => [
                 'string',
                 'min:1',
                 'max:255',

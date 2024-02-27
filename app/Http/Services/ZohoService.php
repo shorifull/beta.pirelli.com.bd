@@ -154,6 +154,7 @@ class ZohoService
         $currentTime= $date->getTimestamp();
 
         $filename = $file->getClientOriginalName();
+       
         $fileData = file_get_contents($file->getRealPath());
 
         //Declare a variable for enctype for sending the file to creator

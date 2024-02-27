@@ -13,6 +13,7 @@ use App\Models\City;
 use App\Models\MotoRegistration;
 use App\Models\Product;
 use App\Models\ProductSize;
+use App\Models\Tyre;
 use App\Models\Retailer;
 use App\Models\VehicleType;
 use App\Models\WarrantyClaim;
@@ -25,17 +26,20 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use PDF;
 
 class WarrantyRegisterController extends Controller
 {
     use MediaUploadingTrait;
+    
     public function registerCar()
     {
         $vehicleType = VehicleType::where(['slug' => 'car'])->first();
         $cities = City::orderBy('name', 'asc')->get();
         $products = Product::where('vehicle_type_id','1')->get();
         $retailers = Retailer::where('vehicle_type_id','1')->get();
-        return view('warranty-register.car', compact('products', 'retailers', 'cities'));
+        $tyreSizes = ProductSize::all();
+        return view('warranty-register.car', compact('products','tyreSizes', 'retailers', 'cities'));
     }
 
     public function registerMoto()
@@ -44,7 +48,8 @@ class WarrantyRegisterController extends Controller
         $cities = City::orderBy('name', 'asc')->get();
         $products = Product::where('vehicle_type_id','2')->get();
         $retailers = Retailer::where('vehicle_type_id','2')->get();
-        return view('warranty-register.moto', compact('products', 'retailers', 'cities'));
+        $tyreSizes = ProductSize::all();
+        return view('warranty-register.moto', compact('products','tyreSizes','retailers', 'cities'));
     }
 
 
@@ -54,9 +59,13 @@ class WarrantyRegisterController extends Controller
 
     public function productSizes($productId)
     {
-        $productSizes = ProductSize::getProductSizes(urldecode($productId));
+        // $productSizes = ProductSize::getProductSizes(urldecode($productId));
 
-        return $productSizes;
+     
+        
+        $productSizes = Tyre::with(['width', 'ratio', 'size'])->get();
+        
+         return $productSizes;
     }
 
 
@@ -66,6 +75,15 @@ class WarrantyRegisterController extends Controller
 
         return $invoice;
     }
+    
+    
+       public function carInvoiceDetails($invoiceNo)
+    {
+        $invoice = CarRegistration::where('invoice_number', $invoiceNo)->with('product_name','product_size','retailer')->first();
+
+        return $invoice;
+    }
+    
 
 
 
@@ -121,6 +139,7 @@ class WarrantyRegisterController extends Controller
             'Email_Opt_Out' => $request->subscribed ? false : true,
         ];
         $file = $request->file('invoice_attachment');
+     
 
 
         // Save into database
@@ -142,39 +161,45 @@ class WarrantyRegisterController extends Controller
 
         $carRegistration->warranty_number = Str::random(10);
         $carRegistration->save();
-
-        Mail::to('ratan.mia@kawasaki.com.bd')->send(new \App\Mail\WarrantyRegistrationNumber($carRegistration));
-
-
+        
+      
 
 
-        if ($file) {
-
-            $carRegistration->addMedia($request->file('invoice_attachment'))->toMediaCollection('invoice_attachment');
-
-        }
+      
 
         try {
             $api = app(CarApi::class, config('zoho.car'));
             $response = $api->insertContact($data);
             $response = json_decode($response);
+          
+           
+            
+           
 
             if($response->data[0]->status == 'error') {
                 return redirect(route('warranty-register-car-error'));
             }
 
             $id = $response->data[0]->details->id;
+             
             $response = $api->uploadFile($id, $file);
+            
+              if ($file) {
+
+            $carRegistration->addMedia($request->file('invoice_attachment'))->toMediaCollection('invoice_attachment');
+
+        }
 
             if($response == 'success') {
                 return redirect(route('warranty-register-car-success'));
             }
         } catch(Exception $e) {
+            dd($e);
             return redirect(route('warranty-register-car-error'));
         }
     }
 
-    public function addMotoWarranty(StoreWarrantyRequest $request)
+    public function addMotoWarranty(Request $request)
     {
 
         $product_name = Product::select('name')
@@ -279,7 +304,7 @@ class WarrantyRegisterController extends Controller
 
 
 
-    public function claimMotoWarranty(StoreWarrantyClaimRequest $request)
+    public function claimMotoWarranty(Request $request)
     {
 
 
@@ -303,7 +328,7 @@ class WarrantyRegisterController extends Controller
                 }
             }
 
-            return Redirect::back()->with('status', 'You have successfully claimed your warranty!');
+            return Redirect::back()->with('status', 'Warranty claim application submitted successfully. `Pirelli team will contact you soon.');
         } catch(Exception $e) {
         return redirect(route('warranty-register-moto-error'))->withError($e->getMessage());
     }
@@ -319,13 +344,14 @@ class WarrantyRegisterController extends Controller
         $cities = City::orderBy('name', 'asc')->get();
         $products = Product::where('vehicle_type_id','1')->get();
         $retailers = Retailer::where('vehicle_type_id','1')->get();
-        return view('warranty-register.car-warranty-claim', compact('products', 'retailers', 'cities'));
+        $tyreSizes = ProductSize::all();
+        return view('warranty-register.car-warranty-claim', compact('products','tyreSizes', 'retailers', 'cities'));
     }
 
 
 
 
-    public function claimCarWarranty(StoreWarrantyClaimRequest $request)
+    public function claimCarWarranty(Request $request)
     {
 
 
@@ -349,7 +375,7 @@ class WarrantyRegisterController extends Controller
                 }
             }
 
-            return Redirect::back()->with('status', 'You have successfully claimed your warranty!');
+            return Redirect::back()->with('status', 'Warranty claim application submitted successfully. `Pirelli team will contact you soon.');
         } catch(Exception $e) {
             return redirect(route('warranty-register-moto-error'))->withError($e->getMessage());
         }

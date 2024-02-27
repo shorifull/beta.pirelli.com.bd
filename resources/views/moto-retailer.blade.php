@@ -4,7 +4,7 @@
 
 @section('content')
     <section>
-        <div id="map-canvas" style="height: 425px; width: 100%; position: relative; overflow: hidden;"></div>
+        <div id="map-canvas" style="height: 480px; width: 100%; position: relative; overflow: hidden;"></div>
     </section>
 
     <section class="section mt-5">
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-base-1">
+                            <button type="submit" class="learn-more-btn">
                                 Search
                             </button>
                         </div>
@@ -50,26 +50,32 @@
                 @foreach ($retailers as $key => $retailer)
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="#">
-                            <img src="{{ asset($retailer->banner->getUrl()) }}" class="img-fluid" alt="#">
-                            <span class="featured-rating-orange">{{$retailer->vehicle_type->name ?? ''}}</span>
+                              @if($retailer->banner)
+                                    <img src="{{ asset($retailer->banner->getUrl()) }}" class="img-fluid" alt="#">
+                              @endif
+                           
                             <div class="featured-title-box">
-                                <h6><a href="{{route('retailer', $retailer->id)}}"> {{$retailer->name}}</a></h6>
-                                <p>{{$retailer->city->name ?? ''}} </p> <span>• </span>
-                                <p>{{$retailer->vehicle_type->name ?? ''}}</p> <span> • </span>
-                                <p><span>{{$retailer->shop_name ?? ''}}</span></p>
+                                <h6 style="font-family:'gotham-bold';font-weight:bold;"> {{$retailer->name ?? ''}}</h6>
+                                <hr>
+                                <!--<p>{{$retailer->city->name ?? ''}} </p> <span>• </span>-->
+                                <!--<p>{{$retailer->vehicle_type->name ?? ''}}</p> <span> • </span>-->
+                               
 
                                 <ul>
-                                    <li><span class="icon-location-pin"></span>
-                                        <p>{{$retailer->address ?? ''}}</p>
+                                    <li>
+                                        <p>{{$retailer->location ?? ''}}</p>
                                     </li>
-                                    <li><span class="icon-screen-smartphone"></span>
-                                        <p>{{$retailer->phone ?? ''}}</p>
+                                    <li>
+                                        <p><a href="tel:{{$retailer->phone ?? ''}}">{{$retailer->phone ?? ''}}</a></p>
                                     </li>
-                                    <li><span class="icon-link"></span>
-                                        <p>{{$retailer->facebook ?? ''}}</p>
+                                    <li>
+                                        <a class="learn-more-btn" href="https://maps.google.com/?q={{$retailer->latitude ?? ''}},{{$retailer->longitude ?? ''}}" target="_blank">View Map</a>
                                     </li>
+                                    <!--<li><span class="icon-link"></span>-->
+                                    <!--    <p>{{$retailer->facebook ?? ''}}</p>-->
+                                    <!--</li>-->
                                 </ul>
+                                <hr>
                                 <p>{{\Illuminate\Support\Str::limit($retailer->description,100)}}</p>
 {{--                                <div class="bottom-icons">--}}
 {{--                                    <div class="closed-now">View Details</div>--}}
@@ -77,7 +83,7 @@
 {{--                                    <span class="ti-bookmark"></span>--}}
 {{--                                </div>--}}
                             </div>
-                        </a>
+                    
                     </div>
                 </div>
                 @endforeach
@@ -101,7 +107,7 @@
     <script defer>
         function initialize() {
             var mapOptions = {
-                zoom: 10,
+                zoom: 12,
                 minZoom: 6,
                 maxZoom: 17,
                 zoomControl:true,
@@ -118,7 +124,7 @@
                 rotateControl:false
             }
             var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-            var image = new google.maps.MarkerImage("images/pin.png", null, null, null, new google.maps.Size(40,52));
+            var image = new google.maps.MarkerImage("images/google-map-pin.png", null, null, null, new google.maps.Size(40,52));
             var places = @json($mapRetailers);
 
             for(place in places)
@@ -157,9 +163,11 @@
                                     <ul class="geodir-post-image geodir-images clearfix">
                                         <li>
                                             <div class="geodir-post-title">
-                                                <h4 class="geodir-entry-title">
-                                                    <a href="{{ route('retailer', '') }}/`+place.id+`" title="View: `+place.name+`">`+place.name+`</a>
-                                                </h4>
+                                                <h6 class="geodir-entry-title">
+                                                    <a href="https://maps.google.com/?q={{$retailer->latitude ?? ''}},{{$retailer->longitude ?? ''}}" title="View: `+place.name+`">`+place.name+`</a>
+                                                </h6>
+                                                
+                                                
                                             </div>
                                             {{--<a href="{{ route('retailer', '') }}/`+place.id+`"><img src="`+place.thumbnail+`" alt="`+place.name+`" class="align size-medium_large" width="1400" height="930"></a>--}}
                                         </li>
@@ -179,7 +187,10 @@
                         <div class="geodir_post_meta  geodir-field-address" itemscope="" itemtype="http://schema.org/PostalAddress">
                             <span class="geodir_post_meta_icon geodir-i-address"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                             <span class="geodir_post_meta_title">Address: </span></span><span itemprop="streetAddress">`+place.address+`</span>
+                            <br>
+                            
                         </div>
+                        <p><a href="tel:{{$retailer->phone ?? ''}}">{{$retailer->phone ?? ''}}</a></p>
                     </div>
                     </div>
                 </div>

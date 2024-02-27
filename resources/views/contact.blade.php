@@ -95,18 +95,9 @@
                             </div>
                             <div class="social">
 
-                                <a href=" https://www.facebook.com/bdpirellimoto">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                </a>
-                                <a href="#0">
-                                    <i class="fa fa-dribbble" aria-hidden="true"></i>
-                                </a>
-                                <a href="#0">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                </a>
-                                <a href="#0">
-                                    <i class="fa fa-github" aria-hidden="true"></i>
-                                </a>
+                               <a href="https://www.facebook.com/bdpirelli" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.instagram.com/pirellibd/" class="instagram"><i class="fa fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/pirellibd" class="linkedin"><i class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>

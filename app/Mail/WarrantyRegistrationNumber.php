@@ -11,16 +11,16 @@ class WarrantyRegistrationNumber extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $warrantyData;
+    public $warranty_data;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($warrantyData)
+    public function __construct($warranty_data)
     {
-        $this->warrantyData = $warrantyData;
+        $this->warranty_data = $warranty_data;
     }
 
     /**
@@ -31,6 +31,6 @@ class WarrantyRegistrationNumber extends Mailable
     public function build()
     {
         return $this->markdown('Email.warranty-registration')
-            ->with('warrantyData',$this->warrantyData);
+            ->with('warranty_data',$this->warranty_data);
     }
 }

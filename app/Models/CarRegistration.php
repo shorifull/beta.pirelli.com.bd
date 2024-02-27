@@ -32,6 +32,7 @@ class CarRegistration extends Model implements HasMedia
     ];
 
     protected $fillable = [
+        'is_approved',
         'first_name',
         'last_name',
         'email',

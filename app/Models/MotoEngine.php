@@ -26,6 +26,11 @@ class MotoEngine extends Model
         'updated_at',
         'deleted_at',
     ];
+    
+    
+     public function motoTyres() {
+        return $this->hasMany(MotoTyre::class);
+    }
 
     protected function serializeDate(DateTimeInterface $date)
     {

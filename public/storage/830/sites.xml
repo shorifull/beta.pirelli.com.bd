@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FileZilla3 version="3.55.0" platform="windows">
+	<Servers>
+		<Server>
+			<Host>206.189.229.181</Host>
+			<Port>22</Port>
+			<Protocol>1</Protocol>
+			<Type>0</Type>
+			<User>lpguys</User>
+			<Pass encoding="base64">UGFycm90Mjc=</Pass>
+			<Logontype>1</Logontype>
+			<EncodingType>Auto</EncodingType>
+			<BypassProxy>0</BypassProxy>
+			<Name>oliver_live</Name>
+			<SyncBrowsing>0</SyncBrowsing>
+			<DirectoryComparison>0</DirectoryComparison>
+		</Server>
+	</Servers>
+</FileZilla3>

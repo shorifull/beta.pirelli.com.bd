@@ -31,11 +31,12 @@ class Retailer extends Model implements HasMedia
 
     protected $fillable = [
         'vehicle_type_id',
-        'shop_name',
+        'phone',
         'name',
         'city_id',
         'active',
         'address',
+        'location',
         'description',
         'latitude',
         'longitude',

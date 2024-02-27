@@ -31,7 +31,7 @@
                                         {{ trans('cruds.retailer.fields.vehicle_type') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.retailer.fields.shop_name') }}
+                                        {{ trans('cruds.retailer.fields.phone') }}
                                     </th>
                                     <th>
                                         {{ trans('cruds.retailer.fields.name') }}
@@ -60,7 +60,7 @@
                                             {{ $retailer->vehicle_type->name ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $retailer->shop_name ?? '' }}
+                                            {{ $retailer->phone ?? '' }}
                                         </td>
                                         <td>
                                             {{ $retailer->name ?? '' }}

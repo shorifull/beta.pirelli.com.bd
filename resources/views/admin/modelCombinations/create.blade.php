@@ -32,8 +32,8 @@
                             <span class="help-block">{{ trans('cruds.modelCombination.fields.brand_helper') }}</span>
                         </div>
                         <div class="form-group {{ $errors->has('car_model') ? 'has-error' : '' }}">
-                            <label for="car_model_id">{{ trans('cruds.modelCombination.fields.car_model') }}</label>
-                            <select class="form-control select2" name="car_model_id" id="car_model_id">
+                            <label class="required" for="car_model_id">{{ trans('cruds.modelCombination.fields.car_model') }}</label>
+                            <select class="form-control select2" name="car_model_id" id="car_model_id" required>
                                 @foreach($car_models as $id => $entry)
                                     <option value="{{ $id }}" {{ old('car_model_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                                 @endforeach
@@ -72,8 +72,8 @@
                             <span class="help-block">{{ trans('cruds.modelCombination.fields.engine_helper') }}</span>
                         </div>
                         <div class="form-group {{ $errors->has('chassis') ? 'has-error' : '' }}">
-                            <label class="required" for="chassis_id">{{ trans('cruds.modelCombination.fields.chassis') }}</label>
-                            <select class="form-control select2" name="chassis_id" id="chassis_id" required>
+                            <label  for="chassis_id">{{ trans('cruds.modelCombination.fields.chassis') }}</label>
+                            <select class="form-control select2" name="chassis_id" id="chassis_id">
                                 @foreach($chassis as $id => $entry)
                                     <option value="{{ $id }}" {{ old('chassis_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                                 @endforeach

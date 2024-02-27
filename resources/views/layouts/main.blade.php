@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <title>{{ env('APP_NAME', 'Pirelli Bangladesh') }}</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="icon" href="{{ asset('images/favicon.png') }}" type="image/png" sizes="16x16">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
@@ -25,6 +26,9 @@
 
   <!-- Main Stylesheet File -->
   <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <!-- Select 2 js --> 
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 
 
@@ -39,6 +43,8 @@
 </head>
 
 <body >
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=273903454119119&autoLogAppEvents=1" nonce="bT0HozDW"></script>
   @include('partials.header')
   @yield('content')
 
@@ -59,6 +65,8 @@
   <script src="{{ asset('lib/wow/wow.min.js') }}"></script>
   <script src="{{ asset('lib/venobox/venobox.min.js') }}"></script>
   <script src="{{ asset('lib/owlcarousel/owl.carousel.min.js') }}"></script>
+   <script src="{{ asset('lib/owlcarousel/owl.carousel2.thumbs.min.js') }}"></script>
+ 
 
   <!-- Contact Form JavaScript File -->
   <script src="{{ asset('js/contactform.js') }}"></script>
@@ -70,7 +78,7 @@
   <!-- Template Main Javascript File -->
   <script src="{{ asset('js/app.js') }}"></script>
   <script src="{{ asset('js/jquery.sticky.js') }}"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
   <script src="{{ asset('js/menu.js') }}"></script>
   <script src="{{ asset('js/nivo-lightbox.js') }}"></script>

@@ -16,6 +16,9 @@ use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
+// use Illuminate\Support\Facades\Mail;
+use Mail;
+use PDF;
 
 class CarRegistrationController extends Controller
 {
@@ -148,5 +151,44 @@ class CarRegistrationController extends Controller
         $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+    }
+    
+    public function changeRegistrationStatus(Request $request){
+        
+        $carRegistration = CarRegistration::findOrFail($request->id);
+        $carRegistration->is_approved = 1;
+        $carRegistration->update();
+        
+        $warranty_data = array();
+        $warranty_data['name']  = $carRegistration->first_name.' '.$carRegistration->last_name;
+        $warranty_data['email'] = $carRegistration->email;
+        $warranty_data['date_purchased'] = $carRegistration->date_purchased;
+        $warranty_data['warranty_number'] = $carRegistration->warranty_number;
+        
+        if($carRegistration->update()) {
+            
+            
+        
+            $cardSize = array(0,0,380,600);
+            $pdf = PDF::loadView('warranty-register.car-warranty-card',compact('warranty_data') )->setPaper($cardSize, 'landscape');;
+            
+            // Mail::to('ratan.mia@kawasaki.com.bd')->send(new \App\Mail\WarrantyRegistrationNumber($warranty_data));
+            
+            Mail::send('Email.warranty-registration', compact('warranty_data'), function($message) use($warranty_data,$pdf) {
+                $message->to($warranty_data["email"], $warranty_data["name"])
+                 ->cc('sales@pirelli.com.bd', 'Pirelli Sales')
+                ->subject('New Warranty Registration')
+                ->attachData($pdf->output(), "warranty-card.pdf");
+                });
+                
+         
+          
+        
+            
+             return $carRegistration;
+        }
+        
+       
+        
     }
 }

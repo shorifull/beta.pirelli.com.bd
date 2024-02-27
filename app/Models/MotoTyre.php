@@ -22,6 +22,7 @@ class MotoTyre extends Model implements HasMedia
     protected $appends = [
         'thumbnail',
         'banner',
+        'gallery',
     ];
 
     protected $dates = [
@@ -32,6 +33,9 @@ class MotoTyre extends Model implements HasMedia
 
     protected $fillable = [
         'title',
+        'tagline',
+        'slug',
+        'pattern',
         'moto_brand_id',
         'moto_model_id',
         'moto_engine_id',
@@ -42,12 +46,22 @@ class MotoTyre extends Model implements HasMedia
         'long_description',
         'features',
         'specifications',
+        'advantages',
         'warranty',
         'video',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+    
+        public const PATTERN  = [
+            '0' => 'Please Select',
+            '1' => 'Angel City',
+            '2' =>'Rosso II',
+            '3' =>'Rosso III',
+            '4' =>'Sports Demon',
+            
+        ];
 
     public function registerMediaConversions(Media $media = null): void
     {
@@ -166,6 +180,18 @@ class MotoTyre extends Model implements HasMedia
         }
 
         return $file;
+    }
+    
+       public function getGalleryAttribute()
+    {
+        $files = $this->getMedia('gallery');
+        $files->each(function ($item) {
+            $item->url = $item->getUrl();
+            $item->thumbnail = $item->getUrl('thumb');
+            $item->preview = $item->getUrl('preview');
+        });
+
+        return $files;
     }
 
     protected function serializeDate(DateTimeInterface $date)

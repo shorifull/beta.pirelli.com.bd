@@ -25,6 +25,10 @@ class StoreModelCombinationRequest extends FormRequest
                 'required',
                 'integer',
             ],
+             'car_model_id' => [
+                'required',
+                'integer',
+            ],
             'years.*' => [
                 'integer',
             ],
@@ -36,10 +40,7 @@ class StoreModelCombinationRequest extends FormRequest
                 'required',
                 'integer',
             ],
-            'chassis_id' => [
-                'required',
-                'integer',
-            ],
+          
         ];
     }
 }

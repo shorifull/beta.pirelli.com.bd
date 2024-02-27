@@ -71,9 +71,9 @@
                                     <th>
                                         {{ trans('cruds.modelCombination.fields.chassis') }}
                                     </th>
-                                    <td>
-                                        {{ $modelCombination->chassis->chassis ?? '' }}
-                                    </td>
+                                    <!--<td>-->
+                                    <!--    {{ $modelCombination->chassis->chassis ?? '' }}-->
+                                    <!--</td>-->
                                 </tr>
                             </tbody>
                         </table>

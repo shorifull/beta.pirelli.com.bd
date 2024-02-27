@@ -28,8 +28,17 @@
                 @csrf
               <div class="input-fields-header-wrapper">
                 <div class="input-fields__inner">
-                  <h2>Registration Warranty</h2>
-                  <p>Please fill out the form to register for Pirelli warranty</p>
+                         <h2>PIRELLI ASSURANCE PLAN REGISTRATION</h2>
+
+                            <h4 style="color:#fff;">Dear Customer,</h4>
+                            <p style="text-align:justify;">Welcome to the PIRELLI FAMILY. It is important that you register our “PIRELLI ASSURANCE PLAN’’ for your warranty registration for your Pirelli tyre after your purchase is completed. 
+                            To assist you in registering your tires, we have an instruction guide below on how to register our online warranty registration. Kindly go through the help which will ease you in registering. For more assist, kindly call Pirelli Helpline. 
+                            We at Pirelli Tyre Bangladesh value your privacy and your information are protected by our Privacy Policy.</p>
+                      <a class="btn btn-warning" style="text-align:center;color:#000;background:#ffdc04;margin-bottom:20px;" href="{{asset('images/car/Online Warranty Registration Guide.pdf')}}">
+                  Online Warranty Registration Guide
+                </a>
+                <br>
+                  <p style="font-weight:bold;">Please fill out the form to register for Pirelli warranty</p>
                 </div>
               </div>
               <div class="errors">
@@ -168,8 +177,15 @@
                     <div class="col-xl-6 col-lg-6 col-12">
                       <div class="costum-input input-product-size">
                         <p>Product Size</p>
-                        <select id="product-size" name="product_size">
+                        <select style="padding:10px 0px;" id="product-size" name="product_size" class="form-control select2">
                           <option value="">Please select tyre size</option>
+                               @foreach ($tyreSizes as $tyreSize)
+                                      @if (old('product_size') == $tyreSize->id)
+                                          <option value="{{ $tyreSize->id }}" selected>{{ $tyreSize->size }}</option>
+                                      @else
+                                          <option value="{{ $tyreSize->id }}">{{ $tyreSize->size }}</option>
+                                      @endif
+                                  @endforeach
                         </select>
                       </div>
                     </div>
@@ -197,15 +213,15 @@
               <!-- third input group -->
               <div class="input-fields-header">
                 <div class="input-fields-header__inner">
-                  <p>Retailer Detail</p>
+                  <p>Purchased From</p>
                 </div>
                 <div class="input-fields-group">
                   <div class="row">
                     <div class="col-12">
                       <div class="costum-input input-product-size">
-                        <p>Retailer Name</p>
+                       
                           <select id="retailer" name="retailer_id" >
-                              <option value="">Please select retailer</option>
+                              <option value="">Please select</option>
                               @foreach($retailers as $retailer)
                                   @if(old('retailer_id') == $retailer->id)
                                       <option value="{{ $retailer->id }}" selected>{{ $retailer->name }}</option>
@@ -243,7 +259,7 @@
 
 
               <div class="final-step-btn">
-                <button class="costum-btn btn-confirm" type="submit">Complete Registration</button>
+                <button class="costum-btn btn-confirm" type="submit">SUBMIT</button>
               </div>
 
             </form>
@@ -253,32 +269,22 @@
           <div class="col-xl-5 col-lg-5 col-12">
             <div class="terms-policy">
               <div class="terms-policy-header d-flex justify-content-center">
-                <p>Pirelli Tyre Warranty Terms</p>
-              </div>
-              <div class="description-text">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                  laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-                  ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in
-                  hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
-                  eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te
-                  feugait nulla facilisi.
-                  Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
-                  laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-                  ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-                  dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci </p>
-              </div>
+                <p style="font-size:20px;">Pirelli Tyre Warranty Terms</p>
+             </div>
+              <!--<div class="description-text">-->
+                       
+              <!--</div>-->
 
-              <div class="find-out-more-btn">
-                <a href="#">
-                  <button class="costum-btn">Find Out More</button>
+             
+                <a style="text-align:center;" href="{{asset('Pirelli Tyre Warranty Policy (PDF) in.pdf')}}">
+                  <button class="costum-btn">Download PDF</button>
                 </a>
-              </div>
-
+               
+         
               <div class="warranty-certificate">
-                <div class="warranty-certificate__inner">
+                   <img src="{{ asset('images/car/Warranty logo-03.png') }}" class="img-fluid"><br>
                   <img src="{{ asset('img/warranty.png') }}" class="img-fluid">
-                </div>
+             
               </div>
 
             </div>
@@ -295,7 +301,7 @@
 
         var baseUrl = "{{ URL::to('/')}}";
         jQuery(function () {
-            $('#product-names').on('change', function () {
+            $('#product-names-stop').on('change', function () {
                 let productId = $('#product-names').val();
                 console.log(productId);
 
@@ -305,14 +311,21 @@
                 $.ajax({
                     url: `/product-sizes/${productId}`,
                     success: function (data) {
+                          console.log(data)
                         $.each(data, function(key, obj)
                         {
-                            console.log(obj)
-                            $('#product-size').append('<option value=' + obj.id + '>' + obj.size + '</option>');
+                          
+                            $('#product-size').append('<option value=' + obj.id + '>' + obj.width.width + '/' + obj.ratio.ratio + ' R' + obj.size.size + '</option>');
                         });
                     }
                 })
             });
         });
+        
+        
+        
+        $( document ).ready(function() {
+                $('.select2').select2();
+            });
     </script>
 @endsection

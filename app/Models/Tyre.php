@@ -20,9 +20,27 @@ class Tyre extends Model implements HasMedia
 
     public $table = 'tyres';
 
-    protected $appends = [
+
+
+    public const ACTIVATED_RADIO = [
+        'yes' => 'Yes',
+        'no'  => 'No',
+    ];
+    
+    public const SERIES  = [
+            '0' => 'Please Select',
+            '1' => 'Cinturato P1',
+            '2' =>'Cinturato P7',
+            '3' =>'P-Zero',
+            '4' =>'Scorpion',
+            
+        ];
+    
+    
+      protected $appends = [
         'thumbnail',
         'banner',
+        'gallery',
     ];
 
     protected $dates = [
@@ -33,19 +51,44 @@ class Tyre extends Model implements HasMedia
 
     protected $fillable = [
         'title',
+        'slug',
         'width_id',
         'ratio_id',
         'size_id',
+        'dry_id',
+        'wet_id',
+        'sport_id',
+        'comfort_id',
+        'mileage_id',
+        'tagline',
         'short_description',
         'long_description',
+        'advantages',
         'features',
         'specifications',
         'warranty',
         'video',
+        'technology_runflat',
+        'technology_pncs',
+        'technology_seal_inside',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+    
+    public const PERFORMANCES  = [
+            '1' => 1,
+            '2' =>2,
+            '3' =>3,
+            '4' =>4,
+            '5' =>5,
+            '6' =>6,
+            '7' =>7,
+            '8' =>8,
+            '9' =>9,
+            '10' =>10
+            
+        ];
 
     public function registerMediaConversions(Media $media = null): void
     {
@@ -100,6 +143,19 @@ class Tyre extends Model implements HasMedia
         }
 
         return $file;
+    }
+    
+    
+        public function getGalleryAttribute()
+    {
+        $files = $this->getMedia('gallery');
+        $files->each(function ($item) {
+            $item->url = $item->getUrl();
+            $item->thumbnail = $item->getUrl('thumb');
+            $item->preview = $item->getUrl('preview');
+        });
+
+        return $files;
     }
 
     protected function serializeDate(DateTimeInterface $date)
@@ -184,17 +240,6 @@ class Tyre extends Model implements HasMedia
         }
 
 
-
-//        if ($request->input('categories')) {
-//            $query->whereHas('categories',
-//                function ($query) use ($request) {
-//                    $query->where('id', $request->input('categories'));
-//                });
-//        }
-//
-//        if ($request->input('search')) {
-//            $query->where('name', 'LIKE', '%'.$request->input('search').'%');
-//        }
 
         return $query;
     }

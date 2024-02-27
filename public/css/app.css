@@ -19,6 +19,22 @@
   src: url(../fonts/GothamHTF-Light.otf);
 }
 
+@font-face {
+  font-family: "gotham-black";
+  src: url(../fonts/Gotham-Black.otf);
+}
+
+
+@font-face {
+  font-family: "Gotham Condensed Book";
+  src: url(../fonts/GothamCondensedBookRegular.otf);
+}
+
+@font-face {
+  font-family: "Gotham Ultra";
+  src: url(../fonts/GothamUltra.otf);
+}
+
 .container-costum-margin {
   padding: 120px 50px;
 }

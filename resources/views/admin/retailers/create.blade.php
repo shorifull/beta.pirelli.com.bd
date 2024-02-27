@@ -23,14 +23,7 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.retailer.fields.vehicle_type_helper') }}</span>
                         </div>
-                        <div class="form-group {{ $errors->has('shop_name') ? 'has-error' : '' }}">
-                            <label class="required" for="shop_name">{{ trans('cruds.retailer.fields.shop_name') }}</label>
-                            <input class="form-control" type="text" name="shop_name" id="shop_name" value="{{ old('shop_name', '') }}" required>
-                            @if($errors->has('shop_name'))
-                                <span class="help-block" role="alert">{{ $errors->first('shop_name') }}</span>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.retailer.fields.shop_name_helper') }}</span>
-                        </div>
+                 
                         <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                             <label class="required" for="name">{{ trans('cruds.retailer.fields.name') }}</label>
                             <input class="form-control" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
@@ -39,6 +32,17 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.retailer.fields.name_helper') }}</span>
                         </div>
+                        
+                          <div class="form-group {{ $errors->has('phone') ? 'has-error' : '' }}">
+                            <label class="required" for="phone">{{ trans('cruds.retailer.fields.phone') }}</label>
+                            <input class="form-control" type="text" name="phone" id="phone" value="{{ old('phone', '') }}" required>
+                            @if($errors->has('phone'))
+                                <span class="help-block" role="alert">{{ $errors->first('phone') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.retailer.fields.phone_helper') }}</span>
+                        </div>
+                        
+                        
 
 {{--                        <div class="form-group">--}}
 {{--                            <label for="categories">{{ trans('cruds.retailer.fields.categories') }}</label>--}}
@@ -61,7 +65,7 @@
 
                         <div class="form-group">
                             <label for="description">{{ trans('cruds.retailer.fields.description') }}</label>
-                            <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description">{{ old('description') }}</textarea>
+                            <textarea class="form-control {{ $errors->has('description') ? 'is-invalid' : '' }}" name="description" id="description">Authorized  dealer of Pirelli Bangladesh</textarea>
                             @if($errors->has('description'))
                                 <div class="invalid-feedback">
                                     {{ $errors->first('description') }}
@@ -69,6 +73,17 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.retailer.fields.description_helper') }}</span>
                         </div>
+                             <div class="form-group">
+                            <label for="location">{{ trans('cruds.retailer.fields.location') }}</label>
+                            <textarea class="form-control {{ $errors->has('location') ? 'is-invalid' : '' }}" name="location" id="location">{{ old('location') }}</textarea>
+                            @if($errors->has('location'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('location') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.retailer.fields.location_helper') }}</span>
+                        </div>
+
 
                         <div class="form-group {{ $errors->has('city') ? 'has-error' : '' }}">
                             <label class="required" for="city_id">{{ trans('cruds.retailer.fields.city') }}</label>

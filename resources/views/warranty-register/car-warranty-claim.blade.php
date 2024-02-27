@@ -61,7 +61,7 @@
                             <div class="choose-file_btn">
                                 <p>Upload Photos</p>
                                 <div class="invoice-upload d-flex align-items-center">
-                                    <button class="btn btn-file costum-style"><input type="file" id="uploadPhoto" name="photos[]" accept="image/*" multiple></button>
+                                <input class="btn btn-file costum-style" type="file" id="uploadPhoto" name="photos[]" accept="image/*" multiple>
                                 </div>
 
                             </div>
@@ -87,8 +87,15 @@
                       <div class="col-xl-6 col-lg-6 col-12">
                           <div class="costum-input input-product-size">
                               <p>Product Size</p>
-                              <select id="product-size" name="product_size_id">
+                              <select id="product-size" name="product_size_id" class="form-control select2">
                                   <option value="">Please select tyre size</option>
+                                         @foreach ($tyreSizes as $tyreSize)
+                                      @if (old('product_size') == $tyreSize->id)
+                                          <option value="{{ $tyreSize->id }}" selected>{{ $tyreSize->size }}</option>
+                                      @else
+                                          <option value="{{ $tyreSize->id }}">{{ $tyreSize->size }}</option>
+                                      @endif
+                                  @endforeach
                               </select>
                           </div>
                       </div>
@@ -163,7 +170,8 @@
       </div>
 
               <div class="find-out-more-btn">
-                <a href="#">
+              
+                   <a style="text-align:center;" href="{{asset('Pirelli Tyre Warranty Policy PDF - Download 1111.pdf')}}">
                   <button class="costum-btn">Find Out More</button>
                 </a>
               </div>
@@ -189,7 +197,7 @@
         jQuery(function () {
 
 
-            $('#product-names').on('change', function () {
+            $('#product-names-stop').on('change', function () {
                 let productId = $('#product-names').val();
                 console.log(productId);
 
@@ -214,14 +222,14 @@
                 let invoiceNo = $('#invoice-number').val();
 
                 $.ajax({
-                    url: `/moto-invoice/${invoiceNo}`,
+                    url: `/car-invoice/${invoiceNo}`,
                     success: function (data) {
 
-                        console.log(data);
+                      
 
                         $('#product-names').html('<option value=' + data.product_name.id + '>' + data.product_name.name + '</option>');
                         $('#product-size').html('<option value=' + data.product_size.id + '>' + data.product_size.size + '</option>');
-                        $('#retailer').html('<option value=' + data.retailer.id + '>' + data.retailer.shop_name + '</option>');
+                        $('#retailer').html('<option value=' + data.retailer.id + '>' + data.retailer.name + '</option>');
                         // $.each(data, function(key, obj)
                         // {
                         //
@@ -236,5 +244,8 @@
 
 
         });
+            $( document ).ready(function() {
+                $('.select2').select2();
+            });
     </script>
     @endsection

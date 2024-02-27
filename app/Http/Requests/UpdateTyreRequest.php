@@ -23,6 +23,12 @@ class UpdateTyreRequest extends FormRequest
                 'max:255',
                 'required',
             ],
+             'tagline' => [
+                'string',
+                'min:1',
+                'max:255',
+            
+            ],
             'model_combinations.*' => [
                 'integer',
             ],

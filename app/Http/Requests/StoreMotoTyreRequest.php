@@ -23,6 +23,11 @@ class StoreMotoTyreRequest extends FormRequest
                 'max:255',
                 'nullable',
             ],
+            
+            'pattern' => [
+                'required',
+                'integer',
+            ],
             'moto_brand_id' => [
                 'required',
                 'integer',

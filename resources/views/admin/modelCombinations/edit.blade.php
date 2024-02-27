@@ -14,7 +14,7 @@
                         @csrf
                         <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                             <label for="name">{{ trans('cruds.modelCombination.fields.name') }}</label>
-                            <input class="form-control" type="text" name="name" id="name" value=" {{ $modelCombination->brand->brand }} : {{$modelCombination->car_model->model}} : {{$modelCombination->engine->engine}} : {{$modelCombination->chassis->chassis}}">
+                            <input class="form-control" type="text" name="name" id="name" value=" {{ $modelCombination->brand->brand }} : {{$modelCombination->car_model->model}} : {{$modelCombination->engine->engine}}">
 
                             @if($errors->has('name'))
                                 <span class="help-block" role="alert">{{ $errors->first('name') }}</span>
@@ -74,8 +74,9 @@
                             <span class="help-block">{{ trans('cruds.modelCombination.fields.engine_helper') }}</span>
                         </div>
                         <div class="form-group {{ $errors->has('chassis') ? 'has-error' : '' }}">
-                            <label class="required" for="chassis_id">{{ trans('cruds.modelCombination.fields.chassis') }}</label>
-                            <select class="form-control select2" name="chassis_id" id="chassis_id" required>
+                            <label for="chassis_id">{{ trans('cruds.modelCombination.fields.chassis') }}</label>
+                            <select class="form-control select2" name="chassis_id" id="chassis_id">
+                                <option value="">Please select</option>
                                 @foreach($chassis as $id => $entry)
                                     <option value="{{ $id }}" {{ (old('chassis_id') ? old('chassis_id') : $modelCombination->chassis->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                                 @endforeach

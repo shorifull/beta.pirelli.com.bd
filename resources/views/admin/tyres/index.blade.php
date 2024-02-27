@@ -34,7 +34,7 @@
                                         {{ trans('cruds.tyre.fields.model_combination') }}
                                     </th>
                                     <th>
-                                        {{ trans('cruds.tyre.fields.categoy') }}
+                                        {{ trans('cruds.tyre.fields.series') }}
                                     </th>
                                     <th>
                                         {{ trans('cruds.tyre.fields.width') }}
@@ -71,14 +71,14 @@
                                         <td>
                                             @foreach($tyre->model_combinations as $key => $modelCombination)
                                                 <span class="label label-info label-many">    {{ $modelCombination->brand->brand }} :
-                                                {{$modelCombination->car_model->model}} : {{$modelCombination->engine->engine}} : {{$modelCombination->chassis->chassis}}</span>
+                                                {{$modelCombination->car_model->model}} : {{$modelCombination->engine->engine}}</span>
                                             @endforeach
 
                                         </td>
                                         <td>
-                                            @foreach($tyre->categoys as $key => $item)
-                                                <span class="label label-info label-many">{{ $item->category }}</span>
-                                            @endforeach
+                                            
+                                        <span class="label label-info label-many">{{ $tyre->series }}</span>
+                                           
                                         </td>
                                         <td>
                                             {{ $tyre->width->width ?? '' }}
@@ -105,7 +105,7 @@
                                         </td>
                                         <td>
                                             @can('tyre_show')
-                                                <a class="btn btn-xs btn-primary" href="{{ route('admin.tyres.show', $tyre->id) }}">
+                                                <a class="btn btn-xs btn-primary" href="{{ route('car-tyre', [$tyre->slug]) }}">
                                                     {{ trans('global.view') }}
                                                 </a>
                                             @endcan

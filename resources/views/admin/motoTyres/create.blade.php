@@ -19,6 +19,14 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.motoTyre.fields.title_helper') }}</span>
                         </div>
+                        <div class="form-group {{ $errors->has('tagline') ? 'has-error' : '' }}">
+                            <label for="tagline">{{ trans('cruds.motoTyre.fields.tagline') }}</label>
+                            <input class="form-control" type="text" name="tagline" id="tagline" value="{{ old('tagline', '') }}">
+                            @if($errors->has('tagline'))
+                                <span class="help-block" role="alert">{{ $errors->first('tagline') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.motoTyre.fields.tagline_helper') }}</span>
+                        </div>
                         <div class="form-group {{ $errors->has('moto_brand') ? 'has-error' : '' }}">
                             <label class="required" for="moto_brand_id">{{ trans('cruds.motoTyre.fields.moto_brand') }}</label>
                             <select class="form-control select2" name="moto_brand_id" id="moto_brand_id" required>
@@ -91,6 +99,23 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.motoTyre.fields.moto_ratio_helper') }}</span>
                         </div>
+                
+                        <div class="form-group {{ $errors->has('pattern') ? 'has-error' : '' }}">
+                            <label for="pattern">{{ trans('cruds.motoTyre.fields.pattern') }}</label>
+                            <select class="form-control" name="pattern" id="pattern">
+                            
+                              @foreach(App\Models\MotoTyre::PATTERN as $id => $pattern)
+                             
+                              <option value="{{ $id }}" {{ (old('pattern') ? old('pattern') : $motoTyre->pattern ?? '') == $id ? 'selected' : '' }}>{{ $pattern }}</option>
+                              
+                              @endforeach
+                            </select>
+                            @if($errors->has('pattern'))
+                                <span class="help-block" role="alert">{{ $errors->first('pattern') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.motoTyre.fields.pattern_helper') }}</span>
+                        </div>
+                        
                         <div class="form-group {{ $errors->has('categories') ? 'has-error' : '' }}">
                             <label for="categories">{{ trans('cruds.motoTyre.fields.category') }}</label>
                             <div style="padding-bottom: 4px">
@@ -132,6 +157,15 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.motoTyre.fields.thumbnail_helper') }}</span>
                         </div>
+                         <div class="form-group {{ $errors->has('gallery') ? 'has-error' : '' }}">
+                            <label for="gallery">{{ trans('cruds.motoTyre.fields.gallery') }}</label>
+                            <div class="needsclick dropzone" id="gallery-dropzone">
+                            </div>
+                            @if($errors->has('gallery'))
+                                <span class="help-block" role="alert">{{ $errors->first('gallery') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.motoTyre.fields.gallery_helper') }}</span>
+                        </div>
                         <div class="form-group {{ $errors->has('banner') ? 'has-error' : '' }}">
                             <label for="banner">{{ trans('cruds.motoTyre.fields.banner') }}</label>
                             <div class="needsclick dropzone" id="banner-dropzone">
@@ -157,6 +191,16 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.motoTyre.fields.specifications_helper') }}</span>
                         </div>
+                        
+                        <div class="form-group {{ $errors->has('advantages') ? 'has-error' : '' }}">
+                            <label for="advantages">{{ trans('cruds.tyre.fields.advantages') }}</label>
+                            <textarea class="form-control ckeditor" name="advantages" id="advantages">{!! old('advantages') !!}</textarea>
+                            @if($errors->has('advantages'))
+                                <span class="help-block" role="alert">{{ $errors->first('advantages') }}</span>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.tyre.fields.advantages_helper') }}</span>
+                        </div>
+                        
                         <div class="form-group {{ $errors->has('warranty') ? 'has-error' : '' }}">
                             <label for="warranty">{{ trans('cruds.motoTyre.fields.warranty') }}</label>
                             <textarea class="form-control ckeditor" name="warranty" id="warranty">{!! old('warranty') !!}</textarea>
@@ -173,6 +217,7 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.motoTyre.fields.video_helper') }}</span>
                         </div>
+                  
                         <div class="form-group">
                             <button class="btn btn-danger" type="submit">
                                 {{ trans('global.save') }}
@@ -360,6 +405,66 @@
 
         return _results
     }
+}
+</script>
+<script>
+    var uploadedGalleryMap = {}
+Dropzone.options.galleryDropzone = {
+    url: '{{ route('admin.moto-tyres.storeMedia') }}',
+    maxFilesize: 2, // MB
+    acceptedFiles: '.jpeg,.jpg,.png,.gif',
+    addRemoveLinks: true,
+    headers: {
+      'X-CSRF-TOKEN': "{{ csrf_token() }}"
+    },
+    params: {
+      size: 2,
+      width: 1080,
+      height: 1080
+    },
+    success: function (file, response) {
+      $('form').append('<input type="hidden" name="gallery[]" value="' + response.name + '">')
+      uploadedGalleryMap[file.name] = response.name
+    },
+    removedfile: function (file) {
+      console.log(file)
+      file.previewElement.remove()
+      var name = ''
+      if (typeof file.file_name !== 'undefined') {
+        name = file.file_name
+      } else {
+        name = uploadedGalleryMap[file.name]
+      }
+      $('form').find('input[name="gallery[]"][value="' + name + '"]').remove()
+    },
+    init: function () {
+@if(isset($motoTyre) && $motoTyre->gallery)
+      var files = {!! json_encode($motoTyre->gallery) !!}
+          for (var i in files) {
+          var file = files[i]
+          this.options.addedfile.call(this, file)
+          this.options.thumbnail.call(this, file, file.preview)
+          file.previewElement.classList.add('dz-complete')
+          $('form').append('<input type="hidden" name="gallery[]" value="' + file.file_name + '">')
+        }
+@endif
+    },
+     error: function (file, response) {
+         if ($.type(response) === 'string') {
+             var message = response //dropzone sends it's own error messages in string
+         } else {
+             var message = response.errors.file
+         }
+         file.previewElement.classList.add('dz-error')
+         _ref = file.previewElement.querySelectorAll('[data-dz-errormessage]')
+         _results = []
+         for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+             node = _ref[_i]
+             _results.push(node.textContent = message)
+         }
+
+         return _results
+     }
 }
 </script>
 @endsection

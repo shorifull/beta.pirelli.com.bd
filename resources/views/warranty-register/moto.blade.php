@@ -295,8 +295,9 @@
                     success: function (data) {
                         $.each(data, function(key, obj)
                         {
-                            console.log(obj)
-                            $('#product-size').append('<option value=' + obj.id + '>' + obj.size + '</option>');
+                           
+                           
+                             $('#product-size').append('<option value=' + obj.id + '>' + obj.width.width + '/' + obj.ratio.ratio + ' R' + obj.size.size + '</option>');
                         });
                     }
                 })

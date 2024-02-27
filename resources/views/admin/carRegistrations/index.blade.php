@@ -27,6 +27,11 @@
                                     <th>
                                         {{ trans('cruds.carRegistration.fields.id') }}
                                     </th>
+                                    
+                                      <th>
+                                        Status
+                                    </th>
+                                    
                                     <th>
                                         {{ trans('cruds.carRegistration.fields.first_name') }}
                                     </th>
@@ -88,6 +93,13 @@
                                         </td>
                                         <td>
                                             {{ $carRegistration->id ?? '' }}
+                                        </td>
+                                               <td id="{{ $carRegistration->id ?? '' }}">
+                                            @if($carRegistration->is_approved == 1)
+                                                <button type="button"  class="btn btn-xs btn-success">Approved</button>
+                                            @else
+                                                <button type="button" onclick="changeStatus({{ $carRegistration->id ?? '' }})" class="btn btn-xs btn-warning">Pending</button>
+                                            @endif
                                         </td>
                                         <td>
                                             {{ $carRegistration->first_name ?? '' }}
@@ -186,6 +198,7 @@
 @parent
 <script>
     $(function () {
+        
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
 @can('car_registration_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
@@ -228,7 +241,23 @@
           .columns.adjust();
   });
   
+
+  
 })
+
+  function changeStatus(id) {
+          
+            $.post('{{ route('admin.car-registrations.warranty-status-change') }}',{_token:'{{ csrf_token() }}', id:id}, function(data){
+                if(data.is_approved==1) {
+                    $('td#'+id).html('<button type="button"  class="btn btn-xs btn-success">Approved</button>')
+                   
+                }
+           
+            });
+     
+      
+      
+  }
 
 </script>
 @endsection

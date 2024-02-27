@@ -81,6 +81,8 @@ class RetailerController extends Controller
     public function update(UpdateRetailerRequest $request, Retailer $retailer)
     {
 
+
+
         if(!$request->active){
             $request->merge([
                 'active' => 0

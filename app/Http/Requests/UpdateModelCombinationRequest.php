@@ -36,10 +36,7 @@ class UpdateModelCombinationRequest extends FormRequest
                 'required',
                 'integer',
             ],
-            'chassis_id' => [
-                'required',
-                'integer',
-            ],
+           
         ];
     }
 }

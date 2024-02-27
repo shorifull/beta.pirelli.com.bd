@@ -5,8 +5,15 @@
       <sourceFolder url="file://$MODULE_DIR$/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
       <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="App\" />
       <sourceFolder url="file://$MODULE_DIR$/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
-      <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/Feature" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/tests/Unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/sharing/Application/app" isTestSource="false" packagePrefix="App\" />
+      <sourceFolder url="file://$MODULE_DIR$/sharing/Application/database/factories" isTestSource="false" packagePrefix="Database\Factories\" />
+      <sourceFolder url="file://$MODULE_DIR$/sharing/Application/database/seeders" isTestSource="false" packagePrefix="Database\Seeders\" />
+      <sourceFolder url="file://$MODULE_DIR$/sharing/Application/tests" isTestSource="true" packagePrefix="Tests\" />
+      <sourceFolder url="file://$MODULE_DIR$/sharing/Application/tests/Feature" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/sharing/Application/tests/Unit" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/asm89/stack-cors" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/bugsnag/bugsnag" />
@@ -135,6 +142,138 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yajra/laravel-datatables-oracle" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/anhskohbo/no-captcha" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/asm89/stack-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/aws/aws-sdk-php" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/brick/math" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/dnoegel/php-xdg-base-dir" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/dragonmantank/cron-expression" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/egulias/email-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/facade/flare-client-php" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/facade/ignition" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/facade/ignition-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/fakerphp/faker" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/fideloper/proxy" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/filp/whoops" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/fruitcake/laravel-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/gliterd/backblaze-b2" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/gliterd/laravel-backblaze-b2" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/graham-campbell/result-type" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/guzzle/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/guzzlehttp/guzzle" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/guzzlehttp/promises" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/guzzlehttp/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/hamcrest/hamcrest-php" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/laravel/framework" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/laravel/sail" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/laravel/socialite" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/laravel/tinker" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/league/commonmark" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/league/flysystem" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/league/flysystem-aws-s3-v3" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/league/flysystem-rackspace" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/league/mime-type-detection" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/league/oauth1-client" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/mhetreramesh/flysystem-backblaze" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/mikemccabe/json-patch-php" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/mikey179/vfsstream" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/mockery/mockery" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/mtdowling/jmespath.php" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/nesbot/carbon" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/nikic/php-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/nunomaduro/collision" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/opis/closure" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phar-io/manifest" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phpdocumentor/reflection-docblock" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phpoption/phpoption" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phpspec/prophecy" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phpunit/php-code-coverage" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phpunit/php-file-iterator" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phpunit/php-invoker" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phpunit/php-text-template" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phpunit/php-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/probablyrational/wasabi-storage" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/psr/container" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/psr/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/psy/psysh" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/rackspace/php-opencloud" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/ralouphie/getallheaders" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/ramsey/collection" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/ramsey/uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/rogervila/laravel-legacy-ui" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/cli-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/code-unit" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/code-unit-reverse-lookup" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/complexity" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/environment" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/exporter" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/global-state" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/lines-of-code" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/object-enumerator" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/object-reflector" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/recursion-context" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/resource-operations" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/type" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/swiftmailer/swiftmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/console" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/css-selector" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/deprecation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/error-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/event-dispatcher" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/event-dispatcher-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/http-client-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/http-foundation" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/http-kernel" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/mime" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/polyfill-iconv" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/polyfill-intl-grapheme" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/polyfill-intl-idn" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/polyfill-intl-normalizer" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/polyfill-php72" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/polyfill-php73" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/process" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/routing" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/service-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/string" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/translation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/tijsverkoyen/css-to-inline-styles" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/vlucas/phpdotenv" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/voku/portable-ascii" />
+      <excludeFolder url="file://$MODULE_DIR$/sharing/Application/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/barryvdh/laravel-dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dflydev/dot-access-data" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dompdf/dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/league/config" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nette/schema" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/nette/utils" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phenx/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phenx/php-svg-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sabberworm/php-css-parser" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

@@ -42,9 +42,9 @@
                                     <th>
                                         {{ trans('cruds.modelCombination.fields.engine') }}
                                     </th>
-                                    <th>
-                                        {{ trans('cruds.modelCombination.fields.chassis') }}
-                                    </th>
+                                    <!--<th>-->
+                                    <!--    {{ trans('cruds.modelCombination.fields.chassis') }}-->
+                                    <!--</th>-->
                                     <th>
                                         &nbsp;
                                     </th>
@@ -62,7 +62,7 @@
                                         <td>
 {{--                                            {{ $modelCombination->name ?? '' }}--}}
                                             {{ $modelCombination->brand->brand }} :
-                                                {{$modelCombination->car_model->model}} : {{$modelCombination->engine->engine}} : {{$modelCombination->chassis->chassis}}
+                                                {{$modelCombination->car_model->model}} : {{$modelCombination->engine->engine}}
 
                                         </td>
                                         <td>
@@ -79,9 +79,9 @@
                                         <td>
                                             {{ $modelCombination->engine->engine ?? '' }}
                                         </td>
-                                        <td>
-                                            {{ $modelCombination->chassis->chassis ?? '' }}
-                                        </td>
+                                        <!--<td>-->
+                                        <!--    {{ $modelCombination->chassis->chassis ?? '' }}-->
+                                        <!--</td>-->
                                         <td>
                                             @can('model_combination_show')
                                                 <a class="btn btn-xs btn-primary" href="{{ route('admin.model-combinations.show', $modelCombination->id) }}">

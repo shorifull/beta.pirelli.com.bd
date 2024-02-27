@@ -16,6 +16,7 @@ Route::get('moto-search-by-size', 'HomeController@motoTyreSearchBySize')->name('
 
 Route::get('/get_moto_models_by_brand', 'HomeController@getMotoModelsByBrand')->name('get_moto_models_by_brand');
 
+Route::get('/get_moto_engines_by_model', 'HomeController@getMotoEnginesByModel')->name('get_moto_engines_by_model');
 
 
 
@@ -30,10 +31,26 @@ Route::get('/moto-retailer','HomeController@motoRetailerList')->name('moto-retai
 Route::get('retailer/{retailer}', 'HomeController@show')->name('retailer');
 Route::get('/contact','HomeController@createForm')->name('contact');
 Route::get('/about','HomeController@about')->name('about');
+Route::get('/privacy-policy','HomeController@privacyPolicy')->name('privacy-policy');
+Route::get('/terms-and-conditions','HomeController@termsConditions')->name('terms-conditions');
+Route::get('/return-refund-policy','HomeController@returnRefund')->name('return-refund-policy');
+
+
+Route::get('/runflat','HomeController@runflat')->name('runflat');
 Route::post('/contact','HomeController@contactSubmit')->name('contact.submit');
 
-Route::get('tyre/moto/{tyre}', 'HomeController@showMotoTyre')->name('moto-tyre');
-Route::get('tyre/car/{tyre}', 'HomeController@showCarTyre')->name('car-tyre');
+Route::get('tyre/moto/{slug}', 'HomeController@showMotoTyre')->name('moto-tyre');
+Route::get('tyre/car/{slug}', 'HomeController@showCarTyre')->name('car-tyre');
+
+
+Route::get('tyre-tech-knowledge', 'HomeController@tyreTechKnowledge')->name('tyre-tech-knowledge');
+Route::get('car-tech-and-knowledge', 'HomeController@carTyreTechnology')->name('car-tech-and-knowledge');
+Route::get('car-tech-and-knowledge/runflat','HomeController@runflat')->name('runflat');
+Route::get('car-tech-and-knowledge/pncs','HomeController@pncs')->name('pncs');
+Route::get('car-tech-and-knowledge/seal-inside','HomeController@sealInside')->name('seal-inside');
+Route::get('pzero','HomeController@pzeroSeries')->name('pzero');
+Route::get('cinturato-p7','HomeController@cinturatoSeries')->name('cinturato-p7');
+Route::get('scorpion','HomeController@scorpionSeries')->name('scorpion');
 
 
 //Warranty Registration
@@ -52,7 +69,7 @@ Route::post('/claim-car-warranty','WarrantyRegisterController@claimCarWarranty')
 Route::get('/warranty-claim/car','WarrantyRegisterController@carWarrantyClaim')->name('warranty-claim-car');
 Route::get('/warranty-claim/moto','WarrantyRegisterController@motoWarrantyClaim')->name('warranty-claim-moto');
 Route::get('/moto-invoice/{invoiceNo}','WarrantyRegisterController@motoInvoiceDetails')->name('get-moto-invoice');
-
+Route::get('/car-invoice/{invoiceNo}','WarrantyRegisterController@carInvoiceDetails')->name('get-car-invoice');
 
 Route::get('/product-sizes/{productId}','WarrantyRegisterController@productSizes')->name('get-product-sizes');
 Route::get('/test-file-form', [WarrantyRegisterController::class, 'testFileForm'])->name('test-file-form');
@@ -220,6 +237,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('car-registrations/destroy', 'CarRegistrationController@massDestroy')->name('car-registrations.massDestroy');
     Route::post('car-registrations/media', 'CarRegistrationController@storeMedia')->name('car-registrations.storeMedia');
     Route::post('car-registrations/ckmedia', 'CarRegistrationController@storeCKEditorImages')->name('car-registrations.storeCKEditorImages');
+    Route::post('car-registrations/change-status', 'CarRegistrationController@changeRegistrationStatus')->name('car-registrations.warranty-status-change');
+  
     Route::resource('car-registrations', 'CarRegistrationController');
 
     // Header

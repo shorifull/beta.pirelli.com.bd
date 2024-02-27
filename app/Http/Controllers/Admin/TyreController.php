@@ -13,8 +13,10 @@ use App\Models\Ratio;
 use App\Models\Size;
 use App\Models\Tyre;
 use App\Models\Width;
+use App\Models\ProductSize;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -27,6 +29,20 @@ class TyreController extends Controller
         abort_if(Gate::denies('tyre_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $tyres = Tyre::with(['model_combinations', 'categoys', 'width', 'ratio', 'size', 'media'])->get();
+   
+      
+        //           Tyre::where('title', 'LIKE', '%SCORPION%')->chunk(200, function($tyres)
+        // {
+        //     foreach ($tyres as $tyre)
+        //     {
+        //         $tyre->series =4;
+        //         $tyre->save();
+        //     }
+        // });
+   
+        
+        
+        
 
         return view('admin.tyres.index', compact('tyres'));
     }
@@ -45,13 +61,15 @@ class TyreController extends Controller
 
         $ratios = Ratio::all()->pluck('ratio', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $sizes = Size::all()->pluck('with', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $sizes = Size::all()->pluck('size', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('admin.tyres.create', compact('model_combinations', 'categoys', 'widths', 'ratios', 'sizes'));
     }
 
     public function store(StoreTyreRequest $request)
     {
+        
+        $request['slug']  = Str::slug($request->title, '-');
         $tyre = Tyre::create($request->all());
         $tyre->model_combinations()->sync($request->input('model_combinations', []));
         $tyre->categoys()->sync($request->input('categoys', []));
@@ -61,6 +79,10 @@ class TyreController extends Controller
 
         if ($request->input('banner', false)) {
             $tyre->addMedia(storage_path('tmp/uploads/' . basename($request->input('banner'))))->toMediaCollection('banner');
+        }
+        
+          foreach ($request->input('gallery', []) as $file) {
+            $tyre->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('gallery');
         }
 
         if ($media = $request->input('ck-media', false)) {
@@ -115,6 +137,23 @@ class TyreController extends Controller
         } elseif ($tyre->banner) {
             $tyre->banner->delete();
         }
+        
+        
+              if (count($tyre->gallery) > 0) {
+            foreach ($tyre->gallery as $media) {
+                if (!in_array($media->file_name, $request->input('gallery', []))) {
+                    $media->delete();
+                }
+            }
+        }
+        $media = $tyre->gallery->pluck('file_name')->toArray();
+        foreach ($request->input('gallery', []) as $file) {
+            if (count($media) === 0 || !in_array($file, $media)) {
+                $tyre->addMedia(storage_path('tmp/uploads/' . basename($file)))->toMediaCollection('gallery');
+            }
+        }
+        
+        
 
         return redirect()->route('admin.tyres.index');
     }
