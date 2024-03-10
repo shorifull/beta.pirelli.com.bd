@@ -18,7 +18,7 @@ use Illuminate\Support\Str;
 
 class WarrantyClaimController extends Controller
 {
-
+    use MediaUploadingTrait;
 
     public function registerCar()
     {
