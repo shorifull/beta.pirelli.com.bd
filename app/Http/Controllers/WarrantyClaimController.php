@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\StoreWarrantyRequest;
 use App\Http\Services\CarApi;
 use App\Models\CarRegistration;
@@ -20,14 +21,14 @@ class WarrantyClaimController extends Controller
 {
     use MediaUploadingTrait;
 
-    public function registerCar()
+    public function claimWarranty()
     {
         $vehicleType = VehicleType::where(['slug' => 'car'])->first();
         $cities = City::orderBy('name', 'asc')->get();
         $products = Product::where('vehicle_type_id','1')->get();
         $retailers = Retailer::where('vehicle_type_id','1')->get();
         $tyreSizes = ProductSize::all();
-        return view('warranty-register.car', compact('products','tyreSizes', 'retailers', 'cities'));
+        return view('warranty-register.warranty-claim', compact('products','tyreSizes', 'retailers', 'cities'));
     }
 
 

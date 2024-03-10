@@ -66,6 +66,7 @@ Route::post('/add-moto-warranty','WarrantyRegisterController@addMotoWarranty')->
 Route::post('/claim-moto-warranty','WarrantyRegisterController@claimMotoWarranty')->name('claim-moto-warranty');
 Route::post('/claim-car-warranty','WarrantyRegisterController@claimCarWarranty')->name('claim-car-warranty');
 Route::post('/claim-warranty','WarrantyRegisterController@claimWarranty')->name('claim-warranty');
+Route::get('/warranty-claim','WarrantyClaimController@claimWarranty')->name('claim-warranty-form');
 
 Route::get('/warranty-claim/car','WarrantyRegisterController@carWarrantyClaim')->name('warranty-claim-car');
 Route::get('/warranty-claim/moto','WarrantyRegisterController@motoWarrantyClaim')->name('warranty-claim-moto');
@@ -241,7 +242,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('car-registrations/media', 'CarRegistrationController@storeMedia')->name('car-registrations.storeMedia');
     Route::post('car-registrations/ckmedia', 'CarRegistrationController@storeCKEditorImages')->name('car-registrations.storeCKEditorImages');
     Route::post('car-registrations/change-status', 'CarRegistrationController@changeRegistrationStatus')->name('car-registrations.warranty-status-change');
-  
+
     Route::resource('car-registrations', 'CarRegistrationController');
 
     // Header
