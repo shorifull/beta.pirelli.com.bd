@@ -65,6 +65,7 @@ Route::post('/add-car-warranty','WarrantyRegisterController@addCarWarranty')->na
 Route::post('/add-moto-warranty','WarrantyRegisterController@addMotoWarranty')->name('add-moto-warranty');
 Route::post('/claim-moto-warranty','WarrantyRegisterController@claimMotoWarranty')->name('claim-moto-warranty');
 Route::post('/claim-car-warranty','WarrantyRegisterController@claimCarWarranty')->name('claim-car-warranty');
+Route::post('/claim-warranty','WarrantyRegisterController@claimWarranty')->name('claim-warranty');
 
 Route::get('/warranty-claim/car','WarrantyRegisterController@carWarrantyClaim')->name('warranty-claim-car');
 Route::get('/warranty-claim/moto','WarrantyRegisterController@motoWarrantyClaim')->name('warranty-claim-moto');
@@ -200,6 +201,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Social
     Route::delete('socials/destroy', 'SocialController@massDestroy')->name('socials.massDestroy');
     Route::resource('socials', 'SocialController');
+
+    Route::resource('user', UserController::class);
 
 
     // Home Slider
