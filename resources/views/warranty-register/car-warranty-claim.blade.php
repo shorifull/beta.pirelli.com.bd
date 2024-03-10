@@ -44,6 +44,80 @@
 
 
               </div>
+                <!-- first input groups -->
+                <div class="input-fields-header">
+                    <div class="input-fields-header__inner">
+                        <p>Customer Detail</p>
+                    </div>
+                    <div class="input-fields-group">
+                        <div class="row">
+
+                            <div class="col-xl-6 col-lg-6 col-12">
+                                <div class="costum-input input-firstname">
+                                    <p>First Name</p>
+                                    <input type="text"  placeholder="First Name" name="first_name" value="{{ old('first_name') }}" />
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-12">
+                                <div class="costum-input input-lastname">
+                                    <p>Last Name</p>
+                                    <input type="text" placeholder="Last Name" name="last_name" value="{{ old('last_name') }}" />
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-12">
+                                <div class="costum-input input-email">
+                                    <p>Email</p>
+                                    <input type="email" placeholder="Email" id="email" name="email" value="{{ old('email') }}"/>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-12">
+                                <div class="costum-input input-number">
+                                    <p>Phone Number</p>
+                                    <!-- allow only numbers -->
+                                    <input type="tel" placeholder="+880" name="phone" value="{{ old('phone') }}"
+                                           oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"  />
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-12">
+                                <div class="costum-input input-email">
+                                    <p>City</p>
+                                    <select id="cars" name="city">
+                                        <option value="">Select</option>
+                                        @foreach ($cities as $city)
+                                            @if (old('city') == $city->id)
+                                                <option value="{{ $city->id }}" selected>{{ $city->name }}</option>
+                                            @else
+                                                <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-12">
+                                <div class="costum-input input-zip">
+                                    <p>Zip Code</p>
+                                    <input type="text" name="zip" placeholder="Zip Code" type="text" id="zipCode" value="{{ old('zip') }}" />
+                                </div>
+                            </div>
+
+
+                            <div class="col-xl-12 col-lg-12 col-12">
+                                <div class="costum-input input-zip">
+                                    <p>Address</p>
+                                    <input type="text" name="address" placeholder="Address" value="{{ old('address') }}" />
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
               <!-- first input groups -->
               <div class="input-fields-header">
                 <div class="input-fields-header__inner">
@@ -170,7 +244,7 @@
       </div>
 
               <div class="find-out-more-btn">
-              
+
                    <a style="text-align:center;" href="{{asset('Pirelli Tyre Warranty Policy PDF - Download 1111.pdf')}}">
                   <button class="costum-btn">Find Out More</button>
                 </a>
@@ -225,7 +299,7 @@
                     url: `/car-invoice/${invoiceNo}`,
                     success: function (data) {
 
-                      
+
 
                         $('#product-names').html('<option value=' + data.product_name.id + '>' + data.product_name.name + '</option>');
                         $('#product-size').html('<option value=' + data.product_size.id + '>' + data.product_size.size + '</option>');
