@@ -30,6 +30,11 @@ class WarrantyClaim extends Model implements HasMedia
     ];
 
     protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'phone',
+        'address',
         'invoice_number',
         'product_name_id',
         'product_size_id',
@@ -58,6 +63,11 @@ class WarrantyClaim extends Model implements HasMedia
     public function product_size()
     {
         return $this->belongsTo(ProductSize::class, 'product_size_id');
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class, 'city_id');
     }
 
     public function getPhotosAttribute()
