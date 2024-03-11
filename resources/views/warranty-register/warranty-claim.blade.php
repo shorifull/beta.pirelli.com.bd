@@ -18,7 +18,7 @@
         <div class="row">
 
           <div class="col-xl-7 col-lg-7 col-12">
-            <form method="post" action="{{ route('claim-moto-warranty') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('claim-car-warranty') }}" enctype="multipart/form-data">
                 @csrf
               <div class="input-fields-header-wrapper">
                 <div class="input-fields__inner">

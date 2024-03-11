@@ -64,7 +64,7 @@ Route::get('/warranty-registration/moto/error', 'WarrantyRegisterController@regi
 Route::post('/add-car-warranty','WarrantyRegisterController@addCarWarranty')->name('add-car-warranty');
 Route::post('/add-moto-warranty','WarrantyRegisterController@addMotoWarranty')->name('add-moto-warranty');
 Route::post('/claim-moto-warranty','WarrantyRegisterController@claimMotoWarranty')->name('claim-moto-warranty');
-Route::post('/claim-car-warranty','WarrantyRegisterController@claimCarWarranty')->name('claim-car-warranty');
+Route::post('/claim-car-warranty','WarrantyClaimController@claimCarWarranty')->name('claim-car-warranty');
 Route::post('/claim-warranty','WarrantyRegisterController@claimWarranty')->name('claim-warranty');
 Route::get('/warranty-claim','WarrantyClaimController@claimWarranty')->name('claim-warranty-form');
 

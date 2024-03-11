@@ -39,6 +39,12 @@ class WarrantyClaimController extends Controller
         try {
 
             $warrantyClaim = new WarrantyClaim();
+            $warrantyClaim->first_name = $request->first_name;
+            $warrantyClaim->last_name = $request->last_name;
+            $warrantyClaim->email = $request->email;
+            $warrantyClaim->phone = $request->phone;
+            $warrantyClaim->city_id = $request->city;
+            $warrantyClaim->address = $request->address;
             $warrantyClaim->invoice_number = $request->invoice_number;
             $warrantyClaim->product_name_id = $request->product_name_id;
             $warrantyClaim->product_size_id = $request->product_size_id;

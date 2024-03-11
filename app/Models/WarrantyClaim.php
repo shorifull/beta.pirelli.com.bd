@@ -34,6 +34,7 @@ class WarrantyClaim extends Model implements HasMedia
         'last_name',
         'email',
         'phone',
+        'city_id',
         'address',
         'invoice_number',
         'product_name_id',
