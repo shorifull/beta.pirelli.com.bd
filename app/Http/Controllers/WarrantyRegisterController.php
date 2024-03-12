@@ -31,7 +31,7 @@ use PDF;
 class WarrantyRegisterController extends Controller
 {
     use MediaUploadingTrait;
-    
+
     public function registerCar()
     {
         $vehicleType = VehicleType::where(['slug' => 'car'])->first();
@@ -61,10 +61,10 @@ class WarrantyRegisterController extends Controller
     {
         // $productSizes = ProductSize::getProductSizes(urldecode($productId));
 
-     
-        
+
+
         $productSizes = Tyre::with(['width', 'ratio', 'size'])->get();
-        
+
          return $productSizes;
     }
 
@@ -75,15 +75,15 @@ class WarrantyRegisterController extends Controller
 
         return $invoice;
     }
-    
-    
+
+
        public function carInvoiceDetails($invoiceNo)
     {
         $invoice = CarRegistration::where('invoice_number', $invoiceNo)->with('product_name','product_size','retailer')->first();
 
         return $invoice;
     }
-    
+
 
 
 
@@ -139,7 +139,7 @@ class WarrantyRegisterController extends Controller
             'Email_Opt_Out' => $request->subscribed ? false : true,
         ];
         $file = $request->file('invoice_attachment');
-     
+
 
 
         // Save into database
@@ -161,29 +161,29 @@ class WarrantyRegisterController extends Controller
 
         $carRegistration->warranty_number = Str::random(10);
         $carRegistration->save();
-        
-      
 
 
-      
+
+
+
 
         try {
             $api = app(CarApi::class, config('zoho.car'));
             $response = $api->insertContact($data);
             $response = json_decode($response);
-          
-           
-            
-           
+
+
+
+
 
             if($response->data[0]->status == 'error') {
                 return redirect(route('warranty-register-car-error'));
             }
 
             $id = $response->data[0]->details->id;
-             
+
             $response = $api->uploadFile($id, $file);
-            
+
               if ($file) {
 
             $carRegistration->addMedia($request->file('invoice_attachment'))->toMediaCollection('invoice_attachment');
@@ -376,6 +376,7 @@ class WarrantyRegisterController extends Controller
             }
 
             return Redirect::back()->with('status', 'Warranty claim application submitted successfully. `Pirelli team will contact you soon.');
+
         } catch(Exception $e) {
             return redirect(route('warranty-register-moto-error'))->withError($e->getMessage());
         }
