@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Traits\MediaUploadingTrait;
+use App\Http\Requests\StoreWarrantyClaimRequest;
 use App\Http\Requests\StoreWarrantyRequest;
 use App\Http\Services\CarApi;
 use App\Models\CarRegistration;
@@ -34,12 +35,16 @@ class WarrantyClaimController extends Controller
 
 
 
-    public function claimCarWarranty(StoreWarrantyRequest $request)
+    public function claimCarWarranty(StoreWarrantyClaimRequest $request)
     {
+        
 
+        // dd($request);
         $product_name = Product::select('name')
-            ->where('id',$request->product_id)
+            ->where('id',$request->product_name_id)
             ->first();
+
+
 
         $city = City::select('name')
             ->where('id',$request->city)
@@ -81,7 +86,7 @@ class WarrantyClaimController extends Controller
 //        $carRegistration->address = $request->address;
 //        $carRegistration->zip = $request->zip;
 //        $carRegistration->date_purchased = Carbon::createFromFormat('Y-m-d', $request->date_purchased)->format('d-m-Y');
-//        $carRegistration->product_name_id = $request->product_id;
+//        $carRegistration->product_name_id = $request->product_name_id;
 //        $carRegistration->invoice_number = $request->invoice_number;
 //        $carRegistration->product_size_id = $request->product_size;
 //        $carRegistration->product_dot = $request->product_dot;
@@ -127,7 +132,7 @@ class WarrantyClaimController extends Controller
 
 
             if($response->data[0]->status == 'error') {
-                return redirect(route('warranty-register-car-error'));
+                return redirect(route('warranty-register-moto-error'));
             }
 
             $id = $response->data[0]->details->id;
@@ -146,7 +151,7 @@ class WarrantyClaimController extends Controller
             }
         } catch(Exception $e) {
             dd($e);
-            return redirect(route('warranty-register-car-error'));
+            return redirect(route('warranty-register-moto-error'));
         }
     }
 }

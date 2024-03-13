@@ -17,12 +17,20 @@ class StoreWarrantyClaimRequest extends FormRequest
     public function rules()
     {
         return [
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'email' => 'required|string|email',
+            'phone' => 'required|numeric',
+            'city' => 'required',
+            'zip' => 'required|numeric',
             'invoice_number' => [
                 'string',
                 'min:1',
-                'max:255',
+                'max:999999',
                 'required',
             ],
+            'terms' => 'required',
+            'invoice_attachment' => 'required',
             'product_name_id' => [
                 'required',
                 'integer',
@@ -31,6 +39,8 @@ class StoreWarrantyClaimRequest extends FormRequest
                 'required',
                 'integer',
             ],
+            'retailer_id' => 'required',
+
         ];
     }
 }

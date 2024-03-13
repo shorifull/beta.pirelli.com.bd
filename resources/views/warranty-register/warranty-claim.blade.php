@@ -124,13 +124,30 @@
                   <p>Customer Purchase Detail</p>
                 </div>
                 <div class="input-fields-group">
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-12">
+                      <div class="costum-input-dif input-zip">
+                        <p>Date Purchased</p>
+                        <input class="costum-icon" name="date_purchased" type="date" max="{{ date('Y-m-d') }}" value="{{ old('date_purchased') }}" >
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                      <div class="costum-input input-email">
+                        <p>Invoice Number</p>
+                        <input type="text" placeholder="Invoice Number" type="text" id="invoice-number" name="invoice_number" value="{{ old('invoice_number') }}" />
+                      </div>
+                    </div>
+                  </div>
                     <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-12">
-                            <div class="costum-input input-email">
-                                <p>Invoice Number</p>
-                                <input type="text" placeholder="Invoice Number" type="text" id="invoice-number" name="invoice_number" value="{{ old('invoice_number') }}" />
-                            </div>
+               
+                      <div class="col-xl-6 col-lg-6 col-12 ">
+                        <div class="choose-file_btn">
+                          <p>Upload Your Invoice Here</p>
+                          <div class="invoice-upload d-flex align-items-center">
+                            <button class="btn btn-file costum-style"><input type="file" id="uploadPhoto" name="invoice_attachment"></button>
+                          </div>
                         </div>
+                      </div>
                         <div class="col-xl-6 col-lg-6 col-12 ">
                             <div class="choose-file_btn">
                                 <p>Upload Photos</p>
@@ -142,21 +159,21 @@
                         </div>
                     </div>
                   <div class="row">
-                      <div class="col-xl-6 col-lg-6 col-12">
-                          <div class="costum-input input-product-tyre">
-                              <p>Product Name</p>
-                              <select id="product-names" name="product_name_id">
-                                  <option value="">Please select tyre name</option>
-                                  @foreach ($products as $product)
-                                      @if (old('product_id') == $product->id)
-                                          <option value="{{ $product->id }}" selected>{{ $product->name }}</option>
-                                      @else
-                                          <option value="{{ $product->id }}">{{ $product->name }}</option>
-                                      @endif
-                                  @endforeach
-                              </select>
-                          </div>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                      <div class="costum-input input-product-tyre">
+                          <p>Product Name</p>
+                          <select id="product-names" name="product_name_id">
+                              <option value="">Please select tyre name</option>
+                              @foreach ($products as $product)
+                                  @if (old('product_name_id') == $product->id)
+                                      <option value="{{ $product->id }}" selected>{{ $product->name }}</option>
+                                  @else
+                                      <option value="{{ $product->id }}">{{ $product->name }}</option>
+                                  @endif
+                              @endforeach
+                          </select>
                       </div>
+                  </div>
 
                       <div class="col-xl-6 col-lg-6 col-12">
                           <div class="costum-input input-product-size">
