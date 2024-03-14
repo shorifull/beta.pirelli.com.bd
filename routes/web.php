@@ -45,7 +45,7 @@ Route::get('tyre/car/{slug}', 'HomeController@showCarTyre')->name('car-tyre');
 
 Route::get('tyre-tech-knowledge', 'HomeController@tyreTechKnowledge')->name('tyre-tech-knowledge');
 Route::get('car-tech-and-knowledge', 'HomeController@carTyreTechnology')->name('car-tech-and-knowledge');
-Route::get('car-tech-and-knowledge/runflat','HomeController@runflat')->name('runflat');
+Route::get('car-tech-and-knowledge/runflat','HomeController@runflat')->name('car-tech-and-knowledge-runflat');
 Route::get('car-tech-and-knowledge/pncs','HomeController@pncs')->name('pncs');
 Route::get('car-tech-and-knowledge/seal-inside','HomeController@sealInside')->name('seal-inside');
 Route::get('pzero','HomeController@pzeroSeries')->name('pzero');

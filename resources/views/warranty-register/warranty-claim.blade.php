@@ -144,7 +144,8 @@
                         <div class="choose-file_btn">
                           <p>Upload Your Invoice Here</p>
                           <div class="invoice-upload d-flex align-items-center">
-                            <button class="btn btn-file costum-style"><input type="file" id="uploadPhoto" name="invoice_attachment"></button>
+                              <input class="btn btn-file costum-style" type="file" id="uploadInvoice" name="invoice_attachment">
+{{--                            <button class="btn btn-file costum-style"></button>--}}
                           </div>
                         </div>
                       </div>

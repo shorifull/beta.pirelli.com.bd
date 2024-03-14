@@ -106,7 +106,7 @@ class WarrantyClaimController extends Controller
             $warrantyClaim->address = $request->address;
             $warrantyClaim->invoice_number = $request->invoice_number;
             $warrantyClaim->product_name_id = $request->product_name_id;
-            $warrantyClaim->product_size_id = $request->product_size;
+            $warrantyClaim->product_size_id = $request->product_size_id;
             $warrantyClaim->warranty_number = Str::random(10);
 
 
@@ -145,7 +145,7 @@ class WarrantyClaimController extends Controller
 
             if($request->file('photos')) {
                 foreach ($request->file('photos') as $photo) {
-                    $response = $api->uploadFile($id, $photo);
+//                    $response = $api->uploadFile($id, $photo);
                 }
             }
 
