@@ -37,7 +37,7 @@ class WarrantyClaimController extends Controller
 
     public function claimCarWarranty(StoreWarrantyClaimRequest $request)
     {
-        
+
 
         // dd($request);
         $product_name = Product::select('name')
@@ -62,12 +62,13 @@ class WarrantyClaimController extends Controller
             'Mailing_City' => $city->name,
             'Mailing_Street' => $request->address,
             'Mailing_Zip' => $request->zip,
-            'Invoice_Number' => $request->invoice_number,
-            'Purchase_Date' => $request->date_purchased,
+            'Invoice_No' => $request->invoice_number,
+            'Date_Purchased' => $request->date_purchased,
             'Product_Name' => $product_name->name,
             'DOT' => $request->product_dot,
             'Product_Size' => $request->product_size,
             'Retailer_Area1' => $request->quantity_purchased,
+            'Vendor_Name' => $retailer->name,
             'Retailer_Name' => $retailer->name,
             'Email_Opt_Out' => $request->subscribed ? false : true,
         ];
