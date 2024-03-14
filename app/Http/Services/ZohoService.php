@@ -14,12 +14,12 @@ class ZohoService
     const AUTH_URL = 'https://accounts.zoho.com/oauth/v2/token';
     const CONTACTS_UPDATE_URL = 'https://www.zohoapis.com/crm/v2/Contacts/upsert';
     const CONTACTS_INSERT_URL = 'https://www.zohoapis.com/crm/v2/Contacts';
-    
+
     private $client_id;
     private $client_secret;
     private $refresh_token;
     private $access_token;
-    
+
     public function __construct($params)
     {
         $this->client_id = $params['client_id'];
@@ -32,7 +32,7 @@ class ZohoService
         $this->checkAuthorized();
         return $this->makeAddContactRequest($contact);
     }
-    
+
     public function uploadFile($recordId, $file)
     {
         $url = self::CONTACTS_INSERT_URL . '/' . $recordId . '/Attachments';
@@ -42,13 +42,13 @@ class ZohoService
 
         return json_decode($response)->data[0]->status ;
     }
-    
+
     private function getAccessToken()
     {
         $response = $this->makeAuthRequest();
         $token = $response['access_token'];
         $this->saveAccessToken($token);
-        
+
         return $token;
     }
 
@@ -100,10 +100,10 @@ class ZohoService
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => "POST"
             ));
-    
+
             $response = curl_exec($curl);
             $response = json_decode($response, true);
-    
+
             $err = curl_error($curl);
             curl_close($curl);
         } catch(Exception $e) {
@@ -127,15 +127,15 @@ class ZohoService
         curl_setopt($crl, CURLINFO_HEADER_OUT, true);
         curl_setopt($crl, CURLOPT_POST, true);
         curl_setopt($crl, CURLOPT_POSTFIELDS, $postData);
-            
-        // Set HTTP Header for POST request 
+
+        // Set HTTP Header for POST request
         curl_setopt($crl, CURLOPT_HTTPHEADER, array(
             'Authorization: Zoho-oauthtoken ' . $this->access_token
         ));
-            
+
         // Submit the POST request
         $result = curl_exec($crl);
-        
+
         // handle curl error
         if ($result === false) {
             throw new Exception('Curl error: ' . curl_error($crl));
@@ -144,7 +144,7 @@ class ZohoService
 
         // Close cURL session handle
         curl_close($crl);
-        
+
         return $result;
     }
 
@@ -154,7 +154,9 @@ class ZohoService
         $currentTime= $date->getTimestamp();
 
         $filename = $file->getClientOriginalName();
-       
+        $real_path = $file->getRealPath();
+
+//       dd($file);
         $fileData = file_get_contents($file->getRealPath());
 
         //Declare a variable for enctype for sending the file to creator
@@ -173,7 +175,7 @@ class ZohoService
         $param = $param . utf8_encode($temp_var);
 
         $ch = curl_init();
-        
+
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -182,7 +184,7 @@ class ZohoService
         'Content-Type:multipart/form-data;boundary='.(string)$currentTime));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $param);
         curl_setopt($ch, CURLOPT_POST, 1);
-        
+
         $response = curl_exec($ch);
         curl_close($ch);
 

@@ -139,7 +139,7 @@
                     </div>
                   </div>
                     <div class="row">
-               
+
                       <div class="col-xl-6 col-lg-6 col-12 ">
                         <div class="choose-file_btn">
                           <p>Upload Your Invoice Here</p>
@@ -181,7 +181,7 @@
                               <select id="product-size" name="product_size_id" class="form-control select2">
                                   <option value="">Please select tyre size</option>
                                          @foreach ($tyreSizes as $tyreSize)
-                                      @if (old('product_size') == $tyreSize->id)
+                                      @if (old('product_size_id') == $tyreSize->id)
                                           <option value="{{ $tyreSize->id }}" selected>{{ $tyreSize->size }}</option>
                                       @else
                                           <option value="{{ $tyreSize->id }}">{{ $tyreSize->size }}</option>
