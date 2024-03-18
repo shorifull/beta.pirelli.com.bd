@@ -44,6 +44,10 @@ class WarrantyClaimController extends Controller
             ->where('id',$request->product_name_id)
             ->first();
 
+        $product_size = ProductSize::select('size')
+            ->where('id',$request->product_size_id)
+            ->first();
+
 
 
         $city = City::select('name')
@@ -66,7 +70,7 @@ class WarrantyClaimController extends Controller
             'Date_Purchased' => $request->date_purchased,
             'Product_Name' => $product_name->name,
             'DOT' => $request->product_dot,
-            'Product_Size' => $request->product_size,
+            'Product_Size' => $product_size->size,
             'Retailer_Area1' => $request->quantity_purchased,
 //            'Vendor_Name' => $retailer->name,
             'Retailer_Name' => $retailer->name,
