@@ -39,14 +39,14 @@
 
                               <li><a href="{{ route('car-retailer-list')}}">Find Dealers</a></li>
 
-                                    <li class="has-children">
-                                                     <a href="#">Tyre Warranty</a>
-                                                      <ul class="dropdown">
-                                                                 <li><a href="{{ route('warranty-register-car')}}">Warranty Registration</a></li>
-                                                                 <li><a href="{{ route('warranty-claim-car')}}">Warranty Claim</a></li>
+{{--                                    <li class="has-children">--}}
+{{--                                                     <a href="#">Tyre Warranty</a>--}}
+{{--                                                      <ul class="dropdown">--}}
+{{--                                                                 <li><a href="{{ route('warranty-register-car')}}">Warranty Registration</a></li>--}}
+{{--                                                                 <li><a href="{{ route('warranty-claim-car')}}">Warranty Claim</a></li>--}}
 
-                                                 </ul>
-                                     </li>
+{{--                                                 </ul>--}}
+{{--                                     </li>--}}
 
                               <li><a href="{{ route('car-tech-and-knowledge')}}">Tyre Technology</a></li>
 
@@ -68,15 +68,15 @@
                                 </li>
 
                           <li><a href="{{ route('moto-retailer-list')}}">Find Dealers</a></li>
-                               <li class="has-children">
-                                        <a href="#">Tyre Warranty</a>
+{{--                               <li class="has-children">--}}
+{{--                                        <a href="#">Tyre Warranty</a>--}}
 
-                                            <ul class="dropdown">
-                                                            <li><a href="{{ route('warranty-register-moto')}}">Warranty Registration</a></li>
-                                                            <li><a href="{{ route('warranty-claim-moto')}}">Warranty Claim</a></li>
+{{--                                            <ul class="dropdown">--}}
+{{--                                                            <li><a href="{{ route('warranty-register-moto')}}">Warranty Registration</a></li>--}}
+{{--                                                            <li><a href="{{ route('warranty-claim-moto')}}">Warranty Claim</a></li>--}}
 
-                                           </ul>
-                                </li>
+{{--                                           </ul>--}}
+{{--                                </li>--}}
 
                           <li><a href="{{ route('tyre-tech-knowledge')}}">Tyre Technology</a></li>
                       </ul>
