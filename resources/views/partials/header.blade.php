@@ -17,7 +17,7 @@
                 <li class="has-children @if(Route::current()->getName() == 'car-home') active @endif">
                     <a  href="{{ route('car-home')}}"><span>Car Tyres</span></a>
                          <ul class="dropdown arrow-top">
-                          
+
                                               <li class="has-children">
                                                      <a href="{{ route('car-home')}}">Find Tyres</a>
                                                       <ul class="dropdown">
@@ -31,50 +31,50 @@
                                                           <li><a href="{{ route('pzero')}}">P ZERO</a></li>
                                                            <li><a href="{{ route('cinturato-p7')}}">CINTURATO P7</a></li>
                                                            <li><a href="{{ route('scorpion')}}">SCORPION</a></li>
-                                                          
+
                                                  </ul>
                                               </li>
-                                              
 
-                      
+
+
                               <li><a href="{{ route('car-retailer-list')}}">Find Dealers</a></li>
-                              
+
                                     <li class="has-children">
                                                      <a href="#">Tyre Warranty</a>
                                                       <ul class="dropdown">
                                                                  <li><a href="{{ route('warranty-register-car')}}">Warranty Registration</a></li>
                                                                  <li><a href="{{ route('warranty-claim-car')}}">Warranty Claim</a></li>
-                                                          
+
                                                  </ul>
                                      </li>
-                       
+
                               <li><a href="{{ route('car-tech-and-knowledge')}}">Tyre Technology</a></li>
-                              
+
                         </ul>
                 </li>
 
                   <li class="has-children  @if(Route::current()->getName() == 'moto-home') active  @endif">
                       <a href="{{ route('moto-home')}}"><span>Moto Tyres</span></a>
                       <ul class="dropdown arrow-top">
-                          
+
                           <li class="has-children">
                                         <a href="{{ route('moto-home')}}">Find Tyres</a>
-                                        
+
                                             <ul class="dropdown">
                                                 <li><a href="{{ route('moto-home')}}">By Model</a></li>
                                                 <li><a href="{{ route('moto-home')}}">By Size</a></li>
-                                               
+
                                            </ul>
                                 </li>
-                          
+
                           <li><a href="{{ route('moto-retailer-list')}}">Find Dealers</a></li>
                                <li class="has-children">
                                         <a href="#">Tyre Warranty</a>
-                                        
+
                                             <ul class="dropdown">
                                                             <li><a href="{{ route('warranty-register-moto')}}">Warranty Registration</a></li>
                                                             <li><a href="{{ route('warranty-claim-moto')}}">Warranty Claim</a></li>
-                                               
+
                                            </ul>
                                 </li>
 
@@ -85,9 +85,11 @@
 
 
 
-
+                  <li @if(Route::current()->getName() == 'claim-warranty-form') class="active" @endif><a href="{{ route('claim-warranty-form')}}"><span>Warranty Claim</span></a></li>
                   <li @if(Route::current()->getName() == 'contact') class="active" @endif><a href="{{ route('contact')}}"><span>Contact</span></a></li>
-                
+
+
+
 
 {{--                  @guest--}}
 {{--                      <li class="buy-tickets"><i class="fa fa-angle-right"></i> <a href="{{ route('login') }}">Login</a></li>--}}
