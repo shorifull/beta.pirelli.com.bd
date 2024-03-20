@@ -325,7 +325,7 @@
 
                     <div class="find-out-more-btn">
 
-                        <a style="text-align:center;" href="{{asset('Pirelli Tyre Warranty Policy PDF - Download 1111.pdf')}}">
+                        <a style="text-align:center;" target="_blank" href="{{asset('Pirelli Tyre Warranty Policy PDF - Download 1111.pdf')}}">
                             <button class="costum-btn">Download Manuals</button>
                         </a>
                     </div>
