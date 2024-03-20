@@ -7,7 +7,7 @@
           <div class="cover-wrapper__inner cover_wrapper_second-template">
             <div class="logo">
               <img src="{{ asset('img/logo.png') }}" class="img-fluid" />
-              <p>WARRANTY CLAIM FORM</p>
+              <p>WARRANTY REGISTRATION FORM</p>
             </div>
           </div>
         </div>
@@ -27,8 +27,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                  <h2>Warranty Claim Application Form</h2>
-                  <p>Please fill out the form to claim Pirelli warranty</p>
+                  <h2>Warranty Registration Application Form</h2>
+                  <p>Please fill out the form to Register Pirelli warranty</p>
                 </div>
               </div>
               <div class="errors">
@@ -245,7 +245,7 @@
 
 
               <div class="final-step-btn">
-                <button class="costum-btn btn-confirm" type="submit">Claim Now</button>
+                <button class="costum-btn btn-confirm" type="submit">REGISTER NOW</button>
               </div>
 
             </form>
