@@ -258,7 +258,7 @@
                     <div id="accordion" class="py-5">
                         <div class="card border-0">
                             <div class="card-header p-0 border-0" id="heading-239">
-                                <button class="btn btn-link accordion-title border-0 collapse" data-toggle="collapse" data-target="#collapse-239" aria-expanded="true" aria-controls="#collapse-239"><i class="fas fa-plus text-center d-flex align-items-center justify-content-center h-100"></i>FOR REPLACEMENT PASSENGER TIRES </button>
+                                <button class="btn btn-link accordion-title border-0 collapse" data-toggle="collapse" data-target="#collapse-239" aria-expanded="false" aria-controls="#collapse-239"><i class="fas fa-plus text-center d-flex align-items-center justify-content-center h-100"></i>FOR REPLACEMENT PASSENGER TIRES </button>
                             </div>
                             <div id="collapse-239" class="collapse show" aria-labelledby="heading-239" data-parent="#accordion">
                                 <div class="card-body accordion-body">
