@@ -317,7 +317,7 @@
 
                 <div class="terms-policy">
                     <div class="terms-policy-header d-flex justify-content-center">
-                        <p>Warranty Claim Guidelines</p>
+                        <p style="font-size:20px;">Warranty Claim Guidelines</p>
                     </div>
                     <div class="description-text">
 
