@@ -28,7 +28,7 @@ class WarrantyClaimController extends Controller
         $cities = City::orderBy('name', 'asc')->get();
         $products = Product::where('vehicle_type_id', '1')->get();
         $retailers = Retailer::where('vehicle_type_id', '1')->get();
-        $tyreSizes = ProductSize::all()->sortByDesc('size');
+        $tyreSizes = ProductSize::all()->sortByDesc('size')->uniqueStrict('size');
         return view('warranty-register.warranty-claim', compact('products', 'tyreSizes', 'retailers', 'cities'));
     }
 
