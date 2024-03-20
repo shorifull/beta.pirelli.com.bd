@@ -27,7 +27,7 @@
                                 {{ session('status') }}
                             </div>
                             @endif
-                            <h2>Warranty Registration Application Form</h2>
+                            <h2>Warranty Registration Form</h2>
                             <p>Please fill out the form to Register Pirelli warranty</p>
                         </div>
                     </div>
