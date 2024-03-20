@@ -260,7 +260,7 @@
                             <div class="card-header p-0 border-0" id="heading-239">
                                 <button class="btn btn-link accordion-title border-0 collapse" data-toggle="collapse" data-target="#collapse-239" aria-expanded="false" aria-controls="#collapse-239"><i class="fas fa-plus text-center d-flex align-items-center justify-content-center h-100"></i>FOR REPLACEMENT PASSENGER TIRES </button>
                             </div>
-                            <div id="collapse-239" class="collapse show" aria-labelledby="heading-239" data-parent="#accordion">
+                            <div id="collapse-239" class="collapse" aria-labelledby="heading-239" data-parent="#accordion">
                                 <div class="card-body accordion-body">
                                     <p>Pirelli Tyre Suisse SA. warrants that all Pirelli brand products, supplied either directly or through an authorized Pirelli Dealer and which are mounted on passenger cars, vans, and SUVs within Bangladesh have been supplied without manufacturing or materials defects which render the products unsuitable for the use for which products of the same type are normally used and will be accepted for examination by an authorized Pirelli technician.</p>
 
