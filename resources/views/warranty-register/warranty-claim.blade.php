@@ -241,6 +241,8 @@
                         </div>
                     </div>
 
+                    <!-- Google Recaptcha -->
+                    <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
 
                     <div class="final-step-btn">
                         <button class="costum-btn btn-confirm" type="submit">REGISTER NOW</button>

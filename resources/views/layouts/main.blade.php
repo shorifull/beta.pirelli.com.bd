@@ -37,6 +37,7 @@
     <link href="{{ asset('css/slider.css') }}" rel="stylesheet">
     <link href="{{ asset('css/magnific-popup.css') }}" rel="stylesheet">
     <link href="{{ asset('css/nivo-lightbox.css') }}" rel="stylesheet">
+    <script async src="https://www.google.com/recaptcha/api.js">
 
     @yield('styles')
 
