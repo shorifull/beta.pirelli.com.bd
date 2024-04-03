@@ -17,10 +17,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Http;
+use Symfony\Component\HttpFoundation\IpUtils;
+use App\Providers\RouteServiceProvider;
 
 class WarrantyClaimController extends Controller
 {
     use MediaUploadingTrait;
+
+
 
     public function claimWarranty()
     {
