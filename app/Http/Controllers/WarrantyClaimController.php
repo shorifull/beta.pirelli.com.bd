@@ -112,29 +112,6 @@ class WarrantyClaimController extends Controller
         ];
         $file = $request->file('invoice_attachment');
 
-
-
-
-        // Save into database
-
-        //        $carRegistration = new CarRegistration();
-        //        $carRegistration->first_name = $request->first_name;
-        //        $carRegistration->last_name = $request->last_name;
-        //        $carRegistration->email = $request->email;
-        //        $carRegistration->phone = $request->phone;
-        //        $carRegistration->city_id = $request->city;
-        //        $carRegistration->address = $request->address;
-        //        $carRegistration->zip = $request->zip;
-        //        $carRegistration->date_purchased = Carbon::createFromFormat('Y-m-d', $request->date_purchased)->format('d-m-Y');
-        //        $carRegistration->product_name_id = $request->product_name_id;
-        //        $carRegistration->invoice_number = $request->invoice_number;
-        //        $carRegistration->product_size_id = $request->product_size;
-        //        $carRegistration->product_dot = $request->product_dot;
-        //        $carRegistration->product_quantity = $request->quantity_purchased;
-        //
-        //        $carRegistration->warranty_number = Str::random(10);
-        //        $carRegistration->save();
-
         $warrantyClaim = new WarrantyClaim();
         $warrantyClaim->first_name = $request->first_name;
         $warrantyClaim->last_name = $request->last_name;
