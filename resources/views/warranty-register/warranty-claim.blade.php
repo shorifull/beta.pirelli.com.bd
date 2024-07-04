@@ -250,7 +250,7 @@
                                     data-action="submitContact">Submit</button> -->
 
                     <div class="final-step-btn">
-                        <button class="costum-btn btn-confirm" data-sitekey="{{config('services.recaptcha.key')}}" data-callback="onSubmit" data-action="submitRegistration" type="submit">REGISTER NOW</button>
+                        <button class="g-recaptcha costum-btn btn-confirm" data-sitekey="{{config('services.recaptcha.key')}}" data-callback="onSubmit" data-action="submitRegistration" type="submit">REGISTER NOW</button>
                     </div>
 
                 </form>
