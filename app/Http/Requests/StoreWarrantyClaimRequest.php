@@ -41,7 +41,7 @@ class StoreWarrantyClaimRequest extends FormRequest
                 'integer',
             ],
             'retailer_id' => 'required',
-            'g-recaptcha-response' => ['required', new ReCaptchaV3('submitRegistration', 0.5)],
+            // 'g-recaptcha-response' => ['required', new ReCaptchaV3('submitRegistration', 0.5)],
 
         ];
     }
