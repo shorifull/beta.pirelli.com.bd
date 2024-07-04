@@ -6,6 +6,7 @@ use App\Models\WarrantyClaim;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
+use App\Rules\ReCaptchaV3;
 
 class StoreWarrantyClaimRequest extends FormRequest
 {
@@ -40,6 +41,7 @@ class StoreWarrantyClaimRequest extends FormRequest
                 'integer',
             ],
             'retailer_id' => 'required',
+            'g-recaptcha-response' => ['required', new ReCaptchaV3('submitRegistration', 0.5)],
 
         ];
     }

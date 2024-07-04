@@ -242,10 +242,15 @@
                     </div>
 
                     <!-- Google Recaptcha -->
-                    <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
+                    <!-- <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
+
+                    <button class="g-recaptcha btn btn-primary btn-lg "
+                                    data-sitekey="{{config('services.recaptcha.key')}}"
+                                    data-callback="onSubmit"
+                                    data-action="submitContact">Submit</button> -->
 
                     <div class="final-step-btn">
-                        <button class="costum-btn btn-confirm" type="submit">REGISTER NOW</button>
+                        <button class="costum-btn btn-confirm" data-sitekey="{{config('services.recaptcha.key')}}" data-callback="onSubmit" data-action="submitRegistration">Submit</button> type="submit">REGISTER NOW</button>
                     </div>
 
                 </form>

@@ -43,37 +43,6 @@ class WarrantyClaimController extends Controller
     public function claimCarWarranty(StoreWarrantyClaimRequest $request)
     {
 
-        // write the functionalities to very google recaptcha
-        $recaptcha_response = $request->input('g-recaptcha-response');
-        if (is_null($recaptcha_response)) {
-            return redirect()->back()->with('status', 'Please Complete the Recaptcha to proceed');
-        }
-
-        $url = 'https://www.google.com/recaptcha/api/siteverify';
-
-        $body = [
-            'secret' => config('services.recaptcha.secret'),
-            'response' => $recaptcha_response,
-            'remoteip' => IpUtils::anonymize($request->ip()) //anonymize the ip to be GDPR compliant. Otherwise just pass the default ip address
-        ];
-
-        $response = Http::asForm()->post($url, $body);
-
-        $result = json_decode($response);
-
-        if ($response->successful() && $result->success == true) {
-            $request->authenticate();
-
-            $request->session()->regenerate();
-
-            return redirect()->intended(RouteServiceProvider::HOME);
-        } else {
-            return redirect()->back()->with('status', 'Please Complete the Recaptcha Again to proceed');
-        }
-
-
-
-        // dd($request);
         $product_name = Product::select('name')
             ->where('id', $request->product_name_id)
             ->first();
