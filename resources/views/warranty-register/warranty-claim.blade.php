@@ -242,7 +242,8 @@
                     </div>
 
                     <!-- Google Recaptcha -->
-                    <div class="g-recaptcha mt-4" data-sitekey={{config('services.recaptcha.key')}}></div>
+
+                    <div class="g-recaptcha mt-4" data-sitekey="{{config('services.recaptcha.key')}}"></div>
                     <!--
 
                     <button class="g-recaptcha btn btn-primary btn-lg "
